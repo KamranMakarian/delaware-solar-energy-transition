@@ -1,0 +1,62 @@
+:root {
+  /* Tech Impact Colors */
+  --ti-blue-color: #0f57b8;
+  --ti-green-color: #74bc20;
+  --ti-orange-color: #ef8905;
+
+  /* District Party Colors */
+  --democratic-blue: #0f57b8;
+  --republican-red: #e91d0e;
+  --independent-green: #74bc20;
+
+  /* Design Colors */
+  --background-color-header: #37739e;
+  --background-color-about: #727845;
+  --cards-border-color: #345b68;
+  --cards-fill-color-democrat: #263e44;
+  --cards-fill-color-republican: #1c3558;
+
+  /* Fonts */
+  --font-family-roboto: "Roboto", sans-serif;
+  --font-family-open-sans: "Open Sans", sans-serif;
+  --font-family-montserrat: "Montserrat", sans-serif;
+  --font-family-lato: "Lato", sans-serif;
+  --font-family-arial: "Arial", sans-serif;
+
+  /* Font Sizes */
+  --font-size-xxs: 0.5rem;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-xxl: 1.5rem;
+  --font-size-xxxl: 2rem;
+  --font-size-xxxxl: 3rem;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+
+  /* Box Shadows */
+  --box-shadow-sm: 0 0 0.5rem 0 rgba(0, 0, 0, 0.1);
+  --box-shadow-md: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 0 2rem 0 rgba(0, 0, 0, 0.1);
+}

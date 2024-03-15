@@ -1,0 +1,22 @@
+div.header {
+  margin: 0;
+  padding: 0;
+  width: 2000px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-color-header);
+  padding: var(--padding-xl);
+}
+
+div.header-title {
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-2xl);
+  color: var(--font-color-white);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--spacing-xxxs);
+  padding-right: var(--padding-2xl);
+}
+
+
