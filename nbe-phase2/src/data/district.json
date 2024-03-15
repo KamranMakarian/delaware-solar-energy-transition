@@ -1,0 +1,23 @@
+{
+    "districts": [
+      {
+        "id": 1,
+        "member-name": "John Smith",
+        "party": "R",
+        "image-path": "/images/district1.jpg"
+      },
+      {
+        "id": 2,
+        "member-name": "Jane Doe",
+        "party": "D",
+        "image-path": "/images/district2.jpg"
+      },
+      {
+        "id": 3,
+        "member-name": "Mike Johnson",
+        "party": "I",
+        "image-path": "/images/district3.jpg"
+      }
+    ]
+  }
+  

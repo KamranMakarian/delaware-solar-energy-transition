@@ -1,4 +1,4 @@
-import { Card } from "@chakra-ui/react";
+import { Card, CardHeader, CardBody } from "@chakra-ui/react";
 
 function DistrictCard(props) {
     return (
@@ -8,3 +8,5 @@ function DistrictCard(props) {
         </Card>
     );
     }
+
+export default DistrictCard;
