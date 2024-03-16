@@ -1,9 +1,18 @@
-// api called predict to get the prediction of the model
-// The model is trained on the data and the prediction is returned
-// The prediction is the output of the model
+import axios from "axios";
 
-
-/* This code snippet is setting up a router using the Express framework in a Node.js application. */
-const express = require('express');
-const router = express.Router();
-const predictController = require('../controllers/predict');
+export const predict = (districtId) =>
+  axios({
+    method: "get",
+    url: `http://localhost:5000/predict/${districtId}`,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+      throw error;
+    });

@@ -4,19 +4,40 @@ div.header {
   width: 2000px;
   height: 150px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-evenly;
   align-items: center;
   background-color: var(--background-color-header);
   padding: var(--padding-xl);
 }
 
 div.header-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
   font-family: var(--font-family-roboto);
   font-size: var(--font-size-2xl);
   color: var(--font-color-white);
   font-weight: var(--font-weight-bold);
-  letter-spacing: var(--spacing-xxxs);
-  padding-right: var(--padding-2xl);
+  letter-spacing: var(--spacing-3xs);
+  padding-left: var(--padding-5xl);
+}
+
+img.image-sun {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+div.button-about-project {
+  display: flex;  
+  justify-content: flex-end;
+
 }
 
 
+.invisible-spacer {
+  width: 20px; /* Adjust the width as needed */
+  height: 1px; /* Ensures that the spacer doesn't affect the layout vertically */
+  visibility: hidden; /* Hides the spacer visually */
+}
