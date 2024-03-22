@@ -7,3 +7,8 @@ div.district-cards {
     /* padding: var(--padding-md); */
     border: 4px solid var(--cards-border-color);
 }
+
+.home-container {
+    width: 100%;
+    height: 500px;
+}

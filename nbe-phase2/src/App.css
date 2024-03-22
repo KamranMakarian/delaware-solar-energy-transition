@@ -1,3 +1,8 @@
+.App {
+  width: 100%;
+  height: auto;
+}
+
 :root {
   /* Tech Impact Colors */
   --ti-blue-color: #0f57b8;

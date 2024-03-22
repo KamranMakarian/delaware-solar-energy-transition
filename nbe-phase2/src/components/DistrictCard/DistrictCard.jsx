@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardHeader, CardBody, Heading, Image, ChakraProvider } from "@chakra-ui/react";
 
 function DistrictCard(props) {
   let backgroundColor;
@@ -19,6 +19,7 @@ function DistrictCard(props) {
   }
 
   return (
+    
     <Card backgroundColor={backgroundColor} size="md"        
         borderRadius="lg"
         overflow="hidden"
@@ -46,6 +47,7 @@ function DistrictCard(props) {
         <h1>District {props.id}</h1>
       </CardBody>
     </Card>
+    
   );
 }
 
