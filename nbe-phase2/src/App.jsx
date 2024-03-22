@@ -1,6 +1,5 @@
-
 import "./App.css";
-import {ChakraProvider} from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import Home from "./pages/Home";
 import { predict } from "./api/predict";
 
