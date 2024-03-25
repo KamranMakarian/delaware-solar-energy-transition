@@ -1,38 +1,44 @@
 [
       {
-        "id": 1,
+        "id": 3,
         "memberName": "John Smith",
-        "party": "R",
+        "party": "D",
         "imagePath": "/images/district1.png"
       },
       {
-        "id": 2,
+        "id": 6,
         "memberName": "Jane Doe",
         "party": "D",
         "imagePath": "/images/district2.png"
       },
       {
-        "id": 3,
+        "id": 8,
         "memberName": "Mike Johnson",
-        "party": "I",
+        "party": "D",
         "imagePath": "/images/district3.png"
       },
       {
-        "id": 4,
+        "id": 17,
         "memberName": "Sally Johnson",
-        "party": "R",
+        "party": "D",
         "imagePath": "/images/district4.png"
       },
       {
-        "id": 5,
+        "id": 10,
         "memberName": "John Doe",
         "party": "D",
         "imagePath": "/images/district5.png"
       },
       {
-        "id": 6,
+        "id": 13,
         "memberName": "Jane Smith",
-        "party": "I",
+        "party": "D",
+        "imagePath": "/images/district6.png"
+      },
+      {
+        "id": 20,
+        "memberName": "Jane Smith",
+        "party": "D",
         "imagePath": "/images/district6.png"
       }
       

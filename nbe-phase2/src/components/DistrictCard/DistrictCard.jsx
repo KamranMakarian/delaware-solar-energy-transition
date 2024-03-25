@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, Heading, Image, ChakraProvider } from "@chakra-ui/react";
+import { Card, CardHeader, CardBody, Heading } from "@chakra-ui/react";
 
 function DistrictCard(props) {
   let backgroundColor;
@@ -30,23 +30,25 @@ function DistrictCard(props) {
         boxShadow="lg"
         color="white"
         _hover={{
-            transform: "scale(1.3)",
-            transition: "transform 0.6s ease-in-out",            
+            transform: "scale(1.5)",
+            transition: "transform 0.5s ease-in-out",            
             boxShadow: "2xl",
             cursor: "pointer",             
         }
     }
     >
       <CardHeader>
-        <Heading as="h2" size="md">
-          {props.memberName}
+        <Heading as="h3" size="xl">
+          {/* {props.memberName} */}
+          District {props.id}
         </Heading>
       </CardHeader>
       <CardBody>
         {/* <Image src={props.imagePath} alt={`District ${props.id}`} /> */}
-        <h1>District {props.id}</h1>
+        {/* <h1>District {props.id}</h1> */}
       </CardBody>
     </Card>
+    
     
   );
 }

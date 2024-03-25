@@ -6,6 +6,8 @@ import "./Home.css";
 // import NivoLineChart from "../components/LineChart/NivoLineChart";
 import { predict } from "../api/predict";
 import RechartsLineChart from "../components/LineChart/RechartsLineChart";
+import LegendIcon from "../components/Legend/LegendIcon";
+import { Flex } from "@chakra-ui/react"; 
 
 function Home() {
   const [data, setData] = useState(null);
@@ -27,7 +29,8 @@ function Home() {
   return (
     <div className="home-container">
       <Header />
-      <div className="district-cards">
+      <div className="district-cards-container">
+        {/* <Flex overflowX="auto" justify="center" flexDirection="row" maxWidth="100%" whiteSpace="nowrap"> */}
         {districtData.map((districtData) => {
           return (
             <DistrictCard
@@ -39,7 +42,10 @@ function Home() {
             />
           );
         })}
+        {/* </Flex> */}
       </div>
+      <LegendIcon />
+
       <div className="home-viz-container">
         <RechartsLineChart
           fieldToPlot={"system_count"}
@@ -61,7 +67,7 @@ function Home() {
           yAxisLabel={"Rebate Efficiency"}
           chartTitle={"Rebate Efficiency: Historical and Predicted Data"}
         />
-      </div>      
+      </div>
     </div>
   );
 }

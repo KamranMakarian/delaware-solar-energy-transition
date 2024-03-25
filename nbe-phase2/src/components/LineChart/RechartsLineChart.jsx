@@ -12,13 +12,10 @@ import {
 } from "recharts";
 import localdata from "../../data/data.json";
 
-function RechartsLineChart({fieldToPlot, yAxisLabel, chartTitle}) {
-
+function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
   let data = localdata;
-//   let fieldToPlot = "system_count";
+
   let xAxisLabel = "Time";
-//   let yAxisLabel = "System Count";
-//   let chartTitle = "System Count: Historical and Predicted Data";
 
   const { historicalData, predictionData } = data.reduce(
     (acc, item) => {
@@ -51,7 +48,7 @@ function RechartsLineChart({fieldToPlot, yAxisLabel, chartTitle}) {
   return (
     <div className="recharts-viz-container">
       <h2>{chartTitle}</h2>
-      <ResponsiveContainer height={500}>
+      <ResponsiveContainer height={400}>
         <LineChart>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
@@ -63,7 +60,7 @@ function RechartsLineChart({fieldToPlot, yAxisLabel, chartTitle}) {
             label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }}
           />
           <Tooltip />
-          <Legend />
+          {/* <Legend /> */}
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
