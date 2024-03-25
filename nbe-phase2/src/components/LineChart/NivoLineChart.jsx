@@ -1,10 +1,9 @@
 import React from "react";
-import "./LineChart.css";
+import "./NivoLineChart.css";
 import { ResponsiveLine } from "@nivo/line";
 import localdata from "../../data/data.json";
 
 function LineChart() {
-
   let data = localdata;
   let xAxisLabel = "Time";
   let yAxisLabel = "System Count";
@@ -28,13 +27,16 @@ function LineChart() {
   const chartData = [
     {
       id: "historical",
+      color: "red",
       data: historicalData,
-    },
+    },    
     {
       id: "prediction",
+      color: "green",
       data: predictionData,
-    },
+    }
   ];
+
 
   console.log("chartData", chartData);
 
@@ -62,6 +64,7 @@ function LineChart() {
           legend: xAxisLabel,
           legendOffset: 36,
           legendPosition: "middle",
+          allowDataOverflow: true,
         }}
         axisLeft={{
           orient: "left",
@@ -75,36 +78,36 @@ function LineChart() {
         colors={{ scheme: "category10" }}
         enableGridX={false}
         enableGridY={true}
-        enablePoints={false}
+        enablePoints={true}
         enableArea={true}
         areaOpacity={0.2}
         useMesh={true}
         legends={[
           {
-              anchor: 'bottom-right',
-              direction: 'column',
-              justify: false,
-              translateX: 100,
-              translateY: 0,
-              itemsSpacing: 0,
-              itemDirection: 'left-to-right',
-              itemWidth: 80,
-              itemHeight: 20,
-              itemOpacity: 0.75,
-              symbolSize: 12,
-              symbolShape: 'circle',
-              symbolBorderColor: 'rgba(0, 0, 0, .5)',
-              effects: [
-                  {
-                      on: 'hover',
-                      style: {
-                          itemBackground: 'rgba(0, 0, 0, .03)',
-                          itemOpacity: 1
-                      }
-                  }
-              ]
-          }
-      ]}
+            anchor: "bottom-right",
+            direction: "column",
+            justify: false,
+            translateX: 100,
+            translateY: 0,
+            itemsSpacing: 0,
+            itemDirection: "left-to-right",
+            itemWidth: 80,
+            itemHeight: 20,
+            itemOpacity: 0.75,
+            symbolSize: 12,
+            symbolShape: "circle",
+            symbolBorderColor: "rgba(0, 0, 0, .5)",
+            effects: [
+              {
+                on: "hover",
+                style: {
+                  itemBackground: "rgba(0, 0, 0, .03)",
+                  itemOpacity: 1,
+                },
+              },
+            ],
+          },
+        ]}
       />
     </div>
   );

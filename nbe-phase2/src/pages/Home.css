@@ -12,3 +12,12 @@ div.district-cards {
     width: 100%;
     height: 1200px;
 }
+
+.home-viz-container {
+    display: flex;
+    flex-direction: row;    
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+

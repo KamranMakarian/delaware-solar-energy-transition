@@ -3,9 +3,9 @@ import Header from "../components/Header/Header";
 import DistrictCard from "../components/DistrictCard/DistrictCard";
 import districtData from "../data/district.json";
 import "./Home.css";
-import LineChart from "../components/LineChart/LineChart";
+// import NivoLineChart from "../components/LineChart/NivoLineChart";
 import { predict } from "../api/predict";
-
+import RechartsLineChart from "../components/LineChart/RechartsLineChart";
 
 function Home() {
   const [data, setData] = useState(null);
@@ -39,10 +39,29 @@ function Home() {
             />
           );
         })}
-        {/* {data && <LineChart data={data}/> } */}
-       
-      </div> 
-      <LineChart />
+      </div>
+      <div className="home-viz-container">
+        <RechartsLineChart
+          fieldToPlot={"system_count"}
+          yAxisLabel={"System Count"}
+          chartTitle={"System Count: Historical and Predicted Data"}
+        />
+        <RechartsLineChart
+          fieldToPlot={"rebate"}
+          yAxisLabel={"Total Dollar Amount"}
+          chartTitle={"Rebate: Historical and Predicted Data"}
+        />
+        <RechartsLineChart
+          fieldToPlot={"tech_cost($/W)"}
+          yAxisLabel={"Cost per Watt"}
+          chartTitle={"Tech Cost: Historical and Predicted Data"}
+        />
+        <RechartsLineChart
+          fieldToPlot={"rebate_eff(W/$)"}
+          yAxisLabel={"Rebate Efficiency"}
+          chartTitle={"Rebate Efficiency: Historical and Predicted Data"}
+        />
+      </div>      
     </div>
   );
 }
