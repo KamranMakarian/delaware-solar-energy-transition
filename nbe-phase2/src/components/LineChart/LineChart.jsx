@@ -6,6 +6,8 @@ import localdata from "../../data/data.json";
 function LineChart() {
 
   let data = localdata;
+  let xAxisLabel = "Time";
+  let yAxisLabel = "System Count";
 
   console.log("data in linechart", data);
 
@@ -57,7 +59,7 @@ function LineChart() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "X Axis",
+          legend: xAxisLabel,
           legendOffset: 36,
           legendPosition: "middle",
         }}
@@ -66,7 +68,7 @@ function LineChart() {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "Y Axis",
+          legend: yAxisLabel,
           legendOffset: -40,
           legendPosition: "middle",
         }}
