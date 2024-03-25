@@ -15,6 +15,7 @@ function Home() {
       try {
         const result = await predict(3);
         setData(result);
+        console.log("result at home", result);
       } catch (error) {
         console.error(error.toString());
       }
@@ -38,8 +39,10 @@ function Home() {
             />
           );
         })}
-        <LineChart />
-      </div>
+        {/* {data && <LineChart data={data}/> } */}
+       
+      </div> 
+      <LineChart />
     </div>
   );
 }
