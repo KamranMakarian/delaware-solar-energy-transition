@@ -57,8 +57,11 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
             dataKey="year"
             allowDuplicatedCategory={false}
             stroke="black"
+            fontSize={12}
+            fontWeight={600}
+            angle={-45}
           />
-          <YAxis stroke="black" />
+          <YAxis stroke="black" tickFormatter={(value) => (value !== 0 ? value : '')}  />
           <Tooltip content={<CustomTooltip />} />
 
           <Line
