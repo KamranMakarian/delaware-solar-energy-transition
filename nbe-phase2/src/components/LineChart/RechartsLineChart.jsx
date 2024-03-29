@@ -15,12 +15,16 @@ import localdata from "../../data/data.json";
 function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
   let data = localdata;
 
-  let xAxisLabel = "Time";
+  // let xAxisLabel = "Time";
 
   const { historicalData, predictionData } = data.reduce(
     (acc, item) => {
+
+      const date = new Date(item.Date);
+      const formattedDate = date.toLocaleDateString('en-US', { year: '2-digit', month: 'short' });
+
       const newData = {
-        year: item.Date,
+        year: formattedDate,
         value: item[fieldToPlot],
       };
 
@@ -53,26 +57,33 @@ function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="year"
-            allowDuplicatedCategory={false}
-            label={{ value: xAxisLabel, position: "insideBottom" }}
+            allowDuplicatedCategory={false}            
+            stroke="black"
           />
           <YAxis
-            label={{ value: yAxisLabel, angle: -90, position: "insideLeft" }}
+            // label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fontWeight: "bold", fill:"black"}}           
+            stroke="black"
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />              
+
+        
+
+        
           {/* <Legend /> */}
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
             dataKey="value"
-            stroke="#8884d8"
+            stroke="#4B0082"
             name={historicalDataToPlot.name}
+            strokeWidth={2}
           />
           <Line
             data={predictionDataToPlot.data}
             type="monotone"
             dataKey="value"
-            stroke="#82ca9d"
+            stroke="#006400"
+            strokeWidth={2}
             name={predictionDataToPlot.name}
           />
         </LineChart>
@@ -82,3 +93,15 @@ function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
 }
 
 export default RechartsLineChart;
+
+
+function CustomTooltip({ active, payload, label }) {
+  if (active && payload && payload.length) {
+  return (
+    <div className="custom-tooltip">
+    <p className="label-tooltip">{`${label} : ${payload[0].value}`}</p>
+    </div>
+  );
+  }
+  return null;
+}

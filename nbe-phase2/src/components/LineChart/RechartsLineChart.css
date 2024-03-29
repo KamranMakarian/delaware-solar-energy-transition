@@ -15,3 +15,10 @@ h2 {
     text-align: center;
  
 }
+
+.custom-tooltip {
+    background-color: rgba(239, 175, 15, 0.8);
+    padding: var(--padding-md);
+    border-radius: var(--border-radius-md);
+    color: var(--font-color-black);
+}

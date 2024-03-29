@@ -7,9 +7,11 @@ import "./Home.css";
 import { predict } from "../api/predict";
 import RechartsLineChart from "../components/LineChart/RechartsLineChart";
 import LegendIcon from "../components/Legend/LegendIcon";
-import { Flex } from "@chakra-ui/react"; 
+import { Flex } from "@chakra-ui/react";
+import Loader from "../components/Loader/Loader";
 
 function Home() {
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,6 +22,8 @@ function Home() {
         console.log("result at home", result);
       } catch (error) {
         console.error(error.toString());
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -44,30 +48,40 @@ function Home() {
         })}
         {/* </Flex> */}
       </div>
-      <LegendIcon />
 
-      <div className="home-viz-container">
-        <RechartsLineChart
-          fieldToPlot={"system_count"}
-          yAxisLabel={"System Count"}
-          chartTitle={"System Count: Historical and Predicted Data"}
-        />
-        <RechartsLineChart
-          fieldToPlot={"rebate"}
-          yAxisLabel={"Total Dollar Amount"}
-          chartTitle={"Rebate: Historical and Predicted Data"}
-        />
-        <RechartsLineChart
-          fieldToPlot={"tech_cost($/W)"}
-          yAxisLabel={"Cost per Watt"}
-          chartTitle={"Tech Cost: Historical and Predicted Data"}
-        />
-        <RechartsLineChart
-          fieldToPlot={"rebate_eff(W/$)"}
-          yAxisLabel={"Rebate Efficiency"}
-          chartTitle={"Rebate Efficiency: Historical and Predicted Data"}
-        />
-      </div>
+      {/* {loading && !data && <Loader />}
+
+      {!loading && data && ( */}
+      
+        <LegendIcon />
+        <div className="home-viz-container">
+          <RechartsLineChart
+            // data={data}
+            fieldToPlot={"system_count"}
+            yAxisLabel={"System Count"}
+            chartTitle={"System Count: Historical and Predicted Data"}
+          />
+          <RechartsLineChart
+            // data={data}
+            fieldToPlot={"rebate"}
+            yAxisLabel={"Total Dollar Amount"}
+            chartTitle={"Rebate: Historical and Predicted Data"}
+          />
+          <RechartsLineChart
+            // data={data}
+            fieldToPlot={"tech_cost($/W)"}
+            yAxisLabel={"Cost per Watt"}
+            chartTitle={"Tech Cost: Historical and Predicted Data"}
+          />
+          <RechartsLineChart
+            // data={data}
+            fieldToPlot={"rebate_eff(W/$)"}
+            yAxisLabel={"Rebate Efficiency"}
+            chartTitle={"Rebate Efficiency: Historical and Predicted Data"}
+          />
+        </div>
+      
+      {/* )} */}
     </div>
   );
 }
