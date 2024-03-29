@@ -26,3 +26,5 @@ dist-ssr
 *.env
 *district.json
 *.json
+.env
+*.env.local

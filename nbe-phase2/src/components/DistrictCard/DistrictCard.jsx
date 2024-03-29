@@ -1,8 +1,7 @@
 import { Card, CardHeader, CardBody, Heading } from "@chakra-ui/react";
 import React, { useState } from "react";
 
-function DistrictCard({ id, onDistrictChange, isSelected}) {
-  
+function DistrictCard({ id, onDistrictChange, isSelected }) {
   const backgroundColor = isSelected ? "#F7B704" : "#263e44";
   const color = isSelected ? "black" : "white";
 
@@ -10,19 +9,10 @@ function DistrictCard({ id, onDistrictChange, isSelected}) {
     onDistrictChange(newId);
   };
 
-  // const toggleBackgroundColor = () => {
-  //   if (id === selectedId) {
-  //     setBackgroundColor("#ff6347"); // Change to desired selected color
-  //   } else {
-  //     setBackgroundColor("#263e44"); // Change to default color
-  //   }
-  // };
-
   return (
     <div
       onClick={() => {
         handleDistrictChange(id);
-        // toggleBackgroundColor();
       }}
       style={{ cursor: "pointer" }}
     >

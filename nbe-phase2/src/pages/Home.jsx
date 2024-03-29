@@ -9,23 +9,20 @@ import LegendIcon from "../components/Legend/LegendIcon";
 import Loader from "../components/Loader/Loader";
 
 function Home() {
-
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [districtId, setDistrictId] = useState(3);
 
-  const handleDistrictChange = (id) => {    
+  const handleDistrictChange = (id) => {
     setDistrictId(id);
-  }
-
-
+  };
 
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
       try {
         const result = await predict(districtId);
-        setData(result);        
+        setData(result);
       } catch (error) {
         console.error(error.toString());
       } finally {
@@ -37,12 +34,10 @@ function Home() {
 
     // const timer = setTimeout(() => {
     //   fetchData();
-    // }, 2000); 
+    // }, 20000);
 
     // return () => clearTimeout(timer);
   }, [districtId]);
-
-  
 
   return (
     <div className="home-container">
@@ -53,8 +48,8 @@ function Home() {
             <DistrictCard
               key={districtData.id}
               id={districtData.id}
-              onDistrictChange = {handleDistrictChange}    
-              isSelected={districtData.id === districtId}         
+              onDistrictChange={handleDistrictChange}
+              isSelected={districtData.id === districtId}
             />
           );
         })}

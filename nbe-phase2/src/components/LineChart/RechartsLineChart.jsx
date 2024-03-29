@@ -58,13 +58,9 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
             allowDuplicatedCategory={false}
             stroke="black"
           />
-          <YAxis
-            // label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fontWeight: "bold", fill:"black"}}
-            stroke="black"
-          />
+          <YAxis stroke="black" />
           <Tooltip content={<CustomTooltip />} />
 
-          {/* <Legend /> */}
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
@@ -72,6 +68,7 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
             stroke="#4B0082"
             name={historicalDataToPlot.name}
             strokeWidth={2}
+            animationDuration={600}
           />
           <Line
             data={predictionDataToPlot.data}
@@ -80,6 +77,7 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
             stroke="#006400"
             strokeWidth={2}
             name={predictionDataToPlot.name}
+            animationDuration={3000}
           />
         </LineChart>
       </ResponsiveContainer>
