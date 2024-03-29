@@ -5,7 +5,7 @@ import sun from "../../images/sun.png";
 
 function Header() {
   return (
-    <div className="header">
+    <div className="header-container">
       <div className="header-title">
         <h1>Visualizing Delaware's &nbsp;S</h1>
         <img src={sun} alt="Sun Image" className="image-sun" />
