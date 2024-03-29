@@ -1,26 +1,34 @@
 import { Card, CardHeader, CardBody, Heading } from "@chakra-ui/react";
+import React, { useState } from "react";
 
-function DistrictCard(props) {
-  let backgroundColor;
+function DistrictCard({ id, onDistrictChange, isSelected}) {
+  
+  const backgroundColor = isSelected ? "#F7B704" : "#263e44";
+  const color = isSelected ? "black" : "white";
 
-  switch (props.party) {
-    case "R":
-      backgroundColor = "#1c3558";
-      break;
-    case "D":
-      backgroundColor = "#263e44";
-      break;
-    case "I":
-      backgroundColor = "#727845";
-      break;
-    default:
-      backgroundColor = "#F5F5F5";
-      break;
-  }
+  const handleDistrictChange = (newId) => {
+    onDistrictChange(newId);
+  };
+
+  // const toggleBackgroundColor = () => {
+  //   if (id === selectedId) {
+  //     setBackgroundColor("#ff6347"); // Change to desired selected color
+  //   } else {
+  //     setBackgroundColor("#263e44"); // Change to default color
+  //   }
+  // };
 
   return (
-    
-    <Card backgroundColor={backgroundColor} size="md"        
+    <div
+      onClick={() => {
+        handleDistrictChange(id);
+        // toggleBackgroundColor();
+      }}
+      style={{ cursor: "pointer" }}
+    >
+      <Card
+        backgroundColor={backgroundColor}
+        size="md"
         borderRadius="lg"
         overflow="hidden"
         mt="3"
@@ -28,28 +36,22 @@ function DistrictCard(props) {
         ml="6"
         mr="6"
         boxShadow="lg"
-        color="white"
+        color={color}
         _hover={{
-            transform: "scale(1.5)",
-            transition: "transform 0.5s ease-in-out",            
-            boxShadow: "2xl",
-            cursor: "pointer",             
-        }
-    }
-    >
-      <CardHeader>
-        <Heading as="h3" size="xl">
-          {/* {props.memberName} */}
-          District {props.id}
-        </Heading>
-      </CardHeader>
-      <CardBody>
-        {/* <Image src={props.imagePath} alt={`District ${props.id}`} /> */}
-        {/* <h1>District {props.id}</h1> */}
-      </CardBody>
-    </Card>
-    
-    
+          transform: "scale(1.5)",
+          transition: "transform 0.5s ease-in-out",
+          boxShadow: "2xl",
+          cursor: "pointer",
+        }}
+      >
+        <CardHeader>
+          <Heading as="h3" size="xl">
+            District {id}
+          </Heading>
+        </CardHeader>
+        <CardBody></CardBody>
+      </Card>
+    </div>
   );
 }
 

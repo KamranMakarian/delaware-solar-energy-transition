@@ -14,7 +14,14 @@
   position: fixed;
   top: 18%;
   left: 0;
-  width: 100%;  
+  width: 100%;
+}
+
+.home-spinner-container {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .home-viz-legend-container {

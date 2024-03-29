@@ -8,20 +8,18 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
 } from "recharts";
-import localdata from "../../data/data.json";
 
-function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
-  let data = localdata;
+function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
+  const dataArray = JSON.parse(data);
 
-  // let xAxisLabel = "Time";
-
-  const { historicalData, predictionData } = data.reduce(
+  const { historicalData, predictionData } = dataArray.reduce(
     (acc, item) => {
-
       const date = new Date(item.Date);
-      const formattedDate = date.toLocaleDateString('en-US', { year: '2-digit', month: 'short' });
+      const formattedDate = date.toLocaleDateString("en-US", {
+        year: "2-digit",
+        month: "short",
+      });
 
       const newData = {
         year: formattedDate,
@@ -57,18 +55,15 @@ function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="year"
-            allowDuplicatedCategory={false}            
+            allowDuplicatedCategory={false}
             stroke="black"
           />
           <YAxis
-            // label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fontWeight: "bold", fill:"black"}}           
+            // label={{ value: yAxisLabel, angle: -90, position: "insideLeft", fontWeight: "bold", fill:"black"}}
             stroke="black"
           />
-          <Tooltip content={<CustomTooltip />} />              
+          <Tooltip content={<CustomTooltip />} />
 
-        
-
-        
           {/* <Legend /> */}
           <Line
             data={historicalDataToPlot.data}
@@ -94,14 +89,13 @@ function RechartsLineChart({ fieldToPlot, yAxisLabel, chartTitle }) {
 
 export default RechartsLineChart;
 
-
 function CustomTooltip({ active, payload, label }) {
   if (active && payload && payload.length) {
-  return (
-    <div className="custom-tooltip">
-    <p className="label-tooltip">{`${label} : ${payload[0].value}`}</p>
-    </div>
-  );
+    return (
+      <div className="custom-tooltip">
+        <p className="label-tooltip">{`${label} : ${payload[0].value}`}</p>
+      </div>
+    );
   }
   return null;
 }
