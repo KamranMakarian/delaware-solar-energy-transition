@@ -1,20 +1,33 @@
 div.header-container {
-  background-image: url('../../assets/header.jpeg');
+  background-image: url("../../assets/header.jpeg");
   background-size: cover;
-  background-position:10% 82%;    
+  background-position: 10% 82%;
   position: fixed;
   top: 0;
   left: 0;
   margin: 0;
   padding: 0;
-  width: 2000px;
-  height: 170px;
+  width: 100%;
+  height: 18%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   background-color: var(--background-color-header);
-  padding: var(--padding-xl);  
+  padding: var(--padding-xl);
+}
+
+div.header-title h1 {
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-4xl);
+  color: var(--font-color-white);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--spacing-3xs);
+}
+
+div.header-title img {
+  width: 2.8rem;
+  height: 2.8rem;
 }
 
 div.header-container::before {
@@ -23,13 +36,11 @@ div.header-container::before {
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;  
+  left: 0;
   background-color: #0c5897;
-  opacity: 0.8;
-  /* background-color: rgba(68, 68, 171, 0.741);  */
+  opacity: 0.7;
   z-index: -1;
 }
-
 
 div.header-title {
   display: flex;
@@ -51,12 +62,13 @@ img.image-sun {
 }
 
 div.button-about-project {
-  display: flex;  
+  position: fixed;
+  display: flex;
   justify-content: flex-end;
   z-index: 2;
-
+  top: 3%;
+  right: 3%;
 }
-
 
 .invisible-spacer {
   width: 20px; /* Adjust the width as needed */
