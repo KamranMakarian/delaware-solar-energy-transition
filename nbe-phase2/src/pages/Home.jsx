@@ -5,8 +5,9 @@ import districtData from "../data/district.json";
 import "./Home.css";
 import { predict } from "../api/predict";
 import RechartsLineChart from "../components/LineChart/RechartsLineChart";
-import LegendIcon from "../components/Legend/LegendIcon";
+// import LegendIcon from "../components/Legend/LegendIcon";
 import Loader from "../components/Loader/Loader";
+// import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,8 @@ function Home() {
   const handleDistrictChange = (id) => {
     setDistrictId(id);
   };
+
+  
 
   useEffect(() => {
     async function fetchData() {
@@ -31,16 +34,10 @@ function Home() {
     }
 
     fetchData();
-
-    // const timer = setTimeout(() => {
-    //   fetchData();
-    // }, 20000);
-
-    // return () => clearTimeout(timer);
   }, [districtId]);
 
   return (
-    <div className="home-container">
+    <div className="home-container" id="home-container">
       <Header />
       <div className="district-cards-container">
         {districtData.map((districtData) => {
@@ -58,33 +55,34 @@ function Home() {
         {loading && !data && <Loader />}
       </div>
 
-      <div className="home-viz-container">
+      <div className="home-viz-container" id="home-viz-container">
         {!loading && data && (
           <>
-            <LegendIcon />
+            {/* <LegendIcon />     */}
+            {/* <GenerateJsPdf />         */}
             <RechartsLineChart
               data={data}
               fieldToPlot={"system_count"}
               yAxisLabel={"System Count"}
-              chartTitle={"System Count: Historical and Predicted Data"}
+              chartTitle={"Analyzing System Count Trends: Historical Data and Projections"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"rebate"}
               yAxisLabel={"Total Dollar Amount"}
-              chartTitle={"Rebate: Historical and Predicted Data"}
+              chartTitle={"Dollar Amounts in Rebate Trends: Historical vs. Predicted Data"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"tech_cost($/W)"}
               yAxisLabel={"Cost per Watt"}
-              chartTitle={"Tech Cost: Historical and Predicted Data"}
+              chartTitle={"Technology Expenditures: Historical and Projected Data"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"rebate_eff(W/$)"}
               yAxisLabel={"Rebate Efficiency"}
-              chartTitle={"Rebate Efficiency: Historical and Predicted Data"}
+              chartTitle={"Rebate Efficiency Analysis: Examining Past and Projected Performance"}
             />
           </>
         )}

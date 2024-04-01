@@ -9,6 +9,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
+import HighlightedWord from "../HighlightWord/HighlightWord";
 
 function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
   const dataArray = JSON.parse(data);
@@ -49,7 +50,10 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
 
   return (
     <div className="recharts-viz-container">
-      <h2>{chartTitle}</h2>
+      <h2>
+        <HighlightedWord text={chartTitle}  wordToHighlight1={"Historical"} highlightColor1={"#4B0082"} wordToHighlight2={"Projections"} highlightColor2={"#006400"}/>
+       
+        </h2>
       <ResponsiveContainer height={400}>
         <LineChart>
           <CartesianGrid strokeDasharray="3 3" />
