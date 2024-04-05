@@ -62,6 +62,7 @@ function Home() {
             {/* <GenerateJsPdf />         */}
             <RechartsLineChart
               data={data}
+              id = {districtId}
               fieldToPlot={"system_count"}
               yAxisLabel={"System Count"}
               yAxisUnit={""}
@@ -69,6 +70,7 @@ function Home() {
             />
             <RechartsLineChart
               data={data}
+              id = {districtId}
               fieldToPlot={"rebate"}
               yAxisLabel={"Total Dollar Amount"}
               yAxisUnit={"$"}
@@ -76,6 +78,7 @@ function Home() {
             />
             <RechartsLineChart
               data={data}
+              id = {districtId}
               fieldToPlot={"tech_cost($/W)"}
               yAxisLabel={"Cost per Watt"}
               yAxisUnit={"$/W"}
@@ -83,6 +86,7 @@ function Home() {
             />
             <RechartsLineChart
               data={data}
+              id = {districtId}
               fieldToPlot={"rebate_eff(W/$)"}
               yAxisLabel={"Rebate Efficiency"}
               yAxisUnit ={"W/$"}

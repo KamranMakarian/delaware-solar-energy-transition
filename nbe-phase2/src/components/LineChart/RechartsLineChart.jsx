@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import HighlightedWord from "../HighlightWord/HighlightWord";
 
-function RechartsLineChart({ data, fieldToPlot, yAxisUnit, chartTitle }) {
+function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
   const dataArray = JSON.parse(data);
 
   const { historicalData, predictionData } = dataArray.reduce(
@@ -82,7 +82,7 @@ function RechartsLineChart({ data, fieldToPlot, yAxisUnit, chartTitle }) {
               }
             }}
           />
-          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit}/>} />
+          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id}/>} />
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
@@ -109,14 +109,20 @@ function RechartsLineChart({ data, fieldToPlot, yAxisUnit, chartTitle }) {
 
 export default RechartsLineChart;
 
-function CustomTooltip({ active, payload, label, yAxisUnit }) {
+function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
   
   const formattedYear = convertDate(label);
-
+  
   if (active && payload && payload.length) {
+    
+    const verbToUse = payload[0].name === "historical" ? "has" : "will have";
+    // const valueToDisplay = yAxisUnit === "$" ? `$${payload[0].value}` : `${payload[0].value}(${yAxisUnit})`;
+    const valueToDisplay = yAxisUnit === "$" ? `$${payload[0].value}` : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
+
+
     return (
       <div className="custom-tooltip">
-        <p className="label-tooltip">{`In ${formattedYear}, ${payload[0].value} ${yAxisUnit} in ${payload[0].name}` }</p>
+        <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p>
 
       </div>
     );
