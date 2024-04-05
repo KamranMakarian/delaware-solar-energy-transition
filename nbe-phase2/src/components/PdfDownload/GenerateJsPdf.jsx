@@ -20,7 +20,7 @@ const GenerateJsPdf = () => {
 
   return (
     <div onClick={handleDownloadPDF}>
-      <Button colorScheme="blue" variant="solid" size="md">
+      <Button colorScheme="blue" variant="solid" size="md" margin={3}>
         Download as PDF
       </Button>
     </div>
