@@ -2,10 +2,12 @@ import React from "react";
 import "./Header.css";
 import { Button } from "@chakra-ui/react";
 import sun from "../../images/sun.png";
+import GenerateJsPdf from "../PdfDownload/GenerateJsPdf";
 
 function Header() {
   return (
     <div className="header-container">
+      <GenerateJsPdf />
       <div className="header-title">
         <h1>
           Visualizing Delaware's 

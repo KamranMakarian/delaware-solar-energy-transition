@@ -115,8 +115,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
   
   if (active && payload && payload.length) {
     
-    const verbToUse = payload[0].name === "historical" ? "has" : "will have";
-    // const valueToDisplay = yAxisUnit === "$" ? `$${payload[0].value}` : `${payload[0].value}(${yAxisUnit})`;
+    const verbToUse = payload[0].name === "historical" ? "has" : "will have";    
     const valueToDisplay = yAxisUnit === "$" ? `$${payload[0].value}` : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
 
@@ -132,7 +131,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
 
 
 function formatYAxisTicks(value, yAxisUnit) {
-  console.log(value, yAxisUnit);
+  
   if (yAxisUnit === "$") {
     const formattedValue = (value / 1000).toFixed(0);
     return `$${formattedValue}K`;
@@ -142,7 +141,7 @@ function formatYAxisTicks(value, yAxisUnit) {
 
 
 function convertDate(label) {
-  console.log("label",label);
+  
   // Split the original date string into month and year parts
   const [month, year] = String(label).split(' ');
 

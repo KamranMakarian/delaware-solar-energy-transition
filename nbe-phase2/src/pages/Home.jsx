@@ -9,7 +9,6 @@ import RechartsLineChart from "../components/LineChart/RechartsLineChart";
 import Loader from "../components/Loader/Loader";
 // import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 
-
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
@@ -52,53 +51,51 @@ function Home() {
       </div>
       <div className="home-spinner-container">
         {loading && !data && <Loader />}
-      </div> 
-      <div className="home-viz-container">     
-          {!loading && data && (
-            <>
-              {/* <LegendIcon />     */}
-              {/* <GenerateJsPdf />         */}
-              <RechartsLineChart
-                data={data}
-                id={districtId}
-                fieldToPlot={"system_count"}
-                yAxisLabel={"System Count"}
-                yAxisUnit={""}
-                chartTitle={
-                  "System Count Over Time : Historical Data and Projections"
-                }
-              />
-              <RechartsLineChart
-                data={data}
-                id={districtId}
-                fieldToPlot={"rebate"}
-                yAxisLabel={"Total Dollar Amount"}
-                yAxisUnit={"$"}
-                chartTitle={"Rebate Trends : Historical and Projections Data"}
-              />
-              <RechartsLineChart
-                data={data}
-                id={districtId}
-                fieldToPlot={"tech_cost($/W)"}
-                yAxisLabel={"Cost per Watt"}
-                yAxisUnit={"$/W"}
-                chartTitle={
-                  "Technology Cost($/W): Historical Data and Projections"
-                }
-              />
-              <RechartsLineChart
-                data={data}
-                id={districtId}
-                fieldToPlot={"rebate_eff(W/$)"}
-                yAxisLabel={"Rebate Efficiency"}
-                yAxisUnit={"W/$"}
-                chartTitle={
-                  "Rebate Efficiency (W/$) : Historical and Projections Data"
-                }
-              />
-            </>
-          )}      
-          </div>
+      </div>
+      <div className="home-viz-container" id="home-viz-container">
+        {!loading && data && (
+          <>
+            <RechartsLineChart
+              data={data}
+              id={districtId}
+              fieldToPlot={"system_count"}
+              yAxisLabel={"System Count"}
+              yAxisUnit={""}
+              chartTitle={
+                "System Count Over Time : Historical Data and Projections"
+              }
+            />
+            <RechartsLineChart
+              data={data}
+              id={districtId}
+              fieldToPlot={"rebate"}
+              yAxisLabel={"Total Dollar Amount"}
+              yAxisUnit={"$"}
+              chartTitle={"Rebate Trends ($) : Historical and Projections Data"}
+            />
+            <RechartsLineChart
+              data={data}
+              id={districtId}
+              fieldToPlot={"tech_cost($/W)"}
+              yAxisLabel={"Cost per Watt"}
+              yAxisUnit={"$/W"}
+              chartTitle={
+                "Technology Cost ($/W): Historical Data and Projections"
+              }
+            />
+            <RechartsLineChart
+              data={data}
+              id={districtId}
+              fieldToPlot={"rebate_eff(W/$)"}
+              yAxisLabel={"Rebate Efficiency"}
+              yAxisUnit={"W/$"}
+              chartTitle={
+                "Rebate Efficiency (W/$) : Historical and Projections Data"
+              }
+            />
+          </>
+        )}
+      </div>
     </div>
   );
 }

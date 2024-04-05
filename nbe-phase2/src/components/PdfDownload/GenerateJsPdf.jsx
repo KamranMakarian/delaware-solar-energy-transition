@@ -4,17 +4,16 @@ import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 
 const GenerateJsPdf = () => {
-  const handleDownloadPDF = () => {    
-
-    const element = document.getElementById("home-viz-container");
-    console.log("this element",element);
+  const handleDownloadPDF = () => {
+    const element = document.body;   
 
     if (element) {
       html2canvas(element).then((canvas) => {
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF("landscape");
-        pdf.addImage(imgData, "PNG", 0, 0);
-        pdf.save("DE's Solar Energy Transition.pdf"); // Save the PDF with a custom filename
+        const pdf = new jsPDF("landscape", "mm", "a2");
+
+        pdf.addImage(imgData, "PNG", 40, 40);
+        pdf.save("DE's Solar Energy Transition.pdf"); 
       });
     }
   };
