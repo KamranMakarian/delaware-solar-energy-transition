@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import HighlightedWord from "../HighlightWord/HighlightWord";
 
-function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
+function RechartsLineChart({ data, fieldToPlot, yAxisUnit, chartTitle }) {
   const dataArray = JSON.parse(data);
 
   const { historicalData, predictionData } = dataArray.reduce(
@@ -51,10 +51,15 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
   return (
     <div className="recharts-viz-container">
       <h2>
-        <HighlightedWord text={chartTitle}  wordToHighlight1={"Historical"} highlightColor1={"#4B0082"} wordToHighlight2={"Projections"} highlightColor2={"#006400"}/>
-       
-        </h2>
-      <ResponsiveContainer height={400}>
+        <HighlightedWord
+          text={chartTitle}
+          wordToHighlight1={"Historical"}
+          highlightColor1={"#4B0082"}
+          wordToHighlight2={"Projections"}
+          highlightColor2={"#006400"}
+        />
+      </h2>
+      <ResponsiveContainer height={350}>
         <LineChart>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
@@ -63,11 +68,21 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
             stroke="black"
             fontSize={12}
             fontWeight={600}
-            angle={-45}
+            angle={-30}
+            textAnchor="end"
           />
-          <YAxis stroke="black" tickFormatter={(value) => (value !== 0 ? value : '')}  />
-          <Tooltip content={<CustomTooltip />} />
-
+          <YAxis
+            stroke="black"
+            tickFormatter={(value) => {
+              if (value !== 0) {
+                const formattedValue = formatYAxisTicks(value, yAxisUnit);
+                return formattedValue !== "0" ? formattedValue : "";
+              } else {
+                return "";
+              }
+            }}
+          />
+          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit}/>} />
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
@@ -94,13 +109,46 @@ function RechartsLineChart({ data, fieldToPlot, chartTitle }) {
 
 export default RechartsLineChart;
 
-function CustomTooltip({ active, payload, label }) {
+function CustomTooltip({ active, payload, label, yAxisUnit }) {
+  
+  const formattedYear = convertDate(label);
+
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p className="label-tooltip">{`${label} : ${payload[0].value}`}</p>
+        <p className="label-tooltip">{`In ${formattedYear}, ${payload[0].value} ${yAxisUnit} in ${payload[0].name}` }</p>
+
       </div>
     );
   }
   return null;
 }
+
+
+function formatYAxisTicks(value, yAxisUnit) {
+  console.log(value, yAxisUnit);
+  if (yAxisUnit === "$") {
+    const formattedValue = (value / 1000).toFixed(0);
+    return `$${formattedValue}K`;
+  }
+  return value;
+}
+
+
+function convertDate(label) {
+  console.log("label",label);
+  // Split the original date string into month and year parts
+  const [month, year] = String(label).split(' ');
+
+  // Create a JavaScript Date object using only the month part and any arbitrary day (e.g., 1)
+  const date = new Date(`${month} 1, ${year}`);
+
+  // Format the month to full month name (e.g., "June") and format the year
+  const formattedMonth = date.toLocaleString('default', { month: 'long' });
+  const formattedYear = date.getFullYear();
+
+  // Return the formatted date string
+  return `${formattedMonth} ${formattedYear}`;
+}
+
+

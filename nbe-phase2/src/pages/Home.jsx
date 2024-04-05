@@ -64,25 +64,29 @@ function Home() {
               data={data}
               fieldToPlot={"system_count"}
               yAxisLabel={"System Count"}
-              chartTitle={"Analyzing System Count Trends: Historical Data and Projections"}
+              yAxisUnit={""}
+              chartTitle={"System Count Over Time : Historical Data and Projections"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"rebate"}
               yAxisLabel={"Total Dollar Amount"}
-              chartTitle={"Dollar Amounts in Rebate Trends: Historical vs. Predicted Data"}
+              yAxisUnit={"$"}
+              chartTitle={"Rebate Trends : Historical and Projections Data"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"tech_cost($/W)"}
               yAxisLabel={"Cost per Watt"}
-              chartTitle={"Technology Expenditures: Historical and Projected Data"}
+              yAxisUnit={"$/W"}
+              chartTitle={"Technology Cost($/W): Historical Data and Projections"}
             />
             <RechartsLineChart
               data={data}
               fieldToPlot={"rebate_eff(W/$)"}
               yAxisLabel={"Rebate Efficiency"}
-              chartTitle={"Rebate Efficiency Analysis: Examining Past and Projected Performance"}
+              yAxisUnit ={"W/$"}
+              chartTitle={"Rebate Efficiency (W/$) : Historical and Projections Data"}
             />
           </>
         )}

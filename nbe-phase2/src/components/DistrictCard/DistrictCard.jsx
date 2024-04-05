@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody, Heading } from "@chakra-ui/react";
+import { Card, CardHeader, CardFooter, Heading } from "@chakra-ui/react";
 import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
@@ -41,15 +41,20 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           background: `url(/src/images/district${id}.png)`,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
+          backgroundPosition: "5% 40%",
           backgroundColor: backgroundColor,
         }}
       >
-        <CardHeader>
-          <Heading as="h3" size={{ base: "md", md: "lg", lg: "xl" }}>
-            District {id}
-          </Heading>
-        </CardHeader>        
+        <CardFooter
+          as="h4"
+          size={{ base: "sm", md: "md", lg: "lg" }}
+          style={{ position: "absolute", bottom: "0", right: "0" }}
+        >
+          <div className="district-card-footer">
+          <p>District</p>
+          <p className="footer-district-id">{id}</p>
+          </div>
+        </CardFooter>
       </Card>
     </div>
   );

@@ -3,3 +3,13 @@ div.district-card-container {
     height: 100%;
 }
 
+div.district-card-footer {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+
+p.footer-district-id {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+}
