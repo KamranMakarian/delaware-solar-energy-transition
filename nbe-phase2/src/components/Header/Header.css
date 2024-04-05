@@ -59,7 +59,14 @@ div.header-title {
 img.image-sun {
   width: 2.8rem;
   height: 2.8rem;
+  padding-top: 0.4rem;
 }
+.header-title h1 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 
 div.button-about-project {
   position: fixed;

@@ -7,9 +7,12 @@ function Header() {
   return (
     <div className="header-container">
       <div className="header-title">
-        <h1>Visualizing Delaware's &nbsp;S</h1>
-        <img src={sun} alt="Sun Image" className="image-sun" />
-        <h1>lar Energy Transition </h1>
+        <h1>
+          Visualizing Delaware's 
+          S
+          <img src={sun} alt="Sun Image" className="image-sun" />
+          lar Energy Transition{" "}
+        </h1>
       </div>
       <div className="button-about-project">
         <InvisibleSpacer />
