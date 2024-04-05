@@ -24,23 +24,45 @@
   transform: translate(-50%, -50%);
 }
 
-.home-viz-legend-container {
-  display: flex;
-  flex-direction: row;
+/* #home-content-container {
   position: fixed;
-  top: 38;
+  display: flex;
+  flex-direction: column;
+  top: 40%;
   left: 0;
   width: 100%;
-  height: 65%;
+  height: 80%;
+
+} */
+
+.home-map-container {
+  position: fixed;
+  top: 30%;
+  left: 65%;
+  width: 60%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;  
 }
 
 .home-viz-container {
   position: fixed;
   top: 40%;
-  left: 5%;
+  left: 2%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
   height: 60%;
   overflow-y: auto;
 }
+
+/* .home-viz-legend-container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  height: 65%;
+} */
