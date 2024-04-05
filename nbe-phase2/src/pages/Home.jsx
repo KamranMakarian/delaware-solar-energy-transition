@@ -52,21 +52,8 @@ function Home() {
       </div>
       <div className="home-spinner-container">
         {loading && !data && <Loader />}
-      </div>
-      <div classname="home-content-container" id="home-content-container">
-        
-
-        <div
-          className="home-viz-container"
-          id="home-viz-container"
-          // style={{
-          //   backgroundImage: `url(/src/images/district${districtId}.png)`,
-          //   backgroundSize: "contain",
-          //   backgroundRepeat: "no-repeat",
-          //   backgroundBlendMode: "overlay",
-          //   backgroundPosition: "left top",
-          // }}
-        >
+      </div> 
+      <div className="home-viz-container">     
           {!loading && data && (
             <>
               {/* <LegendIcon />     */}
@@ -110,17 +97,8 @@ function Home() {
                 }
               />
             </>
-          )}
-          {/* <div
-          className="home-map-container"          
-          style={{
-            backgroundImage: `url(/src/images/district${districtId}.png)`,
-
-          }}
-        ></div> */}
-
-        </div>
-      </div>
+          )}      
+          </div>
     </div>
   );
 }
