@@ -38,7 +38,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           cursor: "pointer",
         }}
         sx={{
-          background: `url(/src/assets/district${id}.png)`,
+          backgroundImage: `url(/src/assets/district${id}.png)`,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "5% 40%",
