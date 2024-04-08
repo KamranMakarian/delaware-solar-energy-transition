@@ -9,17 +9,10 @@ import Loader from "../components/Loader/Loader";
 import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 
-
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [districtId, setDistrictId] = useState(3);
-
-  const containerWidth = window.innerWidth; // Get the current window width
-
-  // Conditionally set overflowX based on container width
-  const overflowX = containerWidth <= 800 ? "auto" : "hidden";
-
 
   const handleDistrictChange = (id) => {
     setDistrictId(id);
@@ -57,7 +50,6 @@ function Home() {
           );
         })}
       </div>
-      
 
       <div className="home-spinner-container">
         {loading && !data && <Loader />}
