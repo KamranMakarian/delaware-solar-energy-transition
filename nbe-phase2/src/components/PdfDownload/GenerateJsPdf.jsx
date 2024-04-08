@@ -60,7 +60,7 @@ const GenerateJsPdf = () => {
         margin={3}
         onClick={handleDownloadPDF}
       >
-        Download as PDF
+        Snapshot to PDF
       </Button>
     </div>
   );
