@@ -5,6 +5,8 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
   const color = isSelected ? "#F7B704" : "white";
   const backgroundColor = isSelected ? "#ffffff" : "#263e44";
   const backgroundSize = isSelected ? "cover" : "contain";
+  const backgroundImg = `url(district${id}.png)`;
+  
 
   const handleDistrictChange = (newId) => {
     onDistrictChange(newId);
@@ -38,7 +40,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           cursor: "pointer",
         }}
         sx={{
-          backgroundImage: `url(/src/assets/district${id}.png)`,
+          backgroundImage: backgroundImg,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "5% 40%",
