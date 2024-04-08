@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardFooter, Heading } from "@chakra-ui/react";
+import { Card, CardFooter } from "@chakra-ui/react";
 import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
@@ -38,7 +38,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           cursor: "pointer",
         }}
         sx={{
-          background: `url(/src/images/district${id}.png)`,
+          background: `url(/src/assets/district${id}.png)`,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "5% 40%",
