@@ -19,8 +19,8 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
       className="district-card-container"
     >
       <Card
-        width={{ base: "90%", md: "35vw", lg: "12vw" }}
-        height={{ base: "90%", md: "15vh", lg: "15vh" }}
+        width={{ base: "25vw", md: "20vw", lg: "15vw", xl: "12vw"}}
+        height={{ base: "15vh", md: "15vh", lg: "15vh", xl: "15vh"}}
         border={"3px solid #263e44"}
         size="md"
         borderRadius="lg"
@@ -47,7 +47,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
       >
         <CardFooter
           as="h4"
-          size={{ base: "sm", md: "md", lg: "lg" }}
+          size={{ base: "sm", md: "md", lg: "lg" , xl: "xl"}}
           style={{ position: "absolute", bottom: "0", right: "0" }}
         >
           <div className="district-card-footer">

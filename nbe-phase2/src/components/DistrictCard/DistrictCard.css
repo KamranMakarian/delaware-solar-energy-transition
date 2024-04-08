@@ -13,3 +13,11 @@ p.footer-district-id {
     font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-bold);
 }
+
+
+@media screen  and (max-width: 768px) {
+    p.footer-district-id {
+        font-size: var(--font-size-xl);
+        font-weight: var(--font-weight-medium);
+    }    
+}
