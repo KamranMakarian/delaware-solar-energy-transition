@@ -70,7 +70,7 @@ function Home() {
                 yAxisLabel={"System Count"}
                 yAxisUnit={""}
                 chartTitle={
-                  "System Count Over Time : Historical Data and Projections"
+                  "PV System Count : Historical Data and Projections"
                 }
               />
               <RechartsLineChart
@@ -80,7 +80,7 @@ function Home() {
                 yAxisLabel={"Total Dollar Amount"}
                 yAxisUnit={"$"}
                 chartTitle={
-                  "Rebate Trends ($) : Historical and Projections Data"
+                  "PV Rebate Trends ($) : Historical and Projections Data"
                 }
               />
               <RechartsLineChart
@@ -90,7 +90,7 @@ function Home() {
                 yAxisLabel={"Cost per Watt"}
                 yAxisUnit={"$/W"}
                 chartTitle={
-                  "Technology Cost ($/W): Historical Data and Projections"
+                  "PV Technology Cost ($/W): Historical Data and Projections"
                 }
               />
               <RechartsLineChart
@@ -100,7 +100,7 @@ function Home() {
                 yAxisLabel={"Rebate Efficiency"}
                 yAxisUnit={"W/$"}
                 chartTitle={
-                  "Rebate Efficiency (W/$) : Historical and Projections Data"
+                  "PV Rebate Efficiency (W/$) : Historical and Projections Data"
                 }
               />
             </div>
