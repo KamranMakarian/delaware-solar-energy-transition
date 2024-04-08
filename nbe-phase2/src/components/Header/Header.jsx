@@ -19,10 +19,12 @@ function Header() {
           className="about-button"
           backgroundColor="#727845"
           variant="solid"
-          size="md"
+          size={{ base: "sm", md: "sm", lg: "md", xl: "md" }}
           color="#FFFFFF"
         >
+          <p className="about-text">
           About this Project
+          </p>
         </Button>
       </div>
     </div>

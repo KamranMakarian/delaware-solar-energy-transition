@@ -17,7 +17,10 @@ div.header-container {
   padding: var(--padding-xl);
 }
 
+
 div.header-title h1 {
+  display: flex;
+  flex-wrap: nowrap;
   font-family: var(--font-family-roboto);
   font-size: var(--font-size-4xl);
   color: var(--font-color-white);
@@ -42,30 +45,17 @@ div.header-container::before {
   z-index: -1;
 }
 
-div.header-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-end;
-  font-family: var(--font-family-roboto);
-  font-size: var(--font-size-2xl);
-  color: var(--font-color-white);
-  font-weight: var(--font-weight-bold);
-  letter-spacing: var(--spacing-3xs);
-  padding-left: var(--padding-5xl);
-  z-index: 2;
-}
-
-img.image-sun {
+/* img.image-sun {
   width: 2.8rem;
   height: 2.8rem;
   padding-top: 0.4rem;
-}
-.header-title h1 {
+} */
+
+/* .header-title h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
+} */
 
 
 div.button-about-project {
@@ -77,8 +67,57 @@ div.button-about-project {
   right: 3%;
 }
 
+p.about-text {
+  font-size: var(--font-size-lg);
+}
+
 .invisible-spacer {
   width: 20px; /* Adjust the width as needed */
   height: 1px; /* Ensures that the spacer doesn't affect the layout vertically */
   visibility: hidden; /* Hides the spacer visually */
 }
+
+
+@media screen and (max-width: 1280px) {
+ 
+div.header-title h1 {
+  font-size: 2.5rem;    
+}
+
+div.header-title img {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding-top: 0.2rem;
+}
+
+div.button-about-project {
+  top: 2%;
+  right: 2%;
+  }
+  
+  p.about-text {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+ 
+  div.header-title h1 {
+    font-size: 2rem;      
+  }
+  
+  div.header-title img {
+    width: 2rem;
+    height: 2rem;
+    padding-top: 0.2rem;
+  }
+  
+  div.button-about-project {
+    top: 1%;
+    right: 1%;
+    }
+    
+    p.about-text {
+      font-size: var(--font-size-xxs);
+    }
+  }
