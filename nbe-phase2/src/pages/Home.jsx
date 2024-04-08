@@ -8,7 +8,7 @@ import RechartsLineChart from "../components/LineChart/RechartsLineChart";
 import Loader from "../components/Loader/Loader";
 import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
-import { Box } from "@chakra-ui/react";
+
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -44,13 +44,7 @@ function Home() {
   return (
     <div className="home-container" id="home-container">
       <Header />
-      <Box
-        maxH="18%"
-        maxW={"100%"}
-        overflowX={overflowX}
-        overflowY={"auto"}
-        className="box-district-cards-container"
-      >
+
       <div className="district-cards-container">
         {districtData.map((districtData) => {
           return (
@@ -63,7 +57,7 @@ function Home() {
           );
         })}
       </div>
-      </Box>
+      
 
       <div className="home-spinner-container">
         {loading && !data && <Loader />}

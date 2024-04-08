@@ -8,6 +8,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
+  /* overflow-x: scroll; */
   align-items: center;
   margin-top: var(--spacing-3xs);
   border: 4px solid var(--cards-border-color);
