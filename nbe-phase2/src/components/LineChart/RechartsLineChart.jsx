@@ -116,12 +116,14 @@ function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
   if (active && payload && payload.length) {
     
     const verbToUse = payload[0].name === "historical" ? "has" : "will have";    
-    const valueToDisplay = yAxisUnit === "$" ? `$${payload[0].value}` : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
+    const dollarValue = payload[0].value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const valueToDisplay = yAxisUnit === "$" ? `$${dollarValue}` : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
 
     return (
       <div className="custom-tooltip">
-        <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p>
+        {/* <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p> */}
+        <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}` }</p>
 
       </div>
     );
