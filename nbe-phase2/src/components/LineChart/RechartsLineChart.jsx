@@ -49,7 +49,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
   };
 
   return (
-    <div className="recharts-viz-container" >
+    <div className="recharts-viz-container" id="recharts-viz-container">
       <h2>
         <HighlightedWord
           text={chartTitle}

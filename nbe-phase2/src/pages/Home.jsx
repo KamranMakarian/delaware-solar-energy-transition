@@ -8,6 +8,7 @@ import RechartsLineChart from "../components/LineChart/RechartsLineChart";
 import Loader from "../components/Loader/Loader";
 import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
+import ReactPdfDownload from "../components/PdfDownload/ReactPdfDownload";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,7 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
+      const startTime = new Date().getTime();
       try {
         const result = await predict(districtId);
         setData(result);
@@ -28,6 +30,8 @@ function Home() {
         console.error(error.toString());
       } finally {
         setLoading(false);
+        const endTime = new Date().getTime();
+        console.log(`API call took ${endTime - startTime} ms`);
       }
     }
 
@@ -59,7 +63,8 @@ function Home() {
           <>
             <div className="home-download-buttons">
               <DownloadCSVButton data={data} />
-              <GenerateJsPdf />
+              {/* <GenerateJsPdf /> */}
+              <ReactPdfDownload />
             </div>
             <div className="home-viz-container" id="home-viz-container">
               <RechartsLineChart
@@ -109,3 +114,6 @@ function Home() {
 }
 
 export default Home;
+
+
+
