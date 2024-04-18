@@ -8,9 +8,9 @@ function Header() {
     <div className="header-container">
       <div className="header-title">
         <h1>
-          Visualizing Delaware's S
+          Delaware's S
           <img src={sun} alt="Sun Image" className="image-sun" />
-          lar Energy Transition{" "}
+          lar Energy Transition: Trends and Projections{" "}
         </h1>
       </div>
       <div className="button-about-project">

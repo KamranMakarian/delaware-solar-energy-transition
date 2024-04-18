@@ -1,4 +1,5 @@
-.recharts-viz-container {        
+.recharts-viz-container {      
+    background-color: gainsboro;  
     margin: var(--spacing-md);
     padding: var(--padding-md);
     border: 2px solid var(--cards-border-color);

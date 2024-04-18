@@ -3,7 +3,8 @@ import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
   const color = isSelected ? "#F7B704" : "white";
-  const backgroundColor = isSelected ? "#ffffff" : "#263e44";
+  // const backgroundColor = isSelected ? "#ffffff" : "#263e44";
+  const backgroundColor = isSelected ? "#42113c" : "#618b25";
   const backgroundSize = isSelected ? "cover" : "contain";
   const backgroundImg = `url(district${id}.png)`;
   

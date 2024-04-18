@@ -1,9 +1,10 @@
-import generatePDF, {Resolution, Margin} from "react-to-pdf";
-import { Button } from "@chakra-ui/react";
+import React, { useEffect, useRef } from 'react';
+import generatePDF, { Resolution, Margin } from 'react-to-pdf';
+import { Button } from '@chakra-ui/react';
 
 function ReactPdfDownload() {
-  const options = {
-    filename: "report.pdf",
+  const options = useRef({
+    filename: "Delaware's Solar Energy Transition.pdf",
     method: "save",
     resolution: Resolution.EXTREME,
     page: {
@@ -14,6 +15,11 @@ function ReactPdfDownload() {
     canvas: {
       mimeType: "image/jpeg",
       qualityRatio: 1,
+      width: window.innerWidth,
+      height: 0, // We'll set the height dynamically later
+    },
+    viewer: {
+      zoom: 1,
     },
     overrides: {
       pdf: {
@@ -23,19 +29,35 @@ function ReactPdfDownload() {
         useCORS: true,
       },
     },
+  });
+
+  const getTargetElement = () => {
+    return document.body;
   };
 
-const getTargetElement = () => {
-    return document.body;
+  useEffect(() => {
+    const handleResize = () => {
+      options.current.canvas.width = window.innerWidth;
+    };
 
-    // return document.querySelector(".home-viz-container");
-    // const elements = document.querySelectorAll(".recharts-viz-container");
-    // console.log(elements);
-    // return Array.from(elements);
-};
+    const handleScroll = () => {
+      options.current.canvas.height = document.body.scrollHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+
+    // Initial height calculation
+    options.current.canvas.height = document.body.scrollHeight;
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const downloadPDF = async () => {
-    return generatePDF(getTargetElement, options);
+    return generatePDF(getTargetElement, options.current);
   };
 
   return (

@@ -1,34 +1,3 @@
-// import React from "react";
-// import { Button } from "@chakra-ui/react";
-// import jsPDF from "jspdf";
-// import html2canvas from "html2canvas";
-
-// const GenerateJsPdf = () => {
-//   const handleDownloadPDF = () => {
-//     const element = document.documentElement; 
-//     if (element) {
-//       html2canvas(element).then((canvas) => {
-//         const imgData = canvas.toDataURL("image/png");
-//         const pdf = new jsPDF("landscape", "mm", "a2");
-//         pdf.addImage(imgData, "PNG", 40, 40);
-//         pdf.save("DE's Solar Energy Transition.pdf"); 
-//       });
-//     }
-//   };
-
-//   return (
-//     <div onClick={handleDownloadPDF}>
-//       <Button colorScheme="blue" variant="solid" size="md" margin={3}>
-//         Download as PDF
-//       </Button>
-//     </div>
-//   );
-// };
-
-// export default GenerateJsPdf;
-
-
-
 import React from "react";
 import { Button } from "@chakra-ui/react";
 import jsPDF from "jspdf";
@@ -38,9 +7,7 @@ const GenerateJsPdf = () => {
   const handleDownloadPDF = () => {
     html2canvas(document.body, {
       scale: 1,
-      windowHeight: document.documentElement.scrollHeight,
-      scrollY: window.scrollY,
-      scrollX: window.scrollX,
+      height: document.documentElement.scrollHeight,
     }).then((canvas) => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF("p", "mm", "a4");
@@ -60,7 +27,7 @@ const GenerateJsPdf = () => {
         margin={3}
         onClick={handleDownloadPDF}
       >
-        Snapshot to PDF
+        jsPDF Download
       </Button>
     </div>
   );

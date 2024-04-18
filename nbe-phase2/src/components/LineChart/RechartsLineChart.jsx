@@ -61,7 +61,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
       </h2>
       <ResponsiveContainer height={350}>
         <LineChart>
-          <CartesianGrid strokeDasharray="3 3" />
+          {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <XAxis
             dataKey="year"
             allowDuplicatedCategory={false}

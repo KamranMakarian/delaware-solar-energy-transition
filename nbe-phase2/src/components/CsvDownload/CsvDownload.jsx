@@ -17,7 +17,7 @@ const DownloadCSVButton = ({ data }) => {
 
   return (
     <Button colorScheme="blue" variant="solid" size="md" onClick={handleDownloadCSV} margin={3}>
-      Export Data in CSV
+      Export Data to CSV
     </Button>
   );
 };
