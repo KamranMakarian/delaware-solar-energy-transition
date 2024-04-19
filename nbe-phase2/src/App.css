@@ -27,13 +27,14 @@
   --font-color-grey: #808080;
 
 
-  /* Fonts */
-  --font-family-roboto: "Roboto";
-  --font-family-open-sans: "Open Sans";
-  --font-family-montserrat: "Montserrat";
-  --font-family-lato: "Lato";
-  --font-family-arial: "Arial";
-  --font-family-aleo: "Aleo";
+/* Fonts */
+--font-family-roboto: "Roboto", sans-serif;
+--font-family-open-sans: "Open Sans", sans-serif;
+--font-family-montserrat: "Montserrat", sans-serif;
+--font-family-lato: "Lato", sans-serif;
+--font-family-arial: "Arial", sans-serif;
+--font-family-aleo: "Aleo", serif;
+
 
   /* Font Sizes */
   --font-size-xxs: 0.5rem;

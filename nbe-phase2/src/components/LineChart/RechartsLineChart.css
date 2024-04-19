@@ -1,5 +1,5 @@
 .recharts-viz-container {      
-    background-color: gainsboro;  
+    background-color: #d1d1d1;  
     margin: var(--spacing-md);
     padding: var(--padding-md);
     border: 2px solid var(--cards-border-color);
@@ -18,7 +18,8 @@ h2 {
 }
 
 .custom-tooltip {
-    background-color: #F7B704;
+    /* background-color: #F7B704; */
+     background-color: #fffddf;
     padding: var(--padding-md);
     border-radius: var(--border-radius-md);
     color: var(--font-color-black);

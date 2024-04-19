@@ -2,9 +2,8 @@ import { Card, CardFooter } from "@chakra-ui/react";
 import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
-  const color = isSelected ? "#F7B704" : "white";
-  // const backgroundColor = isSelected ? "#ffffff" : "#263e44";
-  const backgroundColor = isSelected ? "#42113c" : "#618b25";
+  const color = isSelected ? "#ffffff" : "#ffffff";
+  const backgroundColor = isSelected ? "#8f8f8f" : "#006400";
   const backgroundSize = isSelected ? "cover" : "contain";
   const backgroundImg = `url(district${id}.png)`;
   
@@ -24,7 +23,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
       <Card
         width={{ base: "25vw", md: "20vw", lg: "15vw", xl: "12vw"}}
         height={{ base: "15vh", md: "15vh", lg: "15vh", xl: "15vh"}}
-        border={"3px solid #263e44"}
+        // border={"3px solid #263e44"}
         size="md"
         borderRadius="lg"
         overflow="hidden"

@@ -32,9 +32,9 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
       } else {
         acc.predictionData.push(newData);
       }
-
       return acc;
     },
+
     { historicalData: [], predictionData: [] }
   );
 
@@ -43,10 +43,19 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
     data: historicalData,
   };
 
+  const lastHistoricalData =
+    historicalDataToPlot.data.length > 0
+      ? historicalDataToPlot.data[historicalDataToPlot.data.length - 1]
+      : null;
+
   const predictionDataToPlot = {
     name: "prediction",
     data: predictionData,
   };
+
+  if (lastHistoricalData !== null) {
+    predictionDataToPlot.data.unshift(lastHistoricalData);
+  }
 
   return (
     <div className="recharts-viz-container" id="recharts-viz-container">
@@ -82,11 +91,12 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
               }
             }}
           />
-          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id}/>} />
+          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id} />} />
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
             dataKey="value"
+            fill="#4B0082"
             stroke="#4B0082"
             name={historicalDataToPlot.name}
             strokeWidth={2}
@@ -100,6 +110,20 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
             strokeWidth={2}
             name={predictionDataToPlot.name}
             animationDuration={3000}
+            dot={(props) => {              
+              return (
+                <circle
+                  key={props.index}
+                  cx={props.cx}
+                  cy={props.cy}
+                  r={props.index === 0 ? 0 : 3}
+                  fill={props.index === 0 ? "#4B0082" : "#fff"}
+                  stroke={props.index === 0 ? "#4B0082" : "#006400"}
+                  strokeWidth={2}
+                />
+              );
+            }}
+            connectNulls={true}
           />
         </LineChart>
       </ResponsiveContainer>
@@ -110,30 +134,29 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
 export default RechartsLineChart;
 
 function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
-  
   const formattedYear = convertDate(label);
-  
-  if (active && payload && payload.length) {
-    
-    const verbToUse = payload[0].name === "historical" ? "has" : "will have";    
-    const dollarValue = payload[0].value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const valueToDisplay = yAxisUnit === "$" ? `$${dollarValue}` : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
+  if (active && payload && payload.length) {
+    const verbToUse = payload[0].name === "historical" ? "has" : "will have";
+    const dollarValue = payload[0].value
+      .toFixed(2)
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    const valueToDisplay =
+      yAxisUnit === "$"
+        ? `$${dollarValue}`
+        : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
     return (
       <div className="custom-tooltip">
         {/* <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p> */}
-        <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}` }</p>
-
+        <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}`}</p>
       </div>
     );
   }
   return null;
 }
 
-
 function formatYAxisTicks(value, yAxisUnit) {
-  
   if (yAxisUnit === "$") {
     const formattedValue = (value / 1000).toFixed(0);
     return `$${formattedValue}K`;
@@ -141,21 +164,17 @@ function formatYAxisTicks(value, yAxisUnit) {
   return value;
 }
 
-
 function convertDate(label) {
-  
   // Split the original date string into month and year parts
-  const [month, year] = String(label).split(' ');
+  const [month, year] = String(label).split(" ");
 
   // Create a JavaScript Date object using only the month part and any arbitrary day (e.g., 1)
   const date = new Date(`${month} 1, ${year}`);
 
   // Format the month to full month name (e.g., "June") and format the year
-  const formattedMonth = date.toLocaleString('default', { month: 'long' });
+  const formattedMonth = date.toLocaleString("default", { month: "long" });
   const formattedYear = date.getFullYear();
 
   // Return the formatted date string
   return `${formattedMonth} ${formattedYear}`;
 }
-
-
