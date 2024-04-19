@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Aleo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/aleo/v4/c4mp4n90JTN98tF6sZGDrxjeolSCoGfCwR3ayawo.ttf') format('truetype');
+}
+
+
 div.header-container {
   background-image: url("../../assets/solar3.jpg");
   background-size: cover;
@@ -21,11 +29,11 @@ div.header-container {
 div.header-title h1 {
   display: flex;
   flex-wrap: nowrap;
-  font-family: var(--font-family-aleo);  
-  font-size: var(--font-size-4xl);
+  font-family: 'Aleo';    
+  font-size: clamp(1rem, calc(1.386vw + 1.141rem), 2.8rem);
   color: var(--font-color-white);
   font-weight: var(--font-weight-bold);
-  letter-spacing: var(--spacing-3xs);
+  line-height: clamp(2.25rem, calc(1.247vw + 1.927rem), 2.925rem);  
 }
 
 div.header-title img {
