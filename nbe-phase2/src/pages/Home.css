@@ -31,6 +31,14 @@
   align-items: center;  
 }
 
+.nav-btn-container {
+  position: fixed;
+  top: 35%;
+  left: 2.5%;
+  margin: var(--margin-md);
+  padding: var(--padding-md);
+}
+
 .home-download-buttons {
   position: fixed;
   display: flex;

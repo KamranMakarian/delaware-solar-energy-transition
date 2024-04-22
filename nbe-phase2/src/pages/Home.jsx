@@ -11,6 +11,7 @@ import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 import ReactPdfDownload from "../components/PdfDownload/ReactPdfDownload";
 import AboutProject from "../components/AboutProject/AboutProject";
 import ImageDownloader from "../components/ImageDownload/ImageDownloader";
+import { Button, Link } from "@chakra-ui/react";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,13 @@ function Home() {
       <div className="home-content-container" id="home-content-container">
         {!loading && data && (
           <>
+            <div className="nav-btn-container">
+              <Link href="https://innovation-natural-built-env.pages.dev/">
+                <Button colorScheme="orange" margin={3} variant="solid">
+                  Navigate To DE's Solar Energy Transition Dashboard
+                </Button>
+              </Link>
+            </div>
             <div className="home-download-buttons">
               <DownloadCSVButton data={data} />
               {/* <GenerateJsPdf /> */}
@@ -77,7 +85,9 @@ function Home() {
                 fieldToPlot={"system_count"}
                 yAxisLabel={"System Count"}
                 yAxisUnit={""}
-                chartTitle={"PV System Count : Historical Trends and Projections"}
+                chartTitle={
+                  "PV System Count : Historical Trends and Projections"
+                }
               />
               <RechartsLineChart
                 data={data}
@@ -118,6 +128,3 @@ function Home() {
 }
 
 export default Home;
-
-
-
