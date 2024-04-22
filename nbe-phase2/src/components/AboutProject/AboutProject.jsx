@@ -6,6 +6,7 @@ import dharneesh from "../../assets/dharneesh.jpg";
 import kamran from "../../assets/kamran.jpg";
 import nile from "../../assets/nile.jpg";
 import logo from "../../assets/ti-logo.png";
+import { BsFillInfoCircleFill } from "react-icons/bs";
 
 function AboutProject() {
   const members = [
@@ -237,13 +238,9 @@ function AboutProject() {
         {isMobile ? <BsFillInfoCircleFill size={24} /> : "About this Project"}
       </button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {/* <h2>Modal Title</h2> */}
-
         <div className="buttonContainer">
           <button
-           className={`infoButton ${activeButton === 0 ? "active" : ""}`}
-
-
+            className={`infoButton ${activeButton === 0 ? "active" : ""}`}
             onClick={() => handleButtonClick(0)}
             autoFocus
           >
@@ -251,9 +248,7 @@ function AboutProject() {
           </button>
           <button
             className={`infoButton ${activeButton === 0 ? "active" : ""}`}
-
             onClick={() => handleButtonClick(1)}
-            // autoFocus
           >
             About the Team
           </button>
@@ -286,15 +281,13 @@ function Bio({ pictureUrl, name, role }) {
 }
 
 function Modal({ isOpen, onClose, children }) {
-    if (!isOpen) return null;
-  
-    return (
-      <div className="modalOverlay" onClick={onClose}>
-        <div className="modalContent" onClick={(e) => e.stopPropagation()}>
-          {children}
-        </div>
-      </div>
-    );
-  }
+  if (!isOpen) return null;
 
-  
+  return (
+    <div className="modalOverlay" onClick={onClose}>
+      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+        {children}
+      </div>
+    </div>
+  );
+}

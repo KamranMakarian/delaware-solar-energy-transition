@@ -72,11 +72,9 @@
   position: absolute;
   background-color: var(--theme-olive);
   color: white;
-  border: none;
-  right: 5%;
+  border: none;  
   border-radius: 5px;
-  padding: var(--padding-sm);
-  z-index: 9000;
+  padding: var(--padding-sm);  
   cursor: pointer;
   transition: var(--theme-olive) 0.2s ease;
 }
@@ -127,8 +125,7 @@
   bottom: 11%;
   border-radius: 5px;
   padding: var(--padding-sm);
-  margin-top: var(--padding-sm);
-  z-index: 9000;
+  margin-top: var(--padding-sm);  
   cursor: pointer;
   transition: var(--theme-olive) 0.2s ease;
 }
@@ -182,7 +179,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
-    z-index: 999999;
+    
   }
   
   .modalContent {
@@ -199,6 +196,7 @@
     min-height: 750px;
     overflow: auto;
     border: rgb(200, 200, 200) 1px solid;
+    
 
   }
 
