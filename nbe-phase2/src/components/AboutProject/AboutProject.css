@@ -1,5 +1,5 @@
 .main-body {
-  max-width: 900px;
+  max-width: 900px;  
   font-size: 14px;
   color: rgb(98, 98, 98);
 }
@@ -14,12 +14,14 @@
 
 .main-body h4 {
   color: var(--primary-color);
+  padding-top: var(--padding-md);
 }
 
 .additional-resources {
   width: 100%;
   font-size: 14px;
   color: rgba(98, 98, 98);
+  padding-top: var(--padding-md);
 }
 
 .additional-resources a {
@@ -62,6 +64,8 @@
   margin-bottom: 40px;
 }
 
+
+
 .logo {
   position: absolute;
   bottom: 18%;
@@ -69,7 +73,9 @@
 }
 
 .aboutBtn {
-  position: absolute;
+  position: fixed;
+  right: 7%;
+  top: 4%;
   background-color: var(--theme-olive);
   color: white;
   border: none;  
@@ -152,16 +158,34 @@
 }
 
 .biographyContent {
-    flex: 1;
+    flex: 1;    
 }
 
+.bioContainer-member {
+    display: flex;
+    flex-direction: row;
+    color: var(--font-color-black);
+    margin-bottom: 20px;
+}
+.name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}       
 .name {
-    font-size: 1rem;
+    font-size: 1rem;    
 }
 
 .role {
-    font-size: 0.8rem;
-    color: #888;
+    font-size: 1rem;    
+    padding-left: var(--padding-md);
+}
+
+.linkedinLogo {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .biographyText {
@@ -179,7 +203,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
-    z-index: 99999;
+    z-index: 9999;
   }
   
   .modalContent {
@@ -193,10 +217,10 @@
     max-width: 90%;
     min-width: 900px;
     max-height: 90%;
-    min-height: 750px;
+    min-height: 800px;
     overflow: auto;
     border: rgb(200, 200, 200) 1px solid;
-    z-index: 100000;   
+    z-index: 99999;   
 
   }
 

@@ -9,6 +9,7 @@ import Loader from "../components/Loader/Loader";
 import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 import ReactPdfDownload from "../components/PdfDownload/ReactPdfDownload";
+import AboutProject from "../components/AboutProject/AboutProject";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -41,6 +42,7 @@ function Home() {
   return (
     <div className="home-container" id="home-container">
       <Header />
+      <AboutProject />
 
       <div className="district-cards-container">
         {districtData.map((districtData) => {

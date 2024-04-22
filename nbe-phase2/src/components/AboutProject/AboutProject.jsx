@@ -4,47 +4,39 @@ import christy from "../../assets/christy.jpg";
 import danny from "../../assets/danny.jpg";
 import dharneesh from "../../assets/dharneesh.jpg";
 import kamran from "../../assets/kamran.jpg";
-import nile from "../../assets/nile.jpg";
 import logo from "../../assets/ti-logo.png";
 import { BsFillInfoCircleFill } from "react-icons/bs";
-
+import linkedinlogo from "../../assets/LinkedIn.png";
 
 function AboutProject() {
   const members = [
     {
-      name: "Christy Grothues",
-      img: christy,
-      role: "Frontend Data Visualization Fellow",
+      name: "Kamran Makarian",
+      img: kamran,
+      role: "Data Scientist Fellow",
       github: "",
-      linkedin: "",
-    },
-    {
-      name: "Leobardo D. Martinez-Quiroz",
-      img: danny,
-      role: "Frontend Data Visualization Fellow",
-      github: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/kamranmakarian/",
     },
     {
       name: "Dharneeshkar Jayaprakash",
       img: dharneesh,
       role: "Data Engineer",
       github: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/dharneeshkar/",
     },
     {
-      name: "Kamran Makarian",
-      img: kamran,
-      role: "Data Scientist Fellow",
+      name: "Christy Gumban-Grothues",
+      img: christy,
+      role: "Front-End Data Visualization Fellow",
       github: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/christy-gumban-grothues/",
     },
     {
-      name: "Nile Reed Miller",
-      img: nile,
-      role: "Frontend Developer",
+      name: "Leobardo D. Martinez-Quiroz",
+      img: danny,
+      role: "Front-End Data Visualization Fellow",
       github: "",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/leobardo-martinez/",
     },
   ];
 
@@ -217,9 +209,10 @@ function AboutProject() {
               {members.map((member) => (
                 <Bio
                   key={member.id}
-                  pictureUrl={member.pictureUrl}
+                  pictureUrl={member.img}
                   name={member.name}
                   role={member.role}
+                  linkedin={member.linkedin}
                 />
               ))}
             </div>
@@ -266,13 +259,27 @@ function AboutProject() {
 
 export default AboutProject;
 
-function Bio({ pictureUrl, name, role }) {
+function Bio({ pictureUrl, name, role, linkedin }) {
   return (
-    <div className="bioContainer">
+    <div className="bioContainer-member">
       <div className="biography">
         <img src={pictureUrl} alt="Profile" className="profilePicture" />
         <div className="biographyContent">
-          <h2 className="name">{name}</h2>
+          <div className="name-container">
+            <h2 className="name">{name}</h2>
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="linkedin-container"
+            >
+              <img
+                src={linkedinlogo}
+                alt="LinkedIn Logo"
+                className="linkedinLogo"
+              />
+            </a>
+          </div>
           <h3 className="role">{role}</h3>
           {/* <p className={styles.biographyText}>{text}</p> */}
         </div>

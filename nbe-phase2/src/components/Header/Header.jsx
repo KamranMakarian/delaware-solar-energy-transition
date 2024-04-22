@@ -3,7 +3,7 @@ import "./Header.css";
 import { Button } from "@chakra-ui/react";
 import sun from "../../images/sun.png";
 import AboutProject from "../AboutProject/AboutProject";
-import AboutUsingChakra from "../AboutProject/AboutUsingChakra";
+
 
 function Header() {
   return (
@@ -28,7 +28,7 @@ function Header() {
           {/* <p className="about-text">
           About this Project
           </p> */}
-          <AboutProject />
+          {/* <AboutProject /> */}
         {/* </Button> */}
       </div>
     </div>
