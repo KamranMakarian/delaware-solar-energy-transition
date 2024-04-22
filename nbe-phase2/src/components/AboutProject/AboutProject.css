@@ -179,7 +179,7 @@
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(5px);
-    
+    z-index: 99999;
   }
   
   .modalContent {
@@ -196,7 +196,7 @@
     min-height: 750px;
     overflow: auto;
     border: rgb(200, 200, 200) 1px solid;
-    
+    z-index: 100000;   
 
   }
 

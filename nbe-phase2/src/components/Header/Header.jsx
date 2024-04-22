@@ -3,6 +3,7 @@ import "./Header.css";
 import { Button } from "@chakra-ui/react";
 import sun from "../../images/sun.png";
 import AboutProject from "../AboutProject/AboutProject";
+import AboutUsingChakra from "../AboutProject/AboutUsingChakra";
 
 function Header() {
   return (
@@ -14,6 +15,7 @@ function Header() {
           lar Energy Transition: Trends and Projections{" "}
         </h1>
       </div>
+      {/* <AboutUsingChakra /> */}
       <div className="button-about-project">
         {/* <InvisibleSpacer /> */}
         {/* <Button
@@ -35,6 +37,6 @@ function Header() {
 
 export default Header;
 
-function InvisibleSpacer() {
-  return <div className="invisible-spacer" />;
-}
+// function InvisibleSpacer() {
+//   return <div className="invisible-spacer" />;
+// }

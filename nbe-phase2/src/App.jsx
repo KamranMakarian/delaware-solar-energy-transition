@@ -1,7 +1,14 @@
 import "./App.css";
-import { ChakraProvider } from "@chakra-ui/react";
+import { extendTheme, ChakraProvider, Card } from "@chakra-ui/react";
 import Home from "./pages/Home";
 
+const customTheme = extendTheme({
+  zIndices: {    
+    Card: "1",
+    Button: "1",
+    CardFooter: "1",
+  },
+});
 
 
 
@@ -9,7 +16,7 @@ function App() {
 
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <Home />
     </ChakraProvider>
   );

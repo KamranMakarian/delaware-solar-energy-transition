@@ -8,6 +8,7 @@ import nile from "../../assets/nile.jpg";
 import logo from "../../assets/ti-logo.png";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 
+
 function AboutProject() {
   const members = [
     {
