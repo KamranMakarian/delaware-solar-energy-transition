@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 import { Button } from "@chakra-ui/react";
 import sun from "../../images/sun.png";
+import AboutProject from "../AboutProject/AboutProject";
 
 function Header() {
   return (
@@ -14,18 +15,19 @@ function Header() {
         </h1>
       </div>
       <div className="button-about-project">
-        <InvisibleSpacer />
-        <Button
+        {/* <InvisibleSpacer /> */}
+        {/* <Button
           className="about-button"
           backgroundColor="#727845"
           variant="solid"
           size={{ base: "sm", md: "sm", lg: "md", xl: "md" }}
           color="#FFFFFF"
-        >
-          <p className="about-text">
+        > */}
+          {/* <p className="about-text">
           About this Project
-          </p>
-        </Button>
+          </p> */}
+          <AboutProject />
+        {/* </Button> */}
       </div>
     </div>
   );
