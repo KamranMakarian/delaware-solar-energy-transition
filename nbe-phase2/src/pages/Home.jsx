@@ -10,6 +10,7 @@ import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 import ReactPdfDownload from "../components/PdfDownload/ReactPdfDownload";
 import AboutProject from "../components/AboutProject/AboutProject";
+import ImageDownloader from "../components/ImageDownload/ImageDownloader";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -66,7 +67,8 @@ function Home() {
             <div className="home-download-buttons">
               <DownloadCSVButton data={data} />
               {/* <GenerateJsPdf /> */}
-              <ReactPdfDownload />
+              {/* <ReactPdfDownload /> */}
+              <ImageDownloader />
             </div>
             <div className="home-viz-container" id="home-viz-container">
               <RechartsLineChart
