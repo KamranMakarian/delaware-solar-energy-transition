@@ -1,8 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { Button } from "@chakra-ui/react";
 import sun from "../../images/sun.png";
-import AboutProject from "../AboutProject/AboutProject";
 
 
 function Header() {
@@ -25,10 +23,10 @@ function Header() {
           size={{ base: "sm", md: "sm", lg: "md", xl: "md" }}
           color="#FFFFFF"
         > */}
-          {/* <p className="about-text">
+        {/* <p className="about-text">
           About this Project
           </p> */}
-          {/* <AboutProject /> */}
+        {/* <AboutProject /> */}
         {/* </Button> */}
       </div>
     </div>

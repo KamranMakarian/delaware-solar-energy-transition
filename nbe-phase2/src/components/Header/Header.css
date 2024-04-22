@@ -1,9 +1,8 @@
-@font-face {
+/* @font-face {
   font-family: 'Aleo';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://fonts.gstatic.com/s/aleo/v4/c4mp4n90JTN98tF6sZGDrxjeolSCoGfCwR3ayawo.ttf') format('truetype');
-}
+  font-style: normal;  
+  src: url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;500;600&display=swap');
+} */
 
 
 div.header-container {
@@ -26,11 +25,11 @@ div.header-container {
 }
 
 
-div.header-title h1 {
+ .header-title h1 {
   display: flex;
   flex-wrap: nowrap;
   font-family: 'Aleo';    
-  font-size: clamp(1rem, calc(1.386vw + 1.141rem), 2.8rem);
+  font-size: clamp(12px, calc(1.386vw + 1.141rem),36px);
   color: var(--font-color-white);
   font-weight: var(--font-weight-bold);
   line-height: clamp(2.25rem, calc(1.247vw + 1.927rem), 2.925rem);  
