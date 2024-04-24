@@ -76,7 +76,8 @@ function AboutProject() {
         return (
           <>
             <div className="main-body">
-              <p>
+              <p> More information about the project will be added soon.                </p>
+              {/* <p>
                 Welcome to Delaware’s Solar Energy Transition dashboard, which
                 offers a clear picture of how solar energy is evolving and how
                 Green Energy Program Grants are being distributed in Delaware.
@@ -147,7 +148,7 @@ function AboutProject() {
                   commencing from the year 2015 to the selected endpoint,
                   thereby illustrating the trajectory of growth.{" "}
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <div className="additional-resources">
               <h4>Additional Resources: </h4>
@@ -162,7 +163,7 @@ function AboutProject() {
                 </a>
                 .{" "}
               </p>
-              <p>
+              {/* <p>
                 To access U.S. Census, click{" "}
                 <a
                   href="https://www.census.gov/en.html"
@@ -172,7 +173,7 @@ function AboutProject() {
                   here
                 </a>
                 .{" "}
-              </p>
+              </p> */}
               <p>
                 To discover more about the Tech Impact Data Innovation Lab,
                 click{" "}

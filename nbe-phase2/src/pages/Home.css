@@ -1,6 +1,6 @@
 .home-container {
   width: 100%;
-  height: 100%;  
+  height: 100%;    
 }
 
 .district-cards-container {
@@ -24,11 +24,17 @@
   transform: translate(-50%, -50%);
 }
 
-.home-content-container {
+.home-content-container {  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;  
+  position: fixed;
+  background-color: #d1d1d1;  
+  top: 36.8%;
+  left: 0%;
+  width: 100%;
+  height: 80%;
 }
 
 .nav-btn-container {
@@ -51,7 +57,7 @@
   left: 38%;
 }
 
-.home-viz-container {
+.home-viz-container {  
   position: fixed;
   top: 43%;
   left: 3%;
