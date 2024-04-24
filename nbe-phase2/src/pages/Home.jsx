@@ -68,7 +68,7 @@ function Home() {
             <div className="nav-btn-container">
               <Link href="https://innovation-natural-built-env.pages.dev/">
                 <Button colorScheme="orange" margin={3} variant="solid">
-                  Navigate To DE's Solar Energy Transition Dashboard
+                  Navigate To Historical Visualization Dashboard
                 </Button>
               </Link>
             </div>
