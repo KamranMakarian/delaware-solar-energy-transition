@@ -34,7 +34,7 @@ function Home() {
       } finally {
         setLoading(false);
         const endTime = new Date().getTime();
-        console.log(`API call took ${endTime - startTime} ms`);
+        // console.log(`API call took ${endTime - startTime} ms`);
       }
     }
 

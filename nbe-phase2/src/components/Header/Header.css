@@ -29,7 +29,7 @@ div.header-container {
   display: flex;
   flex-wrap: nowrap;
   font-family: 'Aleo';    
-  font-size: clamp(12px, calc(1.386vw + 1.141rem),36px);
+  font-size: clamp(0.75em, calc(1.386vw + 1.141rem),2.25em);
   color: var(--font-color-white);
   font-weight: var(--font-weight-bold);
   line-height: clamp(2.25rem, calc(1.247vw + 1.927rem), 2.925rem);  
@@ -68,8 +68,8 @@ p.about-text {
 }
 
 .invisible-spacer {
-  width: 20px; /* Adjust the width as needed */
-  height: 1px; /* Ensures that the spacer doesn't affect the layout vertically */
+  width: 1.25em; /* Adjust the width as needed */
+  height: 0.063em; /* Ensures that the spacer doesn't affect the layout vertically */
   visibility: hidden; /* Hides the spacer visually */
 }
 

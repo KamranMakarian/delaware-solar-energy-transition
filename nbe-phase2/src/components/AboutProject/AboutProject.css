@@ -1,6 +1,6 @@
 .main-body {
-  max-width: 900px;  
-  font-size: 14px;
+  max-width: 56.25em;  
+  font-size: 0.875em;
   color: rgb(98, 98, 98);
 }
 
@@ -19,7 +19,7 @@
 
 .additional-resources {
   width: 100%;
-  font-size: 14px;
+  font-size: 0.875em;
   color: rgba(98, 98, 98);
   padding-top: var(--padding-md);
 }
@@ -43,8 +43,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 900px;
-  font-size: 14px;
+  max-width: 56.25em;
+  font-size: 0.875em;
   color: rgb(98, 98, 98);
 }
 
@@ -61,7 +61,7 @@
 }
 
 .bioContainer {
-  margin-bottom: 40px;
+  margin-bottom: 2.5em;
 }
 
 
@@ -69,7 +69,7 @@
 .logo {
   position: absolute;
   bottom: 18%;
-  height: 20px;
+  height: 1.25em;
 }
 
 .aboutBtn {
@@ -79,7 +79,7 @@
   background-color: var(--theme-olive);
   color: white;
   border: none;  
-  border-radius: 5px;
+  border-radius: 0.313em;
   padding: var(--padding-sm);  
   cursor: pointer;
   transition: var(--theme-olive) 0.2s ease;
@@ -92,7 +92,7 @@
 
 .buttonContainer {
   position: fixed;
-  top: 110px;
+  top: 6.875em;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -105,19 +105,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  border: 2px solid #0057b8;
-  font-size: 16px;
-  padding: 8px 10px;
-  margin: 0 20px;
-  max-width: 170px;
+  border-radius: 0.313em;
+  border: 0.125em solid #0057b8;
+  font-size: 1em;
+  padding: 0.5em 0.625em;
+  margin: 0 1.25em;
+  max-width: 10.625em;
   background-color: white;
   color: #0057b8;
 }
 .infoButton:hover,
 .infoButton.active {
   background: #0057b8;
-  border: 2px solid white;
+  border: 0.125em solid white;
 
   color: white;
   cursor: pointer;
@@ -129,7 +129,7 @@
   color: white;
   border: none;
   bottom: 11%;
-  border-radius: 5px;
+  border-radius: 0.313em;
   padding: var(--padding-sm);
   margin-top: var(--padding-sm);  
   cursor: pointer;
@@ -149,12 +149,12 @@
 }
 
 .profilePicture {
-    width: 90px;
-    height: 90px;
+    width: 5.625em;
+    height: 5.625em;
     border-radius: 50%;
-    margin-right: 30px;
-    margin-top: 20px;
-    box-shadow: 0 0 10px rgb(23, 23, 127);
+    margin-right: 1.875em;
+    margin-top: 1.25em;
+    box-shadow: 0 0 0.625em rgb(23, 23, 127);
 }
 
 .biographyContent {
@@ -165,7 +165,7 @@
     display: flex;
     flex-direction: row;
     color: var(--font-color-black);
-    margin-bottom: 20px;
+    margin-bottom: 1.25em;
 }
 .name-container {
     display: flex;
@@ -202,7 +202,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(0.313em);
     z-index: 9999;
   }
   
@@ -212,21 +212,21 @@
     justify-content: center;
     align-items: center;
     background: rgb(241, 241, 241);
-    padding: 30px 40px;
-    border-radius: 10px;
+    padding: 1.875em 2.5em;
+    border-radius: 0.625em;
     max-width: 90%;
-    min-width: 900px;
+    min-width: 56.25em;
     max-height: 90%;
-    min-height: 800px;
+    min-height: 50em;
     overflow: auto;
-    border: rgb(200, 200, 200) 1px solid;
+    border: rgb(200, 200, 200) 0.063em solid;
     z-index: 99999;   
 
   }
 
   @media screen and (max-width: 450px) {
     .modalContent {
-      padding: 10px 10px;
+      padding: 0.625em 0.625em;
       overflow-y: auto;
     }
   }
@@ -237,9 +237,9 @@
   }
 
   .main-body {
-    font-size: 12px;
+    font-size: 0.75em;
   }
   .resources {
-    font-size: 12px;
+    font-size: 0.75em;
   }
 }

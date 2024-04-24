@@ -2,7 +2,7 @@
     background-color: #ffffff;  
     margin: var(--spacing-md);
     padding: var(--padding-md);
-    border: 2px solid var(--cards-border-color);
+    border: 0.125em solid var(--cards-border-color);
     border-radius: var(--border-radius-md);
     width: 45%;       
 }
