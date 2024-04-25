@@ -10,6 +10,7 @@ import {
   Tooltip,
 } from "recharts";
 import HighlightedWord from "../HighlightWord/HighlightWord";
+import { Box } from "@chakra-ui/react";
 
 function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
   const dataArray = JSON.parse(data);
@@ -58,7 +59,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
   }
 
   return (
-    <div className="recharts-viz-container" id="recharts-viz-container">
+    <Box className="recharts-viz-container" id="recharts-viz-container">
       <h2>
         <HighlightedWord
           text={chartTitle}
@@ -110,7 +111,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
             strokeWidth={2}
             name={predictionDataToPlot.name}
             animationDuration={3000}
-            dot={(props) => {              
+            dot={(props) => {
               return (
                 <circle
                   key={props.index}
@@ -127,7 +128,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
           />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </Box>
   );
 }
 
@@ -147,10 +148,10 @@ function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
         : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
     return (
-      <div className="custom-tooltip">
+      <Box className="custom-tooltip">
         {/* <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p> */}
         <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}`}</p>
-      </div>
+      </Box>
     );
   }
   return null;

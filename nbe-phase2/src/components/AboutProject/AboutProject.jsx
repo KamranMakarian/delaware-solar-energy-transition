@@ -7,6 +7,7 @@ import kamran from "../../assets/kamran.jpg";
 import logo from "../../assets/ti-logo.png";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import linkedinlogo from "../../assets/LinkedIn.png";
+import { Box } from "@chakra-ui/react";
 
 function AboutProject() {
   const members = [
@@ -60,7 +61,7 @@ function AboutProject() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 450);
+      setIsMobile(window.innerWidth <= 768);
     };
 
     window.addEventListener("resize", handleResize);
@@ -75,8 +76,8 @@ function AboutProject() {
       case 0:
         return (
           <>
-            <div className="main-body">
-              <p> More information about the project will be added soon.                </p>
+            <Box className="main-body">
+              <p> More information about the project will be added soon. </p>
               {/* <p>
                 Welcome to Delaware’s Solar Energy Transition dashboard, which
                 offers a clear picture of how solar energy is evolving and how
@@ -149,8 +150,8 @@ function AboutProject() {
                   thereby illustrating the trajectory of growth.{" "}
                 </li>
               </ul> */}
-            </div>
-            <div className="additional-resources">
+            </Box>
+            <Box className="additional-resources">
               <h4>Additional Resources: </h4>
               <p>
                 To dive deeper into the Green Energy Program Grants, click{" "}
@@ -198,15 +199,15 @@ function AboutProject() {
                 </a>
                 .{" "}
               </p>
-            </div>
+            </Box>
           </>
         );
       case 1:
         return (
-          <div className="mainBodyTeam">
+          <Box className="mainBodyTeam">
             {/* <h4>About the Team</h4> */}
 
-            <div className="bioContainer">
+            <Box className="bioContainer">
               {members.map((member) => (
                 <Bio
                   key={member.id}
@@ -216,10 +217,10 @@ function AboutProject() {
                   linkedin={member.linkedin}
                 />
               ))}
-            </div>
+            </Box>
 
             <img className="logo" src={logo} alt="TI Logo" />
-          </div>
+          </Box>
         );
 
       default:
@@ -230,10 +231,10 @@ function AboutProject() {
   return (
     <>
       <button className="aboutBtn" onClick={handleOpenModal}>
-        {isMobile ? <BsFillInfoCircleFill size={24} /> : "About this Project"}
+        {isMobile ? <BsFillInfoCircleFill size={22} /> : "About this Project"}
       </button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        <div className="buttonContainer">
+        <Box className="buttonContainer">
           <button
             className={`infoButton ${activeButton === 0 ? "active" : ""}`}
             onClick={() => handleButtonClick(0)}
@@ -247,9 +248,9 @@ function AboutProject() {
           >
             About the Team
           </button>
-        </div>
+        </Box>
 
-        <div className="sectionInformation">{renderInformation()}</div>
+        <Box className="sectionInformation">{renderInformation()}</Box>
         <button className="closeBtn" onClick={handleCloseModal}>
           Close
         </button>
@@ -262,11 +263,11 @@ export default AboutProject;
 
 function Bio({ pictureUrl, name, role, linkedin }) {
   return (
-    <div className="bioContainer-member">
-      <div className="biography">
+    <Box className="bioContainer-member">
+      <Box className="biography">
         <img src={pictureUrl} alt="Profile" className="profilePicture" />
-        <div className="biographyContent">
-          <div className="name-container">
+        <Box className="biographyContent">
+          <Box className="name-container">
             <h2 className="name">{name}</h2>
             <a
               href={linkedin}
@@ -280,12 +281,12 @@ function Bio({ pictureUrl, name, role, linkedin }) {
                 className="linkedinLogo"
               />
             </a>
-          </div>
+          </Box>
           <h3 className="role">{role}</h3>
           {/* <p className={styles.biographyText}>{text}</p> */}
-        </div>
-      </div>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }
 
@@ -293,10 +294,10 @@ function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return (
-    <div className="modalOverlay" onClick={onClose}>
-      <div className="modalContent" onClick={(e) => e.stopPropagation()}>
+    <Box className="modalOverlay" onClick={onClose}>
+      <Box className="modalContent" onClick={(e) => e.stopPropagation()}>
         {children}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

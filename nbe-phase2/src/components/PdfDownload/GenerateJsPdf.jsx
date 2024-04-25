@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import {Box} from "@chakra-ui/react";
 
 const GenerateJsPdf = () => {
   const handleDownloadPDF = () => {
@@ -19,7 +20,7 @@ const GenerateJsPdf = () => {
   };
 
   return (
-    <div>
+    <Box>
       <Button
         colorScheme="blue"
         variant="solid"
@@ -29,7 +30,7 @@ const GenerateJsPdf = () => {
       >
         jsPDF Download
       </Button>
-    </div>
+    </Box>
   );
 };
 

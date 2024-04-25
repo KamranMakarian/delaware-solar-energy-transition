@@ -1,6 +1,6 @@
 import React from "react";
 import html2canvas from "html2canvas";
-import { Button } from "@chakra-ui/react";
+import { Button, Box} from "@chakra-ui/react";
 
 class ImageDownloader extends React.Component {
   constructor(props) {
@@ -32,9 +32,9 @@ class ImageDownloader extends React.Component {
   
   render() {
     return (
-      <div>
+      <Box>
         {/* This is the content you want to capture */}
-        <div ref={this.captureRef}>{this.props.children}</div>
+        <Box ref={this.captureRef}>{this.props.children}</Box>
         {/* Button to trigger image download */}
         <Button
           colorScheme="blue"
@@ -45,7 +45,7 @@ class ImageDownloader extends React.Component {
         >
           Snapshot To Image
         </Button>
-      </div>
+      </Box>
     );
   }
 }

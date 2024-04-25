@@ -11,7 +11,8 @@ import GenerateJsPdf from "../components/PdfDownload/GenerateJsPdf";
 import ReactPdfDownload from "../components/PdfDownload/ReactPdfDownload";
 import AboutProject from "../components/AboutProject/AboutProject";
 import ImageDownloader from "../components/ImageDownload/ImageDownloader";
-import { Button, Link } from "@chakra-ui/react";
+import { Button, Link, Box, Flex } from "@chakra-ui/react";
+import StateViz from "../components/StateViz/StateViz";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -42,11 +43,17 @@ function Home() {
   }, [districtId]);
 
   return (
-    <div className="home-container" id="home-container">
+    <Box className="home-container" id="home-container">
       <Header />
       <AboutProject />
-
-      <div className="district-cards-container">
+      <Flex
+        className="district-cards-container"
+        overflowX="scroll"
+        overflowY="hidden"
+        position="fixed"
+        top="18%"     
+        width="100%"
+      >
         {districtData.map((districtData) => {
           return (
             <DistrictCard
@@ -57,28 +64,29 @@ function Home() {
             />
           );
         })}
-      </div>
+      </Flex>
 
-      <div className="home-spinner-container">
+      <Box className="home-spinner-container">
         {loading && !data && <Loader />}
-      </div>
-      <div className="home-content-container" id="home-content-container">
+      </Box>
+      <Box className="home-content-container" id="home-content-container">
         {!loading && data && (
-          <>
-            <div className="nav-btn-container">
+          <Box>
+            <Box className="nav-btn-container">
               <Link href="https://innovation-natural-built-env.pages.dev/">
                 <Button colorScheme="orange" margin={3} variant="solid">
                   Navigate To Historical Visualization Dashboard
                 </Button>
               </Link>
-            </div>
-            <div className="home-download-buttons">
+            </Box>
+            <Box className="home-download-buttons">
               <DownloadCSVButton data={data} />
               {/* <GenerateJsPdf /> */}
               {/* <ReactPdfDownload /> */}
               <ImageDownloader />
-            </div>
-            <div className="home-viz-container" id="home-viz-container">
+              <StateViz />
+            </Box>
+            <Box className="home-viz-container" id="home-viz-container">
               <RechartsLineChart
                 data={data}
                 id={districtId}
@@ -119,11 +127,11 @@ function Home() {
                   "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
                 }
               />
-            </div>
-          </>
+            </Box>
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 

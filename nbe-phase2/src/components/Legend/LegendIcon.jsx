@@ -1,5 +1,6 @@
 import React from "react";
 import "./LegendIcon.css";
+import { Box } from "@chakra-ui/react";
 
 function LegendIcon() {
   const renderIcon = (color) => (
@@ -18,11 +19,11 @@ function LegendIcon() {
   );
 
   return (
-    <div className="legend-icons-container">
+    <Box className="legend-icons-container">
       <h2>Legend:</h2>
       <h3>Historical Data {renderIcon("#4B0082")} </h3>
       <h3> Predicted Data {renderIcon("#006400")}</h3>
-    </div>
+    </Box>
   );
 }
 

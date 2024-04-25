@@ -1,11 +1,4 @@
-/* @font-face {
-  font-family: 'Aleo';
-  font-style: normal;  
-  src: url('https://fonts.googleapis.com/css2?family=Aleo:wght@300;400;500;600&display=swap');
-} */
-
-
-div.header-container {
+.header-container {
   background-image: url("../../assets/solar3.jpg");
   background-size: cover;
   background-position: 10% 73%;
@@ -24,23 +17,22 @@ div.header-container {
   padding: var(--padding-xl);
 }
 
-
- .header-title h1 {
+.header-title h1 {
   display: flex;
   flex-wrap: nowrap;
-  font-family: 'Aleo';    
-  font-size: clamp(0.75em, calc(1.386vw + 1.141rem),2.25em);
+  font-family: "Aleo";
+  font-size: clamp(0.75em, calc(1.386vw + 1.141rem), 2.25em);
   color: var(--font-color-white);
   font-weight: var(--font-weight-bold);
-  line-height: clamp(2.25rem, calc(1.247vw + 1.927rem), 2.925rem);  
+  line-height: clamp(2.25rem, calc(1.247vw + 1.927rem), 2.925rem);
 }
 
-div.header-title img {
+.header-title img {
   width: 2.8rem;
   height: 2.8rem;
 }
 
-div.header-container::before {
+.header-container::before {
   content: "";
   position: absolute;
   top: 0;
@@ -52,15 +44,13 @@ div.header-container::before {
   z-index: -1;
 }
 
-
-div.button-about-project {
+.button-about-project {
   position: fixed;
   display: flex;
-  justify-content: flex-end;  
+  justify-content: flex-end;
   top: 4%;
   right: 7%;
   width: 10rem;
-  
 }
 
 p.about-text {
@@ -73,47 +63,90 @@ p.about-text {
   visibility: hidden; /* Hides the spacer visually */
 }
 
-
 @media screen and (max-width: 1280px) {
- 
-div.header-title h1 {
-  font-size: 2.5rem;    
-}
-
-div.header-title img {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding-top: 0.2rem;
-}
-
-div.button-about-project {
-  top: 2%;
-  right: 2%;
+  .header-title h1 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
   }
-  
+
+  .header-title img {
+    width: 2.5rem;
+    height: 2.5rem;
+    padding-top: 0.2rem;
+  }
+
+  .button-about-project {
+    top: 2%;
+    right: 2%;
+  }
+
   p.about-text {
     font-size: var(--font-size-sm);
   }
 }
 
-@media screen and (max-width: 1024px) {
- 
-  div.header-title h1 {
-    font-size: 2rem;      
+@media screen and (max-width: 1180px) {
+  .header-title h1 {
+    font-size: 2rem;
   }
-  
-  div.header-title img {
+
+  .header-title img {
+    width: 2rem;
+    height: 2.3rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header-title h1 {
+    font-size: 2rem;
+  }
+
+  .header-title img {
     width: 2rem;
     height: 2rem;
     padding-top: 0.2rem;
   }
-  
-  div.button-about-project {
+
+  .button-about-project {
     top: 1%;
     right: 1%;
-    }
-    
-    p.about-text {
-      font-size: var(--font-size-xxs);
-    }
   }
+
+  p.about-text {
+    font-size: var(--font-size-xxs);
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .header-title h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .header-title h1 {
+    font-size: 1.6rem;
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .header-title h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .header-title h1 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .header-title h1 {
+    font-size: 1rem;
+  }
+}

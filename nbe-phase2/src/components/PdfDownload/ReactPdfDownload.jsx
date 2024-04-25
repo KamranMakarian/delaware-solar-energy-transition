@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import generatePDF, { Resolution, Margin } from 'react-to-pdf';
-import { Button } from '@chakra-ui/react';
+import { Button, Box } from '@chakra-ui/react';
 
 function ReactPdfDownload() {
   const options = useRef({
@@ -61,7 +61,7 @@ function ReactPdfDownload() {
   };
 
   return (
-    <div>
+    <Box>
       <Button
         colorScheme="blue"
         variant="solid"
@@ -71,7 +71,7 @@ function ReactPdfDownload() {
       >
         Snapshot to PDF
       </Button>
-    </div>
+    </Box>
   );
 }
 
