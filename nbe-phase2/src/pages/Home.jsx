@@ -52,7 +52,7 @@ function Home() {
         overflowY="hidden"
         position="fixed"
         top="18%"     
-        width="100%"
+        width="100%"        
       >
         {districtData.map((districtData) => {
           return (
@@ -60,7 +60,7 @@ function Home() {
               key={districtData.id}
               id={districtData.id}
               onDistrictChange={handleDistrictChange}
-              isSelected={districtData.id === districtId}
+              isSelected={districtData.id === districtId}              
             />
           );
         })}

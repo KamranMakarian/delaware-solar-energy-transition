@@ -22,14 +22,15 @@ const customTheme = extendTheme({
   styles: {
     global: {
       "::-webkit-scrollbar": {
-        width: "12px", // width of the scrollbar
+        width: "0.75em", // width of the scrollbar
+        height: "0.75em", // height of the scrollbar
       },
       "::-webkit-scrollbar-track": {
         backgroundColor: "#f1f1f1", // color of the scrollbar track
       },
       "::-webkit-scrollbar-thumb": {
-        backgroundColor: "#888", // color of the scrollbar thumb
-        borderRadius: "6px", // rounded corners for the thumb
+        backgroundColor: "#19416C", // color of the scrollbar thumb
+        borderRadius: "0.375em", // rounded corners for the thumb
       },
     },
   },

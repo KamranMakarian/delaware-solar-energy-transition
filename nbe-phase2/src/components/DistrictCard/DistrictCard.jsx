@@ -28,17 +28,18 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           xs: "25vw",
           sm: "25vw",
           md: "20vw",
-          lg: "22vw",
+          lg: "18vw",
           xl: "12vw",          
           "2xl": "18vw",
           "3xl": "12vw",
-          "4xl": "12vw",
+          "4xl": "11vw",
         }}
         height={{
           "5xs": "15vh",
           md: "15vh",
           lg: "13vh",
           xl: "15vh",
+          lg: "14vh",
           "3xl": "15vh",
           "4xl": "15vh",
         }}
@@ -47,8 +48,8 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
         overflow="hidden"
         mt="3"
         mb="3"
-        ml="6"
-        mr="6"        
+        ml="4"
+        mr="4"
         color={color}
         _hover={{
           transform: "scale(1.5)",
