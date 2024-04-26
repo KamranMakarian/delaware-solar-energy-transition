@@ -219,7 +219,7 @@
   z-index: 99999;
 }
 
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 1368px) {
   .aboutBtn {
     height: 4%;
     top: 2%;
@@ -247,12 +247,111 @@
   }
 }
 
+@media screen and (max-width: 932px) {
+  .aboutBtn {
+    height: 7%;
+    width: 3.5%;
+    top: 1%;
+    right: 1%;
+  }
+
+  .info-icon {
+    width: 1.2rem;
+    height: 1.2rem;   
+  }
+}
+
+@media screen and (max-width: 914px) {
+  .aboutBtn {
+    height: 8%;
+    width: 4%;
+    top: 1%;
+    right: 1%;
+  }
+
+  .info-icon {
+    width: 1.5rem;
+    height: 1.5rem;   
+  }
+}
+
+@media screen and (max-width: 912px) {
+  .aboutBtn {
+    height: 4.5%;
+    width: 6.2%;
+    top: 2%;
+    right: 3%;
+  }
+
+  .info-icon {
+    width: 2.5rem;
+    height: 2.5rem;   
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .aboutBtn {
+    height: 7%;
+    width: 3.5%;
+    top: 1%;
+    right: 1%;
+  }
+
+  .info-icon {
+    width: 1.2rem;
+    height: 1.2rem;   
+  }
+}
+
+
+@media screen and (max-width: 882px) {
+  .aboutBtn {
+    height: 9%;
+    width: 4%;
+    top: 2%;
+    right: 2%;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .aboutBtn {
+    height: 4%;
+    width: 5%;
+    top: 2%;
+    right: 3%;
+  }
+  .info-icon {
+    width: 1.8rem;
+    height: 1.8rem;   
+  }
+
+}
+
 @media screen and (max-width: 768px) {
   .aboutBtn {
     height: 4%;
-    width: 4.8%;
+    width: 5%;
     top: 2%;
     right: 2%;
+  }
+
+  .info-icon {
+    width: 1.6rem;
+    height: 1.6rem;   
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .aboutBtn {
+    height: 8.2%;
+    width: 4.5%;
+    top: 2%;
+    right: 2%;
+  }
+
+  .info-icon {
+    width: 1.4rem;
+    height: 1.4rem;   
   }
 }
 
@@ -264,6 +363,20 @@
     right: 3%;
   }
 }
+@media screen and (max-width: 667px) {
+  .aboutBtn {
+    height: 7.5%;
+    width: 5%;
+    top: 2%;
+    right: 2%;
+  }
+
+  .info-icon {
+    width: 1.3rem;
+    height: 1.3rem;   
+  }
+}
+
 
 @media screen and (max-width: 540px) {
   .aboutBtn {
@@ -271,5 +384,27 @@
     width: 6%;
     top: 2%;
     right: 3%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .aboutBtn {
+    height: 4%;
+    width: 8%;
+    top: 2%;
+    right: 3%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .aboutBtn {
+    height: 5%;
+    width: 8%;
+    top: 2%;
+    right: 3%;
+  }
+
+  .info-icon {
+    width: 1.3rem;
+    height: 1.3rem;   
   }
 }

@@ -61,7 +61,7 @@ function AboutProject() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 932);
     };
 
     window.addEventListener("resize", handleResize);
@@ -231,7 +231,7 @@ function AboutProject() {
   return (
     <>
       <button className="aboutBtn" onClick={handleOpenModal}>
-        {isMobile ? <BsFillInfoCircleFill size={22} /> : "About this Project"}
+        {isMobile ? <BsFillInfoCircleFill className="info-icon" /> : "About this Project"}
       </button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <Box className="buttonContainer">
