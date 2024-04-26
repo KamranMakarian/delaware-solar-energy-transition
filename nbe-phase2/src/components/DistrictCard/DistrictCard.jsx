@@ -1,4 +1,4 @@
-import { Card, CardFooter, Box, Container } from "@chakra-ui/react";
+import { Card, CardFooter, Box, Container, useBreakpointValue } from "@chakra-ui/react";
 import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
@@ -6,6 +6,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
   const backgroundColor = isSelected ? "#8f8f8f" : "#006400";
   const backgroundSize = isSelected ? "contain" : "contain";
   const backgroundImg = `url(district${id}.png)`;
+  const hideBgImage = useBreakpointValue({ "9xs": true, "2xs": false });
 
   const handleDistrictChange = (newId) => {
     onDistrictChange(newId);
@@ -57,12 +58,14 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           boxShadow: "2xl",
           cursor: "pointer",
         }}
+
         sx={{
-          backgroundImage: backgroundImg,
+          backgroundImage: hideBgImage ? "none" : backgroundImg,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "0 40%",
           backgroundColor: backgroundColor,
+
         }}
       >
         <CardFooter

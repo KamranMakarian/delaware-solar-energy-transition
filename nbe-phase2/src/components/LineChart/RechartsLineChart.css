@@ -1,27 +1,31 @@
-.recharts-viz-container {      
-    background-color: #ffffff;  
-    margin: var(--spacing-md);
-    padding: var(--padding-md);
-    border: 0.125em solid var(--cards-border-color);
-    border-radius: var(--border-radius-md);
-    width: 45%;       
+.recharts-viz-container {
+  background-color: #ffffff;
+  margin: var(--spacing-md);
+  padding: var(--padding-md);
+  border: 0.125em solid var(--cards-border-color);
+  border-radius: var(--border-radius-md);
+  width: 45%;
 }
 
 h2 {
-    font-family: var(--font-family-roboto);
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--font-color-black);
-    margin: var(--spacing-md);
-    text-align: center;
- 
+  font-family: var(--font-family-roboto);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-black);
+  margin: var(--spacing-md);
+  text-align: center;
 }
 
 .custom-tooltip {
-    /* background-color: #F7B704; */
-     background-color: #F09C02;
-    padding: var(--padding-md);
-    border-radius: var(--border-radius-md);
-    color: var(--font-color-black);
+  /* background-color: #F7B704; */
+  background-color: #f09c02;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius-md);
+  color: var(--font-color-black);
 }
 
+@media screen and (max-width: 1024px) {
+  .recharts-viz-container {
+    width: 90%;
+  }
+}

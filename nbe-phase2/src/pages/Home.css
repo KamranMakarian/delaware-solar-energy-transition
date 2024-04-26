@@ -57,7 +57,7 @@
   left: 38%;
 }
 
-.home-viz-container {
+.home-viz-container.css-0 {
   position: fixed;
   top: 43%;
   left: 3%;
@@ -70,15 +70,75 @@
 }
 
 @media screen and (max-width: 1280px) {
+  .nav-btn-container {
+    top: 36%;
+    left: 8%;
+  }
 
+  .home-download-buttons {
+    top: 36%;
+    left: 55%;
+  }
+
+  .home-viz-container.css-0 {
+    top: 47%;
+    height: 54%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav-btn-container {
+    top: 36%;
+    left: 2%;
+  }
+
+  .home-download-buttons {
+    top: 36%;
+    left: 53%;
+  }
+}
+
+@media screen and (max-width: 914px) {
+  .nav-btn-container {
+    top: 32%;
+    left: 2%;
+  }
+
+  .home-download-buttons {
+    top: 32%;
+    left: 48%;
+  }
+}
+
+@media screen and (max-width: 853px) {
+  .home-content-container {
+    top: 36%;
+    left: 0%;    
+  }
+  .nav-btn-container {
+    top: 36%;
+    left: 25%;
+  }
+
+  .home-download-buttons {
+    top: 41%;
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 412px) {
+  .home-content-container {
+    top: 32%;
+    left: 0%;
+    height: 100%;
+  }
+  .nav-btn-container {
+    top: 32%;
+    left: -3%;
+  }
 
   .home-download-buttons {
     top: 38%;
-    left: 33%;
-  }
-
-  .home-viz-container {
-    top: 47%;
-    height: 54%;
+    left: -3%;
   }
 }

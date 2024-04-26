@@ -6,8 +6,12 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
   breakpoints: {
-    "5xs": "30em", // 480px
-    "4xs": "33.75em", // 540px
+    "9xs": "20em", // 320px
+    "8xs": "22.5em", // 360px
+    "7xs": "23.438em", // 375px
+    "6xs": "30em", // 480px
+    "5xs": "33.75em", // 540px
+    "4xs": "41.688", // 667px
     "3xs": "45em", // 720px
     "2xs": "48em", // 768px
     xs: "51.25em", // 820px

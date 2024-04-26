@@ -84,7 +84,7 @@ function Home() {
               {/* <GenerateJsPdf /> */}
               {/* <ReactPdfDownload /> */}
               <ImageDownloader />
-              <StateViz />
+              {/* <StateViz /> */}
             </Box>
             <Box className="home-viz-container" id="home-viz-container">
               <RechartsLineChart
