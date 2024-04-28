@@ -19,9 +19,9 @@ const customTheme = extendTheme({
     md: "62em", // 992px
     lg: "64em", // 1024px
     xl: "80em", // 1280px
-    "2xl": "85.375em" , // 1366px
+    "2xl": "85.375em", // 1366px
     "3xl": "96em", // 1536px
-    "4xl": "120em", // 1920px   
+    "4xl": "120em", // 1920px
   },
   styles: {
     global: {
@@ -39,7 +39,6 @@ const customTheme = extendTheme({
     },
   },
 });
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

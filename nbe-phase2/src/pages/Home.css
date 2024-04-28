@@ -112,19 +112,18 @@
 
 @media screen and (max-width: 912px) {
   .home-content-container {
-    top: 31.8%;    
+    top: 31.8%;
   }
 
   .home-viz-container.css-0 {
-    top: 40%;    
+    top: 40%;
   }
-
 }
 
 @media screen and (max-width: 853px) {
   .home-content-container {
     top: 32%;
-    left: 0%;    
+    left: 0%;
   }
   .nav-btn-container {
     top: 32%;
@@ -136,13 +135,14 @@
     left: 25%;
   }
 
-  .home-viz-container.css-0 {    
+  .home-viz-container.css-0 {
     top: 44%;
     left: 3%;
+  }
 }
 
-@media screen and (max-width: 720px) {  
-  .nav-btn-container {    
+@media screen and (max-width: 720px) {
+  .nav-btn-container {
     top: 31.5%;
     left: 25%;
   }
@@ -153,8 +153,8 @@
   }
 }
 
-@media screen and (max-width: 540px) {  
-  .nav-btn-container {    
+@media screen and (max-width: 540px) {
+  .nav-btn-container {
     top: 34%;
     left: 12%;
   }

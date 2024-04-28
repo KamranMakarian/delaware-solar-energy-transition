@@ -10,6 +10,9 @@ import {
   DrawerCloseButton,
   useDisclosure,
   Button,
+  Card,
+  Flex,
+  Center,
 } from "@chakra-ui/react";
 
 import { ArrowRightIcon } from "@chakra-ui/icons";
@@ -20,9 +23,23 @@ function StateViz() {
 
   return (
     <>
-      <ArrowRightIcon ref={btnRef} colorScheme="teal" onClick={onOpen}>
-        Open
-      </ArrowRightIcon>
+      <Flex className="state-viz-container" flexDirection="column">
+        <Card size="md"
+        
+        >STATE VIZ</Card>
+        <Center
+        h="100vh"
+        >
+        <ArrowRightIcon
+          ref={btnRef}
+          colorScheme="teal"
+          onClick={onOpen}
+
+        >
+          Open
+        </ArrowRightIcon>
+        </Center>
+      </Flex>
       <Drawer
         isOpen={isOpen}
         placement="right"
