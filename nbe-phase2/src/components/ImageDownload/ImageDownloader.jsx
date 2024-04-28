@@ -39,9 +39,10 @@ class ImageDownloader extends React.Component {
         <Button
           colorScheme="blue"
           variant="solid"
-          size="md"
+          size="md"     
           margin={3}
           onClick={this.handleDownload}
+          
         >
           Snapshot To Image
         </Button>

@@ -1,4 +1,10 @@
-import { Card, CardFooter, Box, Container, useBreakpointValue } from "@chakra-ui/react";
+import {
+  Card,
+  CardFooter,
+  Box,
+  Container,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import "./DistrictCard.css";
 
 function DistrictCard({ id, onDistrictChange, isSelected }) {
@@ -24,23 +30,24 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
         width={{
           "5xs": "25vw",
           "4xs": "25vw",
-          "3xs": "25vw",
-          "2xs": "25vw",          
+          "3xs": "18vw",
+          "2xs": "25vw",
           xs: "25vw",
           sm: "25vw",
           md: "20vw",
-          lg: "18vw",
-          xl: "12vw",          
+          lg: "14vw",
+          xl: "12vw",
           "2xl": "18vw",
           "3xl": "12vw",
           "4xl": "11vw",
         }}
         height={{
-          "5xs": "15vh",
+          "5xs": "13vh",
+          "3xs": "11vh",
           md: "15vh",
           lg: "13vh",
-          xl: "15vh",
-          lg: "14vh",
+          xl: "14.4vh",
+          lg: "13vh",
           "3xl": "15vh",
           "4xl": "15vh",
         }}
@@ -58,36 +65,70 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           boxShadow: "2xl",
           cursor: "pointer",
         }}
-
         sx={{
           backgroundImage: hideBgImage ? "none" : backgroundImg,
           backgroundSize: backgroundSize,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "0 40%",
           backgroundColor: backgroundColor,
-
         }}
       >
         <CardFooter
           as="h4"
           size={{ "5xs": "sm", md: "md", lg: "lg", xl: "xl" }}
           position={{ "5xs": "absolute", md: "absolute" }}
-          top={{ "5xs": "0", md: "0", lg: "0", xl: "3" , "4xl": "1"}}
+          top={{ "5xs": "0", 
+          "3xs": "-2",
+          "lg": "0",
+          "xl": "0",
+          "4xl": "1" }}
           right="0"
-          left={{ "5xs": "0", "2xs": "20", md: "12", lg: "24", xl: "20" , "2xl": "24","4xl": "20" }}
+          left={{
+            "5xs": "0",
+            "2xs": "20",
+            md: "12",
+            lg: "4",
+            xl: "8",
+            "2xl": "24",
+            "4xl": "20",
+          }}
         >
           <Box className="district-card-footer">
             <Container
               className="footer-district"
-              fontSize={{ "5xs": "sm", "2xs": "md",xs: "xl", md: "xl", lg: "2xl", xl: "xl", "4xl": "xl" }}
+              fontSize={{
+                "5xs": "sm",
+                "2xs": "md",
+                xs: "xl",
+                md: "xl",
+                lg: "xl",
+                xl: "md",
+                "4xl": "xl",
+              }}
+              position={{ "5xs": "relative" }}
+              top={{ "5xs": "-2" }}
+              left={{ "5xs": "3" }}
               fontWeight="normal"
             >
               District
             </Container>
             <Container
               className="footer-district-id"
-              fontSize={{ "5xs": "md", "2xs":"5xl", xs: "6xl",md: "5xl", lg: "6xl", xl: "5xl" ,"2xl":"6xl", "4xl": "5xl"}}
+              fontSize={{
+                "5xs": "3xl",
+                "3xs": "2xl",
+                "2xs": "5xl",
+                xs: "6xl",
+                md: "5xl",
+                lg: "2xl",
+                xl: "4xl",
+                "2xl": "6xl",
+                "4xl": "5xl",
+              }}
               fontWeight="bold"
+              position={{ "5xs": "relative" }}
+              top={{ "5xs": "-2" }}
+              left={{ "5xs": "5" }}
             >
               {id}
             </Container>

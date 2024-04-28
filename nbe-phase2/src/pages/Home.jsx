@@ -51,8 +51,8 @@ function Home() {
         overflowX="scroll"
         overflowY="hidden"
         position="fixed"
-        top="18%"     
-        width="100%"        
+        top="18%"
+        width="100%"
       >
         {districtData.map((districtData) => {
           return (
@@ -60,7 +60,7 @@ function Home() {
               key={districtData.id}
               id={districtData.id}
               onDistrictChange={handleDistrictChange}
-              isSelected={districtData.id === districtId}              
+              isSelected={districtData.id === districtId}
             />
           );
         })}
@@ -74,7 +74,12 @@ function Home() {
           <Box>
             <Box className="nav-btn-container">
               <Link href="https://innovation-natural-built-env.pages.dev/">
-                <Button colorScheme="orange" margin={3} variant="solid">
+                <Button
+                  colorScheme="orange"
+                  margin={3}
+                  variant="solid"
+                  size="md"
+                >
                   Navigate To Historical Visualization Dashboard
                 </Button>
               </Link>

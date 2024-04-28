@@ -110,19 +110,58 @@
   }
 }
 
+@media screen and (max-width: 912px) {
+  .home-content-container {
+    top: 31.8%;    
+  }
+
+  .home-viz-container.css-0 {
+    top: 40%;    
+  }
+
+}
+
 @media screen and (max-width: 853px) {
   .home-content-container {
-    top: 36%;
+    top: 32%;
     left: 0%;    
   }
   .nav-btn-container {
-    top: 36%;
+    top: 32%;
     left: 25%;
   }
 
   .home-download-buttons {
-    top: 41%;
+    top: 38%;
     left: 25%;
+  }
+
+  .home-viz-container.css-0 {    
+    top: 44%;
+    left: 3%;
+}
+
+@media screen and (max-width: 720px) {  
+  .nav-btn-container {    
+    top: 31.5%;
+    left: 25%;
+  }
+
+  .home-download-buttons {
+    top: 38.2%;
+    left: 25%;
+  }
+}
+
+@media screen and (max-width: 540px) {  
+  .nav-btn-container {    
+    top: 34%;
+    left: 12%;
+  }
+
+  .home-download-buttons {
+    top: 40%;
+    left: 12.6%;
   }
 }
 
