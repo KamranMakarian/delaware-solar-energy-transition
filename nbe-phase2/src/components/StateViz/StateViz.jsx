@@ -32,7 +32,7 @@ function StateViz() {
         >
         <ArrowRightIcon
           ref={btnRef}
-          colorScheme="teal"
+          
           onClick={onOpen}
 
         >
