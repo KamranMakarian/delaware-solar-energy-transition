@@ -44,106 +44,99 @@ function Home() {
     <Box className="home-container" id="home-container">
       <Header />
       <AboutProject />
-      <Flex
-        className="state-cards-viz-container"
-        position={"fixed"}
-        top={"18%"}
-        left={"0"}
-        width={"100%"}
-        flexDirection={"row"}
-      >
-        <StateViz />
-        <Box>
-          <Flex
-            className="district-cards-container"
-            overflowX="scroll"
-            overflowY="hidden"
-            position="fixed"
-            top="18%"
-            width="100%"
-          >
-            {districtData.map((districtData) => {
-              return (
-                <DistrictCard
-                  key={districtData.id}
-                  id={districtData.id}
-                  onDistrictChange={handleDistrictChange}
-                  isSelected={districtData.id === districtId}
-                />
-              );
-            })}
-          </Flex>
 
-          <Box className="home-spinner-container">
-            {loading && !data && <Loader />}
-          </Box>
-          <Box className="home-content-container" id="home-content-container">
-            {!loading && data && (
-              <Box>
-                <Box className="nav-btn-container">
-                  <Link href="https://innovation-natural-built-env.pages.dev/">
-                    <Button
-                      colorScheme="orange"
-                      margin={3}
-                      variant="solid"
-                      size="md"
-                    >
-                      Navigate To Historical Visualization Dashboard
-                    </Button>
-                  </Link>
-                </Box>
-                <Box className="home-download-buttons">
-                  <DownloadCSVButton data={data} />
-                  <ImageDownloader />
-                  {/* <StateViz /> */}
-                </Box>
-                <Box className="home-viz-container" id="home-viz-container">
-                  <RechartsLineChart
-                    data={data}
-                    id={districtId}
-                    fieldToPlot={"system_count"}
-                    yAxisLabel={"System Count"}
-                    yAxisUnit={""}
-                    chartTitle={
-                      "PV System Count : Historical Trends and Projections"
-                    }
-                  />
-                  <RechartsLineChart
-                    data={data}
-                    id={districtId}
-                    fieldToPlot={"rebate"}
-                    yAxisLabel={"Total Dollar Amount"}
-                    yAxisUnit={"$"}
-                    chartTitle={
-                      "PV Rebate Trends ($) : Historical Trends and Projections"
-                    }
-                  />
-                  <RechartsLineChart
-                    data={data}
-                    id={districtId}
-                    fieldToPlot={"tech_cost($/W)"}
-                    yAxisLabel={"Cost per Watt"}
-                    yAxisUnit={"$/W"}
-                    chartTitle={
-                      "PV Technology Cost ($/W): Historical Trends and Projections"
-                    }
-                  />
-                  <RechartsLineChart
-                    data={data}
-                    id={districtId}
-                    fieldToPlot={"rebate_eff(W/$)"}
-                    yAxisLabel={"Rebate Efficiency"}
-                    yAxisUnit={"W/$"}
-                    chartTitle={
-                      "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
-                    }
-                  />
-                </Box>
-              </Box>
-            )}
-          </Box>
+      <Box>
+        <Flex
+          className="district-cards-container"
+          overflowX="scroll"
+          overflowY="hidden"
+          position="fixed"
+          top="18%"
+          width="100%"
+        >
+          {districtData.map((districtData) => {
+            return (
+              <DistrictCard
+                key={districtData.id}
+                id={districtData.id}
+                onDistrictChange={handleDistrictChange}
+                isSelected={districtData.id === districtId}
+              />
+            );
+          })}
+        </Flex>
+
+        <Box className="home-spinner-container">
+          {loading && !data && <Loader />}
         </Box>
-      </Flex>
+        <Box className="home-content-container" id="home-content-container">
+        <StateViz />
+          {!loading && data && (
+           
+            <Box>
+              <Box className="nav-btn-container">
+                <Link href="https://innovation-natural-built-env.pages.dev/">
+                  <Button
+                    colorScheme="orange"
+                    margin={3}
+                    variant="solid"
+                    size="md"
+                  >
+                    Navigate To Historical Visualization Dashboard
+                  </Button>
+                </Link>
+              </Box>
+              <Box className="home-download-buttons">
+                <DownloadCSVButton data={data} />
+                <ImageDownloader />
+                {/* <StateViz /> */}
+              </Box>
+              <Box className="home-viz-container" id="home-viz-container">
+                <RechartsLineChart
+                  data={data}
+                  id={districtId}
+                  fieldToPlot={"system_count"}
+                  yAxisLabel={"System Count"}
+                  yAxisUnit={""}
+                  chartTitle={
+                    "PV System Count : Historical Trends and Projections"
+                  }
+                />
+                <RechartsLineChart
+                  data={data}
+                  id={districtId}
+                  fieldToPlot={"rebate"}
+                  yAxisLabel={"Total Dollar Amount"}
+                  yAxisUnit={"$"}
+                  chartTitle={
+                    "PV Rebate Trends ($) : Historical Trends and Projections"
+                  }
+                />
+                <RechartsLineChart
+                  data={data}
+                  id={districtId}
+                  fieldToPlot={"tech_cost($/W)"}
+                  yAxisLabel={"Cost per Watt"}
+                  yAxisUnit={"$/W"}
+                  chartTitle={
+                    "PV Technology Cost ($/W): Historical Trends and Projections"
+                  }
+                />
+                <RechartsLineChart
+                  data={data}
+                  id={districtId}
+                  fieldToPlot={"rebate_eff(W/$)"}
+                  yAxisLabel={"Rebate Efficiency"}
+                  yAxisUnit={"W/$"}
+                  chartTitle={
+                    "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
+                  }
+                />
+              </Box>
+            </Box>
+          )}
+        </Box>
+      </Box>
     </Box>
   );
 }
