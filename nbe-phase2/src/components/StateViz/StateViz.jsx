@@ -29,7 +29,7 @@ function StateViz({ data }) {
   useEffect(() => {
     const blinkInterval = setInterval(() => {
       setBlink((prevBlink) => !prevBlink);
-    }, 1000); // Adjust blinking interval as needed
+    }, 1500); // Adjust blinking interval as needed
 
     return () => clearInterval(blinkInterval);
   }, []);
@@ -41,18 +41,27 @@ function StateViz({ data }) {
       size="xl"
       // align={"top"}
       justify={"top"}
-      h="62vh"
+      h="60vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
       backgroundSize={"contain"}
+      _hover={{
+        transform: "scale(1.5)",
+        transition: "transform 0.5s ease-in-out",
+        boxShadow: "2xl",
+        cursor: "pointer",
+      }}
+      onClick={onOpen}
     >
       <Text
         position={"absolute"}
-        top={"3vh"}
-        left={"0vw"}
-        color="white"
+        top={"2.5vh"}
+        left={"1.5vw"}
+        color="black"
         fontSize="sm"
         fontWeight="bold"
+        fontStyle={"italic"}
+        style={{ textShadow: "0.125em 0.125em 0.125em white" }}
       >
         Click to view state's data
       </Text>
@@ -60,16 +69,15 @@ function StateViz({ data }) {
         mb="2"
         position={"absolute"}
         top={"6vh"}
-        left={"5vw"}
-        onClick={onOpen}
+        left={"6vw"}
         boxSize={"100%"}
         style={{ cursor: "pointer" }}
         opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
         transition="opacity 0.5s ease-in-out" // Smooth transition
       >
-        <ArrowRightIcon ref={btnRef} color="gray.700" boxSize="6em" />
+        <ArrowRightIcon ref={btnRef} color="gray.700" boxSize="4em" />
       </Box>
-      <svg
+      {/* <svg
         viewBox="0 0 10 100" // Adjust the viewBox according to the desired wave shape
         preserveAspectRatio="none"
         fill="currentColor"
@@ -88,24 +96,23 @@ function StateViz({ data }) {
              S 175 40, 200 50
              V 100 H 0 Z"
         />
-      </svg>
+      </svg> */}
       <Drawer
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
         finalFocusRef={btnRef}
         size={"full"}
-        isFullHeight={true}
       >
         <DrawerOverlay />
         <DrawerContent
           containerProps={{
-            h: "auto",
             width: "98%",
+            height: "40%",
             top: "18.5%",
           }}
           style={{ position: "absolute" }}
-          bg="gray.500"
+          bg="#669DA6"
         >
           <DrawerCloseButton
             size="lg"
@@ -118,8 +125,12 @@ function StateViz({ data }) {
             _focus={{ boxShadow: "0px 0px 10px 2px rgba(255,255,255,0.7)" }}
           />
           <DrawerHeader>State of Delaware Solar Energy Transition</DrawerHeader>
-          <DrawerBody display={"flex"} flexDirection="row" flexWrap="wrap">
-          
+          <DrawerBody
+            display={"flex"}
+            flexDirection="row"
+            flexWrap="wrap"
+            style={{ overflowY: "auto" }}
+          >
             <RechartsLineChart
               data={data}
               id={13}
@@ -157,7 +168,7 @@ function StateViz({ data }) {
               chartTitle={
                 "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
               }
-            />            
+            />
           </DrawerBody>
 
           <DrawerFooter>This is the footer</DrawerFooter>
