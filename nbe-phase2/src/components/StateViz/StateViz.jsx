@@ -17,10 +17,10 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
-
 import { ArrowRightIcon } from "@chakra-ui/icons";
+import RechartsLineChart from "../LineChart/RechartsLineChart";
 
-function StateViz() {
+function StateViz({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -44,15 +44,16 @@ function StateViz() {
       h="62vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
-      backgroundSize={"contain"}    
+      backgroundSize={"contain"}
     >
       <Text
-      position={"absolute"}
-      top={"3vh"}
-      left={"0vw"}
-      color="white"
-      fontSize="sm" fontWeight="bold">
-        
+        position={"absolute"}
+        top={"3vh"}
+        left={"0vw"}
+        color="white"
+        fontSize="sm"
+        fontWeight="bold"
+      >
         Click to view state's data
       </Text>
       <Box
@@ -73,15 +74,15 @@ function StateViz() {
         preserveAspectRatio="none"
         fill="currentColor"
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 220,
-          width: '10px', // Adjust the width to match the content
-          height: '100%',
+          width: "10px", // Adjust the width to match the content
+          height: "100%",
           zIndex: 1, // Ensure the SVG is above the content
         }}
       >
-           <path
+        <path
           d="M 0 50
              C 25 60, 75 60, 100 50
              S 175 40, 200 50
@@ -95,25 +96,69 @@ function StateViz() {
         finalFocusRef={btnRef}
         size={"full"}
         isFullHeight={true}
-        colorScheme="teal"
       >
-        <DrawerOverlay 
-              // h='auto'
-              // top="40%"
-              // bottom="60"
-              // position='absolute'
-        />
+        <DrawerOverlay />
         <DrawerContent
-                containerProps={{
-                  h: 'auto',
-                  width: '98%',
-                  top: "18.5%",                  
-                }}
-                style={{ position: 'absolute' }}        
+          containerProps={{
+            h: "auto",
+            width: "98%",
+            top: "18.5%",
+          }}
+          style={{ position: "absolute" }}
+          bg="gray.500"
         >
-          <DrawerCloseButton />
-          <DrawerHeader>This is the header</DrawerHeader>
-          <DrawerBody>This is the body</DrawerBody>
+          <DrawerCloseButton
+            size="lg"
+            color="white"
+            _hover={{
+              bg: "white",
+              color: "blue.500",
+              boxShadow: "0px 0px 10px 2px rgba(255,255,255,0.7)",
+            }}
+            _focus={{ boxShadow: "0px 0px 10px 2px rgba(255,255,255,0.7)" }}
+          />
+          <DrawerHeader>State of Delaware Solar Energy Transition</DrawerHeader>
+          <DrawerBody display={"flex"} flexDirection="row" flexWrap="wrap">
+          
+            <RechartsLineChart
+              data={data}
+              id={13}
+              fieldToPlot={"system_count"}
+              yAxisLabel={"System Count"}
+              yAxisUnit={""}
+              chartTitle={"PV System Count : Historical Trends and Projections"}
+            />
+            <RechartsLineChart
+              data={data}
+              id={13}
+              fieldToPlot={"rebate"}
+              yAxisLabel={"Total Dollar Amount"}
+              yAxisUnit={"$"}
+              chartTitle={
+                "PV Rebate Trends ($) : Historical Trends and Projections"
+              }
+            />
+            <RechartsLineChart
+              data={data}
+              id={13}
+              fieldToPlot={"tech_cost($/W)"}
+              yAxisLabel={"Cost per Watt"}
+              yAxisUnit={"$/W"}
+              chartTitle={
+                "PV Technology Cost ($/W): Historical Trends and Projections"
+              }
+            />
+            <RechartsLineChart
+              data={data}
+              id={13}
+              fieldToPlot={"rebate_eff(W/$)"}
+              yAxisLabel={"Rebate Efficiency"}
+              yAxisUnit={"W/$"}
+              chartTitle={
+                "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
+              }
+            />            
+          </DrawerBody>
 
           <DrawerFooter>This is the footer</DrawerFooter>
         </DrawerContent>

@@ -70,7 +70,7 @@ function Home() {
           {loading && !data && <Loader />}
         </Box>
         <Box className="home-content-container" id="home-content-container">
-        <StateViz />
+        <StateViz data={data}/>
           {!loading && data && (
            
             <Box>
