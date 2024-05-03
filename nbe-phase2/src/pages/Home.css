@@ -3,25 +3,19 @@
   height: 100%;
 }
 
-/* .district-cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;  
-  align-items: center;
-  margin-top: var(--spacing-3xs);  
-  border: 0.25em solid var(--cards-border-color);
-  position: fixed;
-  top: 18%;
-  left: 0;
-  width: 100%;  
-} */
-
 .home-spinner-container {
   position: fixed;
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.bottom-container {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  top: 18%;
+  left: 0;
 }
 
 .home-content-container {
@@ -31,10 +25,11 @@
   align-items: center;
   position: fixed;
   background-color: #d1d1d1;
+  border-radius: 1em;
   top: 36.8%;
-  left: 0%;
-  width: 100%;
-  height: 80%;
+  left: 13%;
+  width: 87%;
+  height: 64%;
 }
 
 .nav-btn-container {
@@ -60,7 +55,7 @@
 .home-viz-container.css-0 {
   position: fixed;
   top: 43%;
-  left: 12%;
+  left: 13%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -89,13 +84,15 @@
 @media screen and (max-width: 1024px) {
   .nav-btn-container {
     top: 36%;
-    left: 2%;
+    left: 58%;
   }
 
   .home-download-buttons {
     top: 36%;
-    left: 53%;
-  }
+    left: 15%;
+ }
+
+
 }
 
 @media screen and (max-width: 914px) {
@@ -138,6 +135,28 @@
   .home-viz-container.css-0 {
     top: 44%;
     left: 3%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-content-container {
+    top: 33%;
+    left: 13%;
+    height: 67.5%;
+  }
+  .nav-btn-container {
+    top: 31.5%;
+    left: 25%;
+  }
+
+  .home-download-buttons {
+    top: 38.2%;
+    left: 25%;
+  }
+
+  .home-viz-container.css-0 {
+    top: 46%;
+    left: 13%;
   }
 }
 

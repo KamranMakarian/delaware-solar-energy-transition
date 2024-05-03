@@ -10,10 +10,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Button,
-  Card,
   Flex,
-  Center,
   Box,
   Text,
 } from "@chakra-ui/react";
@@ -38,10 +35,7 @@ function StateViz({ data }) {
     <Flex
       className="state-viz-container"
       flexDirection="column"
-      size="xl"
-      // align={"top"}
-      justify={"top"}
-      h="60vh"
+      h="100vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
       backgroundSize={"contain"}
@@ -54,49 +48,30 @@ function StateViz({ data }) {
       onClick={onOpen}
     >
       <Text
-        position={"absolute"}
-        top={"2.5vh"}
-        left={"1.5vw"}
         color="black"
-        fontSize="sm"
+        fontSize="4xl"
+        textAlign={"center"}
         fontWeight="bold"
         fontStyle={"italic"}
-        style={{ textShadow: "0.125em 0.125em 0.125em white" }}
+        style={{ textShadow: "0.125em 0.125em 0.125em gray" }}
+        position={"relative"}
+        top={"2vh"}
+        left={"-1vh"}
       >
         Click to view state's data
       </Text>
+
       <Box
         mb="2"
-        position={"absolute"}
-        top={"6vh"}
-        left={"6vw"}
+        position={"relative"}
+        top={"8vh"}
+        left={"8vw"}
         boxSize={"100%"}
-        style={{ cursor: "pointer" }}
         opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
         transition="opacity 0.5s ease-in-out" // Smooth transition
       >
         <ArrowRightIcon ref={btnRef} color="gray.700" boxSize="4em" />
       </Box>
-      {/* <svg
-        viewBox="0 0 10 100" // Adjust the viewBox according to the desired wave shape
-        preserveAspectRatio="none"
-        fill="currentColor"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 220,
-          width: "10px", // Adjust the width to match the content
-          height: "100%",
-          zIndex: 1, // Ensure the SVG is above the content
-        }}
-      >
-        <path
-          d="M 0 50
-             C 25 60, 75 60, 100 50
-             S 175 40, 200 50
-             V 100 H 0 Z"
-        />
-      </svg> */}
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -106,9 +81,9 @@ function StateViz({ data }) {
       >
         <DrawerOverlay />
         <DrawerContent
+          className="drawer-content"
           containerProps={{
-            width: "98%",
-            height: "40%",
+            width: "97%",
             top: "18.5%",
           }}
           style={{ position: "absolute" }}
@@ -128,8 +103,9 @@ function StateViz({ data }) {
           <DrawerBody
             display={"flex"}
             flexDirection="row"
+            justifyContent={"space-around"}
             flexWrap="wrap"
-            style={{ overflowY: "auto" }}
+            style={{ overflowY: "auto", maxHeight: "calc(100vh - 30%)" }}
           >
             <RechartsLineChart
               data={data}

@@ -45,14 +45,16 @@ function Home() {
       <Header />
       <AboutProject />
 
-      <Box>
+      <Box className="bottom-container">
+        <StateViz data={data} />
         <Flex
           className="district-cards-container"
           overflowX="scroll"
           overflowY="hidden"
           position="fixed"
           top="18%"
-          width="100%"
+          left="13%"
+          width="87%"
         >
           {districtData.map((districtData) => {
             return (
@@ -70,9 +72,7 @@ function Home() {
           {loading && !data && <Loader />}
         </Box>
         <Box className="home-content-container" id="home-content-container">
-        <StateViz data={data}/>
           {!loading && data && (
-           
             <Box>
               <Box className="nav-btn-container">
                 <Link href="https://innovation-natural-built-env.pages.dev/">

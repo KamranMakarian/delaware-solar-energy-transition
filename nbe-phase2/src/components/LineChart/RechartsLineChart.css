@@ -26,6 +26,6 @@ h2 {
 
 @media screen and (max-width: 1024px) {
   .recharts-viz-container {
-    width: 90%;
+    width: 85%;    
   }
 }
