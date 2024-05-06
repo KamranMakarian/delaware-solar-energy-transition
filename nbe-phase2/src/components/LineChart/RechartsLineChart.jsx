@@ -102,7 +102,7 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
             name={historicalDataToPlot.name}
             strokeWidth={2}
             animationDuration={600}
-          />
+          />          
           <Line
             data={predictionDataToPlot.data}
             type="monotone"

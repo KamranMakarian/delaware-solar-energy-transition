@@ -11,11 +11,14 @@ import AboutProject from "../components/AboutProject/AboutProject";
 import ImageDownloader from "../components/ImageDownload/ImageDownloader";
 import { Button, Link, Box, Flex, Card } from "@chakra-ui/react";
 import StateViz from "../components/StateViz/StateViz";
+import ComparisonSelect from "../components/ComparisonSelect/ComparisonSelect";
 
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [districtId, setDistrictId] = useState(3);
+  const [data2, setData2] = useState(null);
+  const [selectDistrict, setSelectDistrict] = useState(null);
 
   const handleDistrictChange = (id) => {
     setDistrictId(id);
@@ -24,7 +27,6 @@ function Home() {
   useEffect(() => {
     async function fetchData() {
       setLoading(true);
-      const startTime = new Date().getTime();
       try {
         const result = await predict(districtId);
         setData(result);
@@ -32,13 +34,35 @@ function Home() {
         console.error(error.toString());
       } finally {
         setLoading(false);
-        const endTime = new Date().getTime();
-        // console.log(`API call took ${endTime - startTime} ms`);
       }
     }
 
     fetchData();
   }, [districtId]);
+
+ //Fetch data for comparison district
+  useEffect(() => {
+    async function fetchData() {
+    if (!selectDistrict) return;
+      setLoading(true);
+      try {
+        const result = await predict(selectDistrict);
+        setData2(result);
+      } catch (error) {
+        console.error(error.toString());
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [selectDistrict]);
+
+  const handleSelectDistrict = (id) => {
+    setSelectDistrict(id);
+  };
+
+  console.log("second data",data2);
 
   return (
     <Box className="home-container" id="home-container">
@@ -89,7 +113,10 @@ function Home() {
               <Box className="home-download-buttons">
                 <DownloadCSVButton data={data} />
                 <ImageDownloader />
-                {/* <StateViz /> */}
+                <ComparisonSelect
+                  activeDistrict={districtId}
+                  onSelectDistrict={handleSelectDistrict}
+                />
               </Box>
               <Box className="home-viz-container" id="home-viz-container">
                 <RechartsLineChart
