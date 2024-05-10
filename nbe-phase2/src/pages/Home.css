@@ -32,13 +32,19 @@
   height: 64%;
 }
 
+.comparison-select-container {
+  position: fixed;
+  top: 38%;
+  left: 20%;
+}
 .nav-btn-container {
   position: fixed;
-  top: 35%;
-  left: 75%;
+  top: 0;
+  left: 1%;
   margin: var(--margin-md);
-  padding: var(--padding-md);
+  padding: var(--padding-md); 
 }
+
 
 .home-download-buttons {
   position: fixed;
@@ -49,7 +55,7 @@
   margin: var(--margin-md);
   padding: var(--padding-md);
   top: 35%;
-  left: 38%;
+  left: 68%;
 }
 
 .home-viz-container.css-0 {

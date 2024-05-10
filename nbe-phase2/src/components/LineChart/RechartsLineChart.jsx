@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "./RechartsLineChart.css";
 import {
   ResponsiveContainer,
@@ -8,38 +8,51 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend
 } from "recharts";
 import HighlightedWord from "../HighlightWord/HighlightWord";
-import { Box } from "@chakra-ui/react";
+import { Box, filter } from "@chakra-ui/react";
 
-function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle }) {
-  
+function RechartsLineChart({
+  data,
+  data2,
+  id,
+  compareId,
+  fieldToPlot,
+  yAxisUnit,
+  chartTitle,
+}) {
   const dataArray = JSON.parse(data);
 
-  const { historicalDataToPlot, predictionDataToPlot } = groupData({ data: dataArray, fieldToPlot });
+  const { historicalDataToPlot, predictionDataToPlot } = groupData({
+    data: dataArray,
+    fieldToPlot,
+    districtId: id,
+    desc:"initial"
+  });
+
+  console.log("comparison id", compareId);
 
   const [historicalDataToPlot2, setHistoricalDataToPlot2] = useState(null);
   const [predictionDataToPlot2, setPredictionDataToPlot2] = useState(null);
 
-  
-  // console.log ("data2", data2);
   useEffect(() => {
-  if (data2) {
-    const dataArray2 = JSON.parse(data2);
-    console.log("dataArray2", dataArray2);
+    if (data2) {
+      const dataArray2 = JSON.parse(data2);
 
-    const { historicalDataToPlot, predictionDataToPlot } = groupData({ data: dataArray2, fieldToPlot });
+      const { historicalDataToPlot, predictionDataToPlot } = groupData({
+        data: dataArray2,
+        fieldToPlot,
+        districtId: compareId,
+        desc:"comparison"
+      });
 
-    setHistoricalDataToPlot2(historicalDataToPlot);
-    setPredictionDataToPlot2(predictionDataToPlot);
-
-  }
+      setHistoricalDataToPlot2(historicalDataToPlot);
+      setPredictionDataToPlot2(predictionDataToPlot);
+    }
   }, [data2]);
 
-
-
-  
-
+  console.log(historicalDataToPlot, "historicalDataToPlot");
 
   return (
     <Box className="recharts-viz-container" id="recharts-viz-container">
@@ -76,37 +89,8 @@ function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle
             }}
           />
           <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id} />} />
-          {historicalDataToPlot2 && predictionDataToPlot2 && (
-              
-              <>
-              <Line
-              data={historicalDataToPlot2.data}
-              type="monotone"
-              strokeDasharray={"3 3"}
-              dataKey="value"
-              // fill="#4B0082"
-              stroke="#4B0082"
-              name={historicalDataToPlot2.name}
-              strokeWidth={3}
-              animationDuration={600}
-              dot={<DiamondDot />}
-              activeDot= {<DiamondDot />}
-            />
-            <Line
-              data={predictionDataToPlot2.data}
-              type="monotone"
-              strokeDasharray={"3 3"}
-              dataKey="value"
-              stroke="#006400"
-              strokeWidth={3}
-              name={predictionDataToPlot2.name}
-              animationDuration={3000}
-              dot={<DiamondDot />}
-              activeDot= {<DiamondDot />}
-              connectNulls={true}
-            />
-            </>
-            )}
+
+
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
@@ -116,7 +100,7 @@ function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle
             name={historicalDataToPlot.name}
             strokeWidth={2}
             animationDuration={600}
-          />          
+          />
           <Line
             data={predictionDataToPlot.data}
             type="monotone"
@@ -125,24 +109,39 @@ function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle
             strokeWidth={2}
             name={predictionDataToPlot.name}
             animationDuration={3000}
-            dot={(props) => {
-              return (
-                <circle
-                  key={props.index}
-                  cx={props.cx}
-                  cy={props.cy}
-                  r={props.index === 0 ? 0 : 3}
-                  fill={props.index === 0 ? "#4B0082" : "#fff"}
-                  stroke={props.index === 0 ? "#4B0082" : "#006400"}
-                  strokeWidth={2}
-                />
-              );
-            }}
+            dot={<CircleDot />}
             connectNulls={true}
           />
-
-
-
+                    {historicalDataToPlot2 && predictionDataToPlot2 && (
+            <>            
+              <Line
+                data={historicalDataToPlot2.data}
+                type="monotone"
+                strokeDasharray={"3 3"}
+                dataKey="value"
+                // fill="#4B0082"
+                stroke="#4B0082"
+                name={historicalDataToPlot2.name}
+                strokeWidth={3}
+                animationDuration={600}
+                dot={<DiamondDot />}
+                activeDot={<DiamondDot />}
+              />
+              <Line
+                data={predictionDataToPlot2.data}
+                type="monotone"
+                strokeDasharray={"3 3"}
+                dataKey="value"
+                stroke="#006400"
+                strokeWidth={3}
+                name={predictionDataToPlot2.name}
+                animationDuration={3000}
+                dot={<DiamondDot />}
+                activeDot={<DiamondDot />}
+                connectNulls={true}
+              />              
+            </>
+          )}
         </LineChart>
       </ResponsiveContainer>
     </Box>
@@ -151,7 +150,34 @@ function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle
 
 export default RechartsLineChart;
 
-function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
+function CustomTooltip({ active, payload, label, yAxisUnit }) {
+  console.log(payload, "payload");
+  const formattedYear = convertDate(label);
+
+  if (active && payload && payload.length) {
+    const filteredPayload = payload.filter((entry, index, self) =>
+      index === self.findIndex((t) => t.payload.districtId === entry.payload.districtId)
+    );
+    return (
+      <Box className="custom-tooltip">
+        <p className="label-tooltip">{formattedYear}</p>
+        {filteredPayload.map((entry, index) => (
+          <p key={index} className="data-tooltip">
+            District { `${entry.payload.districtId}: ${
+              yAxisUnit === "$"
+                ? `$${entry.value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+                : `${entry.value}${yAxisUnit ? `(${yAxisUnit})` : ""}`
+            }`}
+          </p>
+        ))}
+      </Box>
+    );
+  }
+  return null;
+}
+
+
+function CustomTooltip2({ active, payload, label, yAxisUnit }) {
   const formattedYear = convertDate(label);
 
   if (active && payload && payload.length) {
@@ -165,7 +191,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit, id }) {
         : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
 
     return (
-      <Box className="custom-tooltip">
+      <Box className="custom-tooltip2">
         {/* <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p> */}
         <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}`}</p>
       </Box>
@@ -197,9 +223,7 @@ function convertDate(label) {
   return `${formattedMonth} ${formattedYear}`;
 }
 
-
-function groupData ({ data, fieldToPlot}) {
-  
+function groupData({ data, fieldToPlot, districtId, desc }) {
   const { historicalData, predictionData } = data.reduce(
     (acc, item) => {
       const date = new Date(item.Date);
@@ -211,6 +235,8 @@ function groupData ({ data, fieldToPlot}) {
       const newData = {
         year: formattedDate,
         value: item[fieldToPlot],
+        districtId: districtId,
+        desc: desc
       };
 
       if (item.IsPrediction === 0) {
@@ -225,7 +251,7 @@ function groupData ({ data, fieldToPlot}) {
   );
 
   const historicalDataToPlot = {
-    name: "historical",
+    name: "historical",    
     data: historicalData,
   };
 
@@ -235,7 +261,7 @@ function groupData ({ data, fieldToPlot}) {
       : null;
 
   const predictionDataToPlot = {
-    name: "prediction",
+    name: "prediction",    
     data: predictionData,
   };
 
@@ -243,20 +269,30 @@ function groupData ({ data, fieldToPlot}) {
     predictionDataToPlot.data.unshift(lastHistoricalData);
   }
 
-  return {historicalDataToPlot, predictionDataToPlot};
+  return { historicalDataToPlot, predictionDataToPlot };
 }
 
-
-function DiamondDot (props)  {
+export function  DiamondDot(props) {
   const { cx, cy, stroke, fill } = props;
-  const size = 6; // Adjust the size of the diamond as needed
+  const size = 5; // Adjust the size of the diamond as needed
 
   return (
     <path
-      d={`M${cx},${cy - size}L${cx + size},${cy}L${cx},${cy + size}L${cx - size},${cy}Z`}
+      d={`M${cx},${cy - size}L${cx + size},${cy}L${cx},${cy + size}L${
+        cx - size
+      },${cy}Z`}
       fill={fill}
       stroke={stroke}
     />
   );
-};
+}
 
+
+export function CircleDot(props) {
+  const { cx, cy, stroke, fill } = props;
+  const size = 4; // Adjust the size of the circle as needed
+
+  return (
+    <circle cx={cx} cy={cy} r={size} fill={fill} stroke={stroke} />
+  );
+} 

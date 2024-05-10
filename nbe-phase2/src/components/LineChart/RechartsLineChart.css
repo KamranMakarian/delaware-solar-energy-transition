@@ -24,6 +24,13 @@ h2 {
   color: var(--font-color-black);
 }
 
+.custom-tooltip2 {
+  /* background-color: #F7B704; */
+  background-color: #0ef002;
+  padding: var(--padding-md);
+  border-radius: var(--border-radius-md);
+  color: var(--font-color-black);
+}
 @media screen and (max-width: 1024px) {
   .recharts-viz-container {
     width: 85%;    

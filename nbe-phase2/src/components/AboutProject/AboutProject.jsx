@@ -77,79 +77,68 @@ function AboutProject() {
         return (
           <>
             <Box className="main-body">
-              <p> More information about the project will be added soon. </p>
-              {/* <p>
-                Welcome to Delaware’s Solar Energy Transition dashboard, which
-                offers a clear picture of how solar energy is evolving and how
-                Green Energy Program Grants are being distributed in Delaware.
-                Presented herein are two comprehensive and easy-to-understand
-                maps that break down important information by each state
-                legislative district from year 2015 to 2021.
+              <h3 className="desktop-note">
+                <strong style={{ color: "red" }}>NOTE: </strong> {" "}
+                Best viewed in desktop version
+              </h3>
+              <br/>
+              <p>
+                Welcome to "Delaware’s Solar Energy Transition: Trends and
+                Projections". This dashboard provides a detailed look at the
+                evolution of solar energy and the distribution of Green Energy
+                Program Grants across Delaware. We track this progress using
+                four key metrics:
               </p>
-              <h4>The data variables include:</h4>
+              <br />
               <ul>
-                <li>
-                  {" "}
-                  <strong style={{ color: "#717744" }}>
-                    PV System Cost:
-                  </strong>{" "}
-                  Represents the aggregate cost of solar panel installations
-                  that have been registered for rebates within the time frame
-                  specified by the user
-                </li>
-                <br />
                 <li>
                   {" "}
                   <strong style={{ color: "#717744" }}>
                     PV System Count:
                   </strong>{" "}
-                  The total number of solar panel installations recorded for
-                  rebate consideration within the selected time frame
+                  This metric accounts for the total number of photovoltaic
+                  solar panel installations that have been registered for
+                  rebates within the specified timeframe.
                 </li>
                 <br />
                 <li>
+                  {" "}
                   <strong style={{ color: "#717744" }}>
                     PV Rebate Amount:
                   </strong>{" "}
-                  The sum of rebates applied for the installation of solar panel
-                  systems during the delineated time frame
-                </li>
-                <br />
-                <li>
-                  <strong style={{ color: "#717744" }}>PV Capacity:</strong> The
-                  combined electrical generation capacity, measured in Watts
-                  (W), of all solar panel systems that have been filed for
-                  rebate within the chosen time frame
+                  Represents the total dollar amount of rebates requested for
+                  the installation of solar panel systems during the selected
+                  period.
                 </li>
                 <br />
                 <li>
                   <strong style={{ color: "#717744" }}>
-                    Solar-Heated Households:
+                    PV Technology Cost:
                   </strong>{" "}
-                  The count of residences utilizing solar heating solutions
-                  within the selected time frame (this metric is confined to the
-                  residential sector and is derived from the Census API)
+                  Calculated as the cost of the solar panel system ($) divided
+                  by its capacity (W), this metric reflects the median
+                  technology cost for the timeframe in question. A lower
+                  technology cost is generally advantageous.
                 </li>
                 <br />
                 <li>
                   <strong style={{ color: "#717744" }}>
-                    Solar-Heated Households per 1,000 Households:
+                    PV Rebate Efficiency:
                   </strong>{" "}
-                  The incidence of solar heating in homes, adjusted against 0.1
-                  percent of the total number of households within a district
-                  within the selected time frame (this metric is confined to the
-                  residential sector and is derived from the Census API)
+                  This is measured as the capacity of the solar panel system (W)
+                  divided by the rebate amount ($). It shows the median value of
+                  rebate efficiency for the selected period, where higher
+                  efficiency is preferred.
                 </li>
                 <br />
-                <li>
-                  <strong style={{ color: "#717744" }}>
-                    Data representation is available in two formats:
-                  </strong>{" "}
-                  annual and cumulative. The cumulative view aggregates data
-                  commencing from the year 2015 to the selected endpoint,
-                  thereby illustrating the trajectory of growth.{" "}
-                </li>
-              </ul> */}
+              </ul>
+              <p>
+                The dashboard displays historical and projected values for these
+                metrics in purple and green, respectively, to provide a visual
+                representation of the advances in PV technology across the state
+                of Delaware as well as the legislative districts most actively
+                engaged in this transition.
+              </p>
             </Box>
             <Box className="additional-resources">
               <h4>Additional Resources: </h4>
@@ -231,7 +220,11 @@ function AboutProject() {
   return (
     <>
       <button className="aboutBtn" onClick={handleOpenModal}>
-        {isMobile ? <BsFillInfoCircleFill className="info-icon" /> : "About this Project"}
+        {isMobile ? (
+          <BsFillInfoCircleFill className="info-icon" />
+        ) : (
+          "About this Project"
+        )}
       </button>
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         <Box className="buttonContainer">
@@ -243,7 +236,7 @@ function AboutProject() {
             About This Project
           </button>
           <button
-            className={`infoButton ${activeButton === 0 ? "active" : ""}`}
+            className={`infoButton ${activeButton === 1 ? "active" : ""}`}
             onClick={() => handleButtonClick(1)}
           >
             About the Team

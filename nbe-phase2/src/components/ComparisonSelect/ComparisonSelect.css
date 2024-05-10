@@ -1,0 +1,6 @@
+.comparison-select:hover {
+  cursor: pointer;
+  background-color: #006400;
+  border-radius: 10px;
+  color: white;
+}

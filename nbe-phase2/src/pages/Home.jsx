@@ -14,20 +14,19 @@ import StateViz from "../components/StateViz/StateViz";
 import ComparisonSelect from "../components/ComparisonSelect/ComparisonSelect";
 
 function Home() {
-  const [loading, setLoading] = useState(true);  
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [data2, setData2] = useState(null);
-  const [districtId, setDistrictId] = useState(3);  
+  const [districtId, setDistrictId] = useState(3);
   const [selectDistrict, setSelectDistrict] = useState(null);
 
   const handleDistrictChange = (id) => {
     setDistrictId(id);
   };
 
-  const handleComparison =  (id) => {
-    setSelectDistrict(id);    
+  const handleComparison = (id) => {
+    setSelectDistrict(id);
   };
-
 
   useEffect(() => {
     async function fetchData() {
@@ -101,20 +100,74 @@ function Home() {
               <Box className="nav-btn-container">
                 <Link href="https://innovation-natural-built-env.pages.dev/">
                   <Button
-                    colorScheme="orange"
+                    bg="#717744"
                     margin={3}
                     variant="solid"
                     size="md"
+                    color="white"
+                    _hover={{
+                      transform: "scale(1.15)",
+                      transition: "transform 0.5s ease-in-out",
+                      border: "2px solid whitesmoke",
+                    }}
                   >
                     Historical Visualization
                   </Button>
                 </Link>
               </Box>
-              <Box className="home-download-buttons">
+              <Box
+                className="comparison-select-container"
+                display={"flex"}
+                flexDirection={"row"}
+              >
                 <ComparisonSelect
                   activeDistrict={districtId}
                   onSelectDistrict={handleComparison}
                 />
+                {data2 && data2 !== null && (
+                  <Box
+                    className="legend-container"
+                    display={"flex"}
+                    flexDirection={"row"}
+                    marginLeft={10}
+                    backgroundColor={"#f5f5f5"}
+                    borderRadius={6}
+                    fontWeight={700}
+                  >
+                    <Box
+                      className="legend-initial"
+                      display={"flex"}
+                      flexDirection={"row"}
+                      alignItems={"center"}
+                      justifyContent={"space-around"}
+                      padding={2}
+                      marginLeft={5}
+                    >
+                      <CircleShape stroke={"#4B0082"} fill={"#4B0082"} />
+                      &nbsp;&nbsp;
+                      <CircleShape stroke={"#006400"} fill={"none"} />
+                      &nbsp;&nbsp;
+                      <span>District {districtId}</span>
+                    </Box>
+                    <Box
+                      className="legend-compare"
+                      display={"flex"}
+                      flexDirection={"row"}
+                      alignItems={"center"}
+                      justifyContent={"space-around"}
+                      padding={2}
+                      marginRight={5}
+                    >
+                      <DiamondShape stroke={"#4B0082"} fill={"none"} />
+                      &nbsp;&nbsp;
+                      <DiamondShape stroke={"#006400"} fill={"none"} />
+                      &nbsp;&nbsp;
+                      <span>District {selectDistrict}</span>
+                    </Box>
+                  </Box>
+                )}
+              </Box>
+              <Box className="home-download-buttons">
                 <DownloadCSVButton data={data} />
                 <ImageDownloader />
               </Box>
@@ -123,6 +176,7 @@ function Home() {
                   data={data}
                   {...(data2 !== null && { data2 })}
                   id={districtId}
+                  compareId={selectDistrict}
                   fieldToPlot={"system_count"}
                   yAxisLabel={"System Count"}
                   yAxisUnit={""}
@@ -134,6 +188,7 @@ function Home() {
                   data={data}
                   {...(data2 !== null && { data2 })}
                   id={districtId}
+                  compareId={selectDistrict}
                   fieldToPlot={"rebate"}
                   yAxisLabel={"Total Dollar Amount"}
                   yAxisUnit={"$"}
@@ -145,6 +200,7 @@ function Home() {
                   data={data}
                   {...(data2 !== null && { data2 })}
                   id={districtId}
+                  compareId={selectDistrict}
                   fieldToPlot={"tech_cost($/W)"}
                   yAxisLabel={"Cost per Watt"}
                   yAxisUnit={"$/W"}
@@ -156,6 +212,7 @@ function Home() {
                   data={data}
                   {...(data2 !== null && { data2 })}
                   id={districtId}
+                  compareId={selectDistrict}
                   fieldToPlot={"rebate_eff(W/$)"}
                   yAxisLabel={"Rebate Efficiency"}
                   yAxisUnit={"W/$"}
@@ -173,3 +230,31 @@ function Home() {
 }
 
 export default Home;
+
+function DiamondShape({ stroke, fill }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 10 10">
+      <polygon
+        points="5,0 10,5 5,10 0,5"
+        fill={fill}
+        stroke={stroke}
+        stroke-width="1"
+      />
+    </svg>
+  );
+}
+
+function CircleShape({ stroke, fill }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 10 10">
+      <circle
+        cx="5"
+        cy="5"
+        r="4"
+        fill={fill}
+        stroke={stroke}
+        stroke-width="1"
+      />
+    </svg>
+  );
+}

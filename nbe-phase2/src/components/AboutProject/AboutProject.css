@@ -2,14 +2,22 @@
   max-width: 56.25em;
   font-size: 0.875em;
   color: rgb(98, 98, 98);
+  text-align: justify;
 }
 
+h3.desktop-note {
+  text-align: left;
+  text-transform: uppercase;  
+  text-decoration: underline;
+  letter-spacing: 2.5;
+}
 .main-body p {
   line-height: 1.3;
 }
 
 .main-body ul {
   line-height-step: 1.5;
+  padding-left: var(--padding-xl);
 }
 
 .main-body h4 {
@@ -80,12 +88,14 @@
   border-radius: 0.313em;
   padding: var(--padding-sm);
   cursor: pointer;
-  transition: var(--theme-olive) 0.2s ease;
+  transition: var(--theme-olive) 0.5s ease;
 }
 
 .aboutBtn:hover {
   cursor: pointer;
-  background-color: (var(--theme-olive), 10%);
+  transform: scale(1.15) translateY(-0.313em);
+  transition: 0.5s;
+  border:  whitesmoke 0.125em solid;
 }
 
 .buttonContainer {
@@ -112,11 +122,14 @@
   background-color: white;
   color: #0057b8;
 }
-.infoButton:hover,
+.infoButton:hover {
+  cursor: pointer;
+  transform: scale(1.15) translateY(-0.313em);
+  transition: 0.5s;  
+}
 .infoButton.active {
   background: #0057b8;
   border: 0.125em solid white;
-
   color: white;
   cursor: pointer;
 }
@@ -131,12 +144,14 @@
   padding: var(--padding-sm);
   margin-top: var(--padding-sm);
   cursor: pointer;
-  transition: var(--theme-olive) 0.2s ease;
+  transition: var(--theme-olive) 0.3s ease;
 }
 
 .closeBtn:hover {
   cursor: pointer;
-  background-color: (var(--theme-olive), 10%);
+  transform: scale(1.15) translateY(-0.313em);
+  transition: 0.5s;
+  border: var(--ti-blue-color) 0.125em solid;
 }
 
 .biography {
@@ -182,6 +197,12 @@
 .linkedinLogo {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.linkedinLogo:hover {
+  cursor: pointer;  
+  transform: scale(2) translateY(-0.313em);
+  transition: 0.5s;  
 }
 
 .biographyText {

@@ -17,6 +17,8 @@ import {
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import RechartsLineChart from "../LineChart/RechartsLineChart";
+import DownloadCSVButton from "../CsvDownload/CsvDownload";
+import ImageDownloader from "../ImageDownload/ImageDownloader";
 
 function StateViz({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,11 +38,13 @@ function StateViz({ data }) {
     <Flex
       className="state-viz-container"
       flexDirection="column"
-
       h="100vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
-      backgroundSize={"65%"}
+      backgroundSize={"85% 68%"}      
+      style={{
+        filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))" 
+      }}
       _hover={{
         transform: "scale(1.15)",
         transition: "transform 0.5s ease-in-out",
@@ -49,14 +53,13 @@ function StateViz({ data }) {
       }}
       onClick={onOpen}
     >
-      
       <Text
         color="black"
         fontSize="4xl"
         textAlign={"center"}
         fontWeight="bold"
         fontStyle={"italic"}
-        style={{ textShadow: "0.125em 0.125em 0.125em gray" }}
+        // style={{ textShadow: "0.125em 0.125em 0.125em gray" }}
         position={"relative"}
         top={"2vh"}
         left={"-1vh"}
@@ -83,6 +86,7 @@ function StateViz({ data }) {
         size={"full"}
       >
         <DrawerOverlay />
+
         <DrawerContent
           className="drawer-content"
           containerProps={{
@@ -92,6 +96,24 @@ function StateViz({ data }) {
           style={{ position: "absolute" }}
           bg="#669DA6"
         >
+          <DrawerHeader
+            display={"flex"}
+            flexDirection="row"
+            alignItems={"center"}
+          >
+            <Box>Delaware State Overall Trends and Projections</Box>
+            <Box
+              display={"flex"}
+              flexDirection={"row"}
+              style={{
+                position: "absolute",
+                left: "68%",
+              }}
+            >
+              <DownloadCSVButton data={data} />
+              <ImageDownloader />
+            </Box>
+          </DrawerHeader>
           <DrawerCloseButton
             size="lg"
             color="white"
@@ -102,7 +124,7 @@ function StateViz({ data }) {
             }}
             _focus={{ boxShadow: "0px 0px 10px 2px rgba(255,255,255,0.7)" }}
           />
-          <DrawerHeader>Delaware State Overall Trends and Projections</DrawerHeader>
+
           <DrawerBody
             display={"flex"}
             flexDirection="row"
