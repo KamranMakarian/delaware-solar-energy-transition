@@ -60,7 +60,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
         mr="4"
         color={color}
         _hover={{
-          transform: "scale(1.5)",
+          transform: "scale(1.15)",
           transition: "transform 0.5s ease-in-out",
           // boxShadow: "2xl",
           cursor: "pointer",

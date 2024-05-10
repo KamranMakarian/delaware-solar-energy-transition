@@ -13,6 +13,7 @@ import {
   Flex,
   Box,
   Text,
+  Center,
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import RechartsLineChart from "../LineChart/RechartsLineChart";
@@ -35,18 +36,20 @@ function StateViz({ data }) {
     <Flex
       className="state-viz-container"
       flexDirection="column"
+
       h="100vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
-      backgroundSize={"contain"}
+      backgroundSize={"65%"}
       _hover={{
-        transform: "scale(1.5)",
+        transform: "scale(1.15)",
         transition: "transform 0.5s ease-in-out",
         boxShadow: "2xl",
         cursor: "pointer",
       }}
       onClick={onOpen}
     >
+      
       <Text
         color="black"
         fontSize="4xl"
@@ -99,7 +102,7 @@ function StateViz({ data }) {
             }}
             _focus={{ boxShadow: "0px 0px 10px 2px rgba(255,255,255,0.7)" }}
           />
-          <DrawerHeader>State of Delaware Solar Energy Transition</DrawerHeader>
+          <DrawerHeader>Delaware State Overall Trends and Projections</DrawerHeader>
           <DrawerBody
             display={"flex"}
             flexDirection="row"

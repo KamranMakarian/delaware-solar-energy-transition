@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import "./RechartsLineChart.css";
 import {
   ResponsiveContainer,
@@ -12,51 +12,34 @@ import {
 import HighlightedWord from "../HighlightWord/HighlightWord";
 import { Box } from "@chakra-ui/react";
 
-function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
+function RechartsLineChart({ data, data2, id, fieldToPlot, yAxisUnit, chartTitle }) {
+  
   const dataArray = JSON.parse(data);
 
-  const { historicalData, predictionData } = dataArray.reduce(
-    (acc, item) => {
-      const date = new Date(item.Date);
-      const formattedDate = date.toLocaleDateString("en-US", {
-        year: "2-digit",
-        month: "short",
-      });
+  const { historicalDataToPlot, predictionDataToPlot } = groupData({ data: dataArray, fieldToPlot });
 
-      const newData = {
-        year: formattedDate,
-        value: item[fieldToPlot],
-      };
+  const [historicalDataToPlot2, setHistoricalDataToPlot2] = useState(null);
+  const [predictionDataToPlot2, setPredictionDataToPlot2] = useState(null);
 
-      if (item.IsPrediction === 0) {
-        acc.historicalData.push(newData);
-      } else {
-        acc.predictionData.push(newData);
-      }
-      return acc;
-    },
+  
+  // console.log ("data2", data2);
+  useEffect(() => {
+  if (data2) {
+    const dataArray2 = JSON.parse(data2);
+    console.log("dataArray2", dataArray2);
 
-    { historicalData: [], predictionData: [] }
-  );
+    const { historicalDataToPlot, predictionDataToPlot } = groupData({ data: dataArray2, fieldToPlot });
 
-  const historicalDataToPlot = {
-    name: "historical",
-    data: historicalData,
-  };
+    setHistoricalDataToPlot2(historicalDataToPlot);
+    setPredictionDataToPlot2(predictionDataToPlot);
 
-  const lastHistoricalData =
-    historicalDataToPlot.data.length > 0
-      ? historicalDataToPlot.data[historicalDataToPlot.data.length - 1]
-      : null;
-
-  const predictionDataToPlot = {
-    name: "prediction",
-    data: predictionData,
-  };
-
-  if (lastHistoricalData !== null) {
-    predictionDataToPlot.data.unshift(lastHistoricalData);
   }
+  }, [data2]);
+
+
+
+  
+
 
   return (
     <Box className="recharts-viz-container" id="recharts-viz-container">
@@ -93,6 +76,37 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
             }}
           />
           <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id} />} />
+          {historicalDataToPlot2 && predictionDataToPlot2 && (
+              
+              <>
+              <Line
+              data={historicalDataToPlot2.data}
+              type="monotone"
+              strokeDasharray={"3 3"}
+              dataKey="value"
+              // fill="#4B0082"
+              stroke="#4B0082"
+              name={historicalDataToPlot2.name}
+              strokeWidth={3}
+              animationDuration={600}
+              dot={<DiamondDot />}
+              activeDot= {<DiamondDot />}
+            />
+            <Line
+              data={predictionDataToPlot2.data}
+              type="monotone"
+              strokeDasharray={"3 3"}
+              dataKey="value"
+              stroke="#006400"
+              strokeWidth={3}
+              name={predictionDataToPlot2.name}
+              animationDuration={3000}
+              dot={<DiamondDot />}
+              activeDot= {<DiamondDot />}
+              connectNulls={true}
+            />
+            </>
+            )}
           <Line
             data={historicalDataToPlot.data}
             type="monotone"
@@ -126,6 +140,9 @@ function RechartsLineChart({ data, id, fieldToPlot, yAxisUnit, chartTitle }) {
             }}
             connectNulls={true}
           />
+
+
+
         </LineChart>
       </ResponsiveContainer>
     </Box>
@@ -179,3 +196,67 @@ function convertDate(label) {
   // Return the formatted date string
   return `${formattedMonth} ${formattedYear}`;
 }
+
+
+function groupData ({ data, fieldToPlot}) {
+  
+  const { historicalData, predictionData } = data.reduce(
+    (acc, item) => {
+      const date = new Date(item.Date);
+      const formattedDate = date.toLocaleDateString("en-US", {
+        year: "2-digit",
+        month: "short",
+      });
+
+      const newData = {
+        year: formattedDate,
+        value: item[fieldToPlot],
+      };
+
+      if (item.IsPrediction === 0) {
+        acc.historicalData.push(newData);
+      } else {
+        acc.predictionData.push(newData);
+      }
+      return acc;
+    },
+
+    { historicalData: [], predictionData: [] }
+  );
+
+  const historicalDataToPlot = {
+    name: "historical",
+    data: historicalData,
+  };
+
+  const lastHistoricalData =
+    historicalDataToPlot.data.length > 0
+      ? historicalDataToPlot.data[historicalDataToPlot.data.length - 1]
+      : null;
+
+  const predictionDataToPlot = {
+    name: "prediction",
+    data: predictionData,
+  };
+
+  if (lastHistoricalData !== null) {
+    predictionDataToPlot.data.unshift(lastHistoricalData);
+  }
+
+  return {historicalDataToPlot, predictionDataToPlot};
+}
+
+
+function DiamondDot (props)  {
+  const { cx, cy, stroke, fill } = props;
+  const size = 6; // Adjust the size of the diamond as needed
+
+  return (
+    <path
+      d={`M${cx},${cy - size}L${cx + size},${cy}L${cx},${cy + size}L${cx - size},${cy}Z`}
+      fill={fill}
+      stroke={stroke}
+    />
+  );
+};
+

@@ -14,15 +14,20 @@ import StateViz from "../components/StateViz/StateViz";
 import ComparisonSelect from "../components/ComparisonSelect/ComparisonSelect";
 
 function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);  
   const [data, setData] = useState(null);
-  const [districtId, setDistrictId] = useState(3);
   const [data2, setData2] = useState(null);
+  const [districtId, setDistrictId] = useState(3);  
   const [selectDistrict, setSelectDistrict] = useState(null);
 
   const handleDistrictChange = (id) => {
     setDistrictId(id);
   };
+
+  const handleComparison =  (id) => {
+    setSelectDistrict(id);    
+  };
+
 
   useEffect(() => {
     async function fetchData() {
@@ -40,10 +45,10 @@ function Home() {
     fetchData();
   }, [districtId]);
 
- //Fetch data for comparison district
+  //Fetch data for comparison district
   useEffect(() => {
     async function fetchData() {
-    if (!selectDistrict) return;
+      if (!selectDistrict) return;
       setLoading(true);
       try {
         const result = await predict(selectDistrict);
@@ -57,12 +62,6 @@ function Home() {
 
     fetchData();
   }, [selectDistrict]);
-
-  const handleSelectDistrict = (id) => {
-    setSelectDistrict(id);
-  };
-
-  console.log("second data",data2);
 
   return (
     <Box className="home-container" id="home-container">
@@ -94,6 +93,7 @@ function Home() {
 
         <Box className="home-spinner-container">
           {loading && !data && <Loader />}
+          {/* {loading && !data2 && <Loader />}      */}
         </Box>
         <Box className="home-content-container" id="home-content-container">
           {!loading && data && (
@@ -106,21 +106,22 @@ function Home() {
                     variant="solid"
                     size="md"
                   >
-                    Navigate To Historical Visualization Dashboard
+                    Historical Visualization
                   </Button>
                 </Link>
               </Box>
               <Box className="home-download-buttons">
-                <DownloadCSVButton data={data} />
-                <ImageDownloader />
                 <ComparisonSelect
                   activeDistrict={districtId}
-                  onSelectDistrict={handleSelectDistrict}
+                  onSelectDistrict={handleComparison}
                 />
+                <DownloadCSVButton data={data} />
+                <ImageDownloader />
               </Box>
               <Box className="home-viz-container" id="home-viz-container">
                 <RechartsLineChart
                   data={data}
+                  {...(data2 !== null && { data2 })}
                   id={districtId}
                   fieldToPlot={"system_count"}
                   yAxisLabel={"System Count"}
@@ -131,6 +132,7 @@ function Home() {
                 />
                 <RechartsLineChart
                   data={data}
+                  {...(data2 !== null && { data2 })}
                   id={districtId}
                   fieldToPlot={"rebate"}
                   yAxisLabel={"Total Dollar Amount"}
@@ -141,6 +143,7 @@ function Home() {
                 />
                 <RechartsLineChart
                   data={data}
+                  {...(data2 !== null && { data2 })}
                   id={districtId}
                   fieldToPlot={"tech_cost($/W)"}
                   yAxisLabel={"Cost per Watt"}
@@ -151,6 +154,7 @@ function Home() {
                 />
                 <RechartsLineChart
                   data={data}
+                  {...(data2 !== null && { data2 })}
                   id={districtId}
                   fieldToPlot={"rebate_eff(W/$)"}
                   yAxisLabel={"Rebate Efficiency"}
