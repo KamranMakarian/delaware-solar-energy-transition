@@ -14,6 +14,7 @@ import { RepeatIcon } from "@chakra-ui/icons";
 import StateViz from "../components/StateViz/StateViz";
 import ComparisonSelect from "../components/ComparisonSelect/ComparisonSelect";
 
+
 function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);

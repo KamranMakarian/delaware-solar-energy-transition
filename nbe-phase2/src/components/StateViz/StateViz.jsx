@@ -17,10 +17,9 @@ import {
   Stat,
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
-import RechartsLineChart from "../LineChart/RechartsLineChart";
 import DownloadCSVButton from "../CsvDownload/CsvDownload";
-import ImageDownloader from "../ImageDownload/ImageDownloader";
 import StateLineChart from "../StateLineChart/StateLineChart";
+import CustomLineChart from "../CustomLineChart/CustomLineChart";
 
 function StateViz({ stateData }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,14 +42,12 @@ function StateViz({ stateData }) {
       h="100vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
-      backgroundSize={
-        {
-          "lg": "85% 55%",
-          "xl": "85% 68%",         
-        }
-        }      
+      backgroundSize={{
+        lg: "85% 55%",
+        xl: "85% 68%",
+      }}
       style={{
-        filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))" 
+        filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))",
       }}
       _hover={{
         transform: "scale(1.15)",
@@ -139,6 +136,8 @@ function StateViz({ stateData }) {
             flexWrap="wrap"
             style={{ overflowY: "auto", maxHeight: "calc(100vh - 30%)" }}
           >
+            {/* <IqrChart  stateData={stateData}/> */}
+            <CustomLineChart  />
             <StateLineChart
               data={stateData}
               id={0}
@@ -177,7 +176,7 @@ function StateViz({ stateData }) {
                 "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
               }
             />
-          </DrawerBody>          
+          </DrawerBody>
         </DrawerContent>
       </Drawer>
     </Flex>
