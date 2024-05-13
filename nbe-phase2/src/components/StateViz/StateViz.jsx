@@ -43,7 +43,12 @@ function StateViz({ stateData }) {
       h="100vh"
       backgroundImage={delaware}
       backgroundRepeat={"no-repeat"}
-      backgroundSize={"85% 68%"}      
+      backgroundSize={
+        {
+          "lg": "85% 55%",
+          "xl": "85% 68%",         
+        }
+        }      
       style={{
         filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))" 
       }}

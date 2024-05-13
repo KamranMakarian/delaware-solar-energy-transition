@@ -80,7 +80,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
           top={{ "5xs": "0", 
           "3xs": "-2",
           "lg": "0",
-          "xl": "0",
+          "xl": "0",          
           "4xl": "1" }}
           right="0"
           left={{
@@ -89,7 +89,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
             md: "12",
             lg: "4",
             xl: "8",
-            "2xl": "24",
+            "2xl": "16",
             "4xl": "20",
           }}
         >
@@ -102,7 +102,7 @@ function DistrictCard({ id, onDistrictChange, isSelected }) {
                 xs: "xl",
                 md: "xl",
                 lg: "xl",
-                xl: "md",
+                xl: "md",                
                 "4xl": "xl",
               }}
               position={{ "5xs": "relative" }}

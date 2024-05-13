@@ -1,6 +1,7 @@
 import React from "react";
 import html2canvas from "html2canvas";
-import { Button, Box} from "@chakra-ui/react";
+import { Button, Box, Tooltip } from "@chakra-ui/react";
+import image from "../../assets/image1.png";
 
 class ImageDownloader extends React.Component {
   constructor(props) {
@@ -28,24 +29,29 @@ class ImageDownloader extends React.Component {
     });
   };
 
- 
-  
   render() {
     return (
       <Box>
         {/* This is the content you want to capture */}
         <Box ref={this.captureRef}>{this.props.children}</Box>
         {/* Button to trigger image download */}
-        <Button
-          colorScheme="blue"
-          variant="solid"
-          size="md"     
-          margin={3}
-          onClick={this.handleDownload}
-          
+        <Tooltip
+          label="Download snapshot of the page as .png file."
+          aria-label="Download Image"
+          hasArrow
+          bg={"black"}
+          color={"white"}
         >
-          Snapshot To Image
-        </Button>
+        <Button
+          backgroundImage={`url(${image})`}
+          backgroundSize={"cover"}
+          colorScheme="transparent"
+          size="lg"                 
+          onClick={this.handleDownload}
+          padding={5}                    
+          backgroundColor={"white"}
+        ></Button>
+        </Tooltip>
       </Box>
     );
   }

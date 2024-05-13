@@ -128,13 +128,17 @@ const reloadPage = () => {
                     bg="#717744"
                     margin={3}
                     variant="solid"
-                    size="md"
+                    size={{
+                      "lg": "sm",
+                      "xl": "md",
+
+                    }}
                     color="white"
                     _hover={{
                       transform: "scale(1.15)",
                       transition: "transform 0.5s ease-in-out",
                       border: "2px solid whitesmoke",
-                    }}
+                    }}                   
                   >
                     Historical Visualization
                   </Button>
@@ -143,7 +147,7 @@ const reloadPage = () => {
               <Box
                 className="comparison-select-container"
                 display={"flex"}
-                flexDirection={"row"}
+                flexDirection={"row"}                
               >
                 <ComparisonSelect
                   activeDistrict={districtId}
@@ -169,7 +173,6 @@ const reloadPage = () => {
                       className="comparison-reset"
                       onClick={reloadPage}
                       variant="solid"
-                      size="md"
                       bg={"red.500"}        
                     >
                       <RepeatIcon />
@@ -184,7 +187,8 @@ const reloadPage = () => {
                       padding={2}
                       marginLeft={5}
                     >
-                      <CircleShape stroke={"#4B0082"} fill={"#4B0082"} />
+                      <CircleShape stroke={"#4B0082"} fill={"#4B0082"}                       
+                      />
                       &nbsp;&nbsp;
                       <CircleShape stroke={"#006400"} fill={"none"} />
                       &nbsp;&nbsp;

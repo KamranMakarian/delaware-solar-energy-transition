@@ -42,20 +42,21 @@
   top: 0;
   left: 1%;
   margin: var(--margin-md);
-  padding: var(--padding-md); 
+  padding: var(--padding-md);
 }
-
 
 .home-download-buttons {
   position: fixed;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: var(--margin-md);
+  justify-content: space-around;
+  align-items: center;  
   padding: var(--padding-md);
-  top: 35%;
-  left: 68%;
+  top: 37.3%;
+  left: 85%;  
+  background-color: white;
+  height: 3.7em;
+  border-radius: 0.4em ;  
 }
 
 .home-viz-container.css-0 {
@@ -72,13 +73,13 @@
 
 @media screen and (max-width: 1280px) {
   .nav-btn-container {
-    top: 36%;
-    left: 8%;
+    top: -2%;
+    left: 1%;
   }
 
   .home-download-buttons {
-    top: 36%;
-    left: 55%;
+    top: 37.5%;
+    left: 85%;
   }
 
   .home-viz-container.css-0 {
@@ -89,16 +90,22 @@
 
 @media screen and (max-width: 1024px) {
   .nav-btn-container {
-    top: 36%;
-    left: 58%;
+    top: -2.5%;
+    left: 1%;
   }
 
   .home-download-buttons {
-    top: 36%;
+    top: 37%;
+    left: 84%;
+  }
+
+  .home-content-container {
+    top: 35.7%;
+  }
+
+  .comparison-select-container { 
     left: 15%;
- }
-
-
+  }
 }
 
 @media screen and (max-width: 914px) {
