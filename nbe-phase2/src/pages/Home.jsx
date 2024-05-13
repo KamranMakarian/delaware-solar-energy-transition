@@ -173,7 +173,7 @@ const reloadPage = () => {
                       className="comparison-reset"
                       onClick={reloadPage}
                       variant="solid"
-                      bg={"red.500"}        
+                      bg={"yellow.500"}        
                     >
                       <RepeatIcon />
                     </Button>
@@ -186,11 +186,12 @@ const reloadPage = () => {
                       justifyContent={"space-around"}
                       padding={2}
                       marginLeft={5}
-                    >
-                      <CircleShape stroke={"#4B0082"} fill={"#4B0082"}                       
+                    >                      
+                      {/* <CircleShape stroke={"#4B0082"} fill={"#4B0082"}                       
                       />
                       &nbsp;&nbsp;
-                      <CircleShape stroke={"#006400"} fill={"none"} />
+                      <CircleShape stroke={"#006400"} fill={"none"} /> */}
+                      <SolidLine />
                       &nbsp;&nbsp;
                       <span>District {districtId}</span>
                     </Box>
@@ -203,9 +204,10 @@ const reloadPage = () => {
                       padding={2}
                       marginRight={5}
                     >
-                      <DiamondShape stroke={"#4B0082"} fill={"none"} />
+                      {/* <DiamondShape stroke={"#4B0082"} fill={"none"} />
                       &nbsp;&nbsp;
-                      <DiamondShape stroke={"#006400"} fill={"none"} />
+                      <DiamondShape stroke={"#006400"} fill={"none"} /> */}
+                      <DashedLine />
                       &nbsp;&nbsp;
                       <span>District {selectDistrict}</span>
                     </Box>
@@ -299,6 +301,31 @@ function CircleShape({ stroke, fill }) {
         fill={fill}
         stroke={stroke}
         stroke-width="1"
+      />
+    </svg>
+  );
+}
+
+
+function SolidLine() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 10 10">
+      <line x1="0" y1="5" x2="10" y2="5" stroke="#000" stroke-width="2" />
+    </svg>
+  );
+}
+
+function DashedLine() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 10 10">
+      <line
+        x1="0"
+        y1="5"
+        x2="10"
+        y2="5"
+        stroke="#000"
+        stroke-width="2"
+        stroke-dasharray="2 2"
       />
     </svg>
   );
