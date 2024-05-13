@@ -14,13 +14,15 @@ import {
   Box,
   Text,
   Center,
+  Stat,
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import RechartsLineChart from "../LineChart/RechartsLineChart";
 import DownloadCSVButton from "../CsvDownload/CsvDownload";
 import ImageDownloader from "../ImageDownload/ImageDownloader";
+import StateLineChart from "../StateLineChart/StateLineChart";
 
-function StateViz({ data }) {
+function StateViz({ stateData }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
 
@@ -110,8 +112,8 @@ function StateViz({ data }) {
                 left: "68%",
               }}
             >
-              <DownloadCSVButton data={data} />
-              <ImageDownloader />
+              <DownloadCSVButton data={stateData} />
+              {/* <ImageDownloader /> */}
             </Box>
           </DrawerHeader>
           <DrawerCloseButton
@@ -132,17 +134,17 @@ function StateViz({ data }) {
             flexWrap="wrap"
             style={{ overflowY: "auto", maxHeight: "calc(100vh - 30%)" }}
           >
-            <RechartsLineChart
-              data={data}
-              id={13}
+            <StateLineChart
+              data={stateData}
+              id={0}
               fieldToPlot={"system_count"}
               yAxisLabel={"System Count"}
               yAxisUnit={""}
               chartTitle={"PV System Count : Historical Trends and Projections"}
             />
-            <RechartsLineChart
-              data={data}
-              id={13}
+            <StateLineChart
+              data={stateData}
+              id={0}
               fieldToPlot={"rebate"}
               yAxisLabel={"Total Dollar Amount"}
               yAxisUnit={"$"}
@@ -150,9 +152,9 @@ function StateViz({ data }) {
                 "PV Rebate Trends ($) : Historical Trends and Projections"
               }
             />
-            <RechartsLineChart
-              data={data}
-              id={13}
+            <StateLineChart
+              data={stateData}
+              id={0}
               fieldToPlot={"tech_cost($/W)"}
               yAxisLabel={"Cost per Watt"}
               yAxisUnit={"$/W"}
@@ -160,9 +162,9 @@ function StateViz({ data }) {
                 "PV Technology Cost ($/W): Historical Trends and Projections"
               }
             />
-            <RechartsLineChart
-              data={data}
-              id={13}
+            <StateLineChart
+              data={stateData}
+              id={0}
               fieldToPlot={"rebate_eff(W/$)"}
               yAxisLabel={"Rebate Efficiency"}
               yAxisUnit={"W/$"}
@@ -170,9 +172,7 @@ function StateViz({ data }) {
                 "PV Rebate Efficiency (W/$) : Historical Trends and Projections"
               }
             />
-          </DrawerBody>
-
-          <DrawerFooter>This is the footer</DrawerFooter>
+          </DrawerBody>          
         </DrawerContent>
       </Drawer>
     </Flex>

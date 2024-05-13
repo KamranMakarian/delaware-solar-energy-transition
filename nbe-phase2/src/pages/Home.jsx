@@ -9,7 +9,8 @@ import Loader from "../components/Loader/Loader";
 import DownloadCSVButton from "../components/CsvDownload/CsvDownload";
 import AboutProject from "../components/AboutProject/AboutProject";
 import ImageDownloader from "../components/ImageDownload/ImageDownloader";
-import { Button, Link, Box, Flex, Card } from "@chakra-ui/react";
+import { Button, Link, Box, Flex, Tooltip, transform } from "@chakra-ui/react";
+import { RepeatIcon } from "@chakra-ui/icons";
 import StateViz from "../components/StateViz/StateViz";
 import ComparisonSelect from "../components/ComparisonSelect/ComparisonSelect";
 
@@ -19,6 +20,9 @@ function Home() {
   const [data2, setData2] = useState(null);
   const [districtId, setDistrictId] = useState(3);
   const [selectDistrict, setSelectDistrict] = useState(null);
+  const [stateData, setStateData] = useState(null);
+
+
 
   const handleDistrictChange = (id) => {
     setDistrictId(id);
@@ -27,6 +31,22 @@ function Home() {
   const handleComparison = (id) => {
     setSelectDistrict(id);
   };
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
+      try {        
+        const result = await predict(0); 
+        setStateData(result);
+      } catch (error) {
+        console.error(error.toString());
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);  
 
   useEffect(() => {
     async function fetchData() {
@@ -62,13 +82,18 @@ function Home() {
     fetchData();
   }, [selectDistrict]);
 
+const reloadPage = () => {
+  window.location.reload();
+}
+  
+
   return (
     <Box className="home-container" id="home-container">
       <Header />
       <AboutProject />
 
       <Box className="bottom-container">
-        <StateViz data={data} />
+        <StateViz stateData={stateData} />
         <Flex
           className="district-cards-container"
           overflowX="scroll"
@@ -134,6 +159,22 @@ function Home() {
                     borderRadius={6}
                     fontWeight={700}
                   >
+                    <Tooltip label="Reset Comparison" 
+                    aria-label="A tooltip"
+                    hasArrow
+                    bg="black"
+                    color="white"                    
+                    >
+                    <Button
+                      className="comparison-reset"
+                      onClick={reloadPage}
+                      variant="solid"
+                      size="md"
+                      bg={"red.500"}        
+                    >
+                      <RepeatIcon />
+                    </Button>
+                    </Tooltip>
                     <Box
                       className="legend-initial"
                       display={"flex"}

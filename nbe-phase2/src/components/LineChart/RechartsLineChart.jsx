@@ -30,8 +30,7 @@ function RechartsLineChart({
     districtId: id,
     desc:"initial"
   });
-
-  console.log("comparison id", compareId);
+  
 
   const [historicalDataToPlot2, setHistoricalDataToPlot2] = useState(null);
   const [predictionDataToPlot2, setPredictionDataToPlot2] = useState(null);
@@ -52,7 +51,7 @@ function RechartsLineChart({
     }
   }, [data2]);
 
-  console.log(historicalDataToPlot, "historicalDataToPlot");
+  
 
   return (
     <Box className="recharts-viz-container" id="recharts-viz-container">
@@ -151,7 +150,7 @@ function RechartsLineChart({
 export default RechartsLineChart;
 
 function CustomTooltip({ active, payload, label, yAxisUnit }) {
-  console.log(payload, "payload");
+  
   const formattedYear = convertDate(label);
 
   if (active && payload && payload.length) {
