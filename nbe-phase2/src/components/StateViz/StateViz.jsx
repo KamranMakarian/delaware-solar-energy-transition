@@ -136,8 +136,7 @@ function StateViz({ stateData }) {
             flexWrap="wrap"
             style={{ overflowY: "auto", maxHeight: "calc(100vh - 30%)" }}
           >
-            {/* <IqrChart  stateData={stateData}/> */}
-            <CustomLineChart  />
+
             <StateLineChart
               data={stateData}
               id={0}
@@ -156,20 +155,24 @@ function StateViz({ stateData }) {
                 "PV Rebate Trends ($) : Historical Trends and Projections"
               }
             />
-            <StateLineChart
+            <CustomLineChart
               data={stateData}
               id={0}
-              fieldToPlot={"tech_cost($/W)"}
+              topField={"tech_cost($/W)_p75"}
+              middleField={"tech_cost($/W)"}
+              bottomField={"tech_cost($/W)_p25"}
               yAxisLabel={"Cost per Watt"}
               yAxisUnit={"$/W"}
               chartTitle={
                 "PV Technology Cost ($/W): Historical Trends and Projections"
               }
             />
-            <StateLineChart
+            <CustomLineChart
               data={stateData}
               id={0}
-              fieldToPlot={"rebate_eff(W/$)"}
+              topField={"rebate_eff(W/$)_p75"}
+              middleField={"rebate_eff(W/$)"}
+              bottomField={"rebate_eff(W/$)_p25"}
               yAxisLabel={"Rebate Efficiency"}
               yAxisUnit={"W/$"}
               chartTitle={

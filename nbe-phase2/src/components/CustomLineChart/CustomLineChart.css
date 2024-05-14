@@ -1,0 +1,9 @@
+.custom-chart-container {
+    background-color: #ffffff;
+    margin: var(--spacing-md);
+    padding: var(--padding-md);
+    border: 0.125em solid var(--cards-border-color);
+    border-radius: var(--border-radius-md);
+    width: 100%;
+    height: 75%;
+}

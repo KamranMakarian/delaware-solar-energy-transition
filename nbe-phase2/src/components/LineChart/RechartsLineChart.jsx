@@ -64,7 +64,7 @@ function RechartsLineChart({
           highlightColor2={"#006400"}
         />
       </h2>
-      <ResponsiveContainer height={350}>
+      <ResponsiveContainer height={350} >
         <LineChart>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis

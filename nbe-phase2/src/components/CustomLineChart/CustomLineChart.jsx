@@ -1,36 +1,199 @@
-import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ComposedChart, Line } from 'recharts';
-import './CustomLineChart.css';
+import React from "react";
+import {
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ComposedChart,
+  Line,
+  ResponsiveContainer,
+} from "recharts";
+import "./CustomLineChart.css";
+import { Box } from "@chakra-ui/react";
+import HighlightedWord from "../HighlightWord/HighlightWord";
 
-const data = [
-  { name: 'Jan', top: 4000, middle: 2400, bottom: 1500 },
-  { name: 'Feb', top: 3000, middle: 1398, bottom: 1000 },
-  { name: 'Mar', top: 7500, middle: 5200, bottom: 2290 },
-  { name: 'Apr', top: 2780, middle: 2500, bottom: 2000 },
-  { name: 'May', top: 5200, middle: 4800, bottom: 2181 },
-  { name: 'Jun', top: 4800, middle: 3800, bottom: 2500 },
-  { name: 'Jul', top: 5000, middle: 4300, bottom: 2100 },
-  { name: 'Aug', top: 4000, middle: 2400, bottom: 1400 },
-  { name: 'Sep', top: 3000, middle: 1398, bottom: 750 },
-  { name: 'Oct', top: 7000, middle: 2800, bottom: 2290 },
-  { name: 'Nov', top: 2780, middle: 2408, bottom: 2000 },
-  { name: 'Dec', top: 3500, middle: 2800, bottom: 2181 },
-];
+function AreaChartExample({
+  data,
+  id,
+  topField,
+  middleField,
+  bottomField,
+  yAxisUnit,
+  chartTitle,
+}) {
+  const dataArray = JSON.parse(data);
 
-const AreaChartExample = () => {
+  const { historicalDataToPlot, predictionDataToPlot } = groupData({
+    data: dataArray,
+    topField,
+    middleField,
+    bottomField,
+    districtId: id,
+    desc: "initial",
+  });
+
   return (
-    
-    <ComposedChart width={600} height={400} data={data}
-      margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />     
-      <Area type="linear" dataKey="bottom" stackId="1" stroke="gray" fill="transparent" />            
-      <Area type="linear" dataKey="top" stackId="1" stroke="gray" fill="white" />
-      <Line type="linear" dataKey="middle" stroke="#8884d8" strokeWidth={3}/>
-    </ComposedChart>
+    <Box className="custom-chart-container">
+      <h2>
+        <HighlightedWord
+          text={chartTitle}
+          wordToHighlight1={"Historical"}
+          highlightColor1={"#4B0082"}
+          wordToHighlight2={"Projections"}
+          highlightColor2={"#006400"}
+        />
+      </h2>
+      <ResponsiveContainer height={350}>
+        <ComposedChart>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="year"
+            allowDuplicatedCategory={false}
+            stroke="black"
+            fontSize={12}
+            fontWeight={600}
+            angle={-30}
+            textAnchor="end"
+          />
+          <YAxis
+            stroke="black"
+            tickFormatter={(value) => {
+              if (value !== 0) {
+                const formattedValue = formatYAxisTicks(value, yAxisUnit);
+                return formattedValue !== "0" ? formattedValue : "";
+              } else {
+                return "";
+              }
+            }}
+          />
+          <Tooltip />
+
+          <Area
+            type="linear"
+            data={historicalDataToPlot.data}
+            dataKey="top"
+            stackId="1"
+            stroke="#a9a9a9"
+            fill="#d3d3d3"
+          />
+          <Line
+            type="linear"
+            data={historicalDataToPlot.data}
+            dataKey="middle"
+            stroke="#4B0082"
+            strokeWidth={2}
+            fill="#4B0082"
+          />
+          <Area
+            type="linear"
+            data={historicalDataToPlot.data}
+            dataKey="bottom"
+            stackId="1"
+            stroke="#a9a9a9"
+            fill="#ffffff"
+          />
+          <Line
+            type="linear"
+            data={predictionDataToPlot.data}
+            dataKey="middle"
+            stroke="#006400"
+            strokeWidth={2}
+          />
+        </ComposedChart>
+      </ResponsiveContainer>
+    </Box>
   );
 }
 
 export default AreaChartExample;
+
+function groupData({
+  data,
+  topField,
+  middleField,
+  bottomField,
+  districtId,
+  desc,
+}) {
+  const { historicalData, predictionData } = data.reduce(
+    (acc, item) => {
+      const date = new Date(item.Date);
+      const formattedDate = date.toLocaleDateString("en-US", {
+        year: "2-digit",
+        month: "short",
+      });
+
+      // If historical data for the year exists, update it; otherwise, push a new entry
+      if (item.IsPrediction === 0) {
+        const existingYearData = acc.historicalData.find(
+          (entry) => entry.year === formattedDate
+        );
+
+        if (existingYearData) {
+          existingYearData.top = item[topField];
+          existingYearData.middle = item[middleField];
+          existingYearData.bottom = item[bottomField];
+        } else {
+          acc.historicalData.push({
+            year: formattedDate,
+            top: item[topField],
+            middle: item[middleField],
+            bottom: item[bottomField],
+            districtId: districtId,
+            desc: desc,
+          });
+        }
+      } else {
+        // If prediction data for the year exists, update it; otherwise, push a new entry
+        const existingYearData = acc.predictionData.find(
+          (entry) => entry.year === formattedDate
+        );
+
+        if (existingYearData) {
+          existingYearData.middle = item[middleField];
+        } else {
+          acc.predictionData.push({
+            year: formattedDate,
+            middle: item[middleField],
+            districtId: districtId,
+            desc: desc,
+          });
+        }
+      }
+
+      return acc;
+    },
+
+    { historicalData: [], predictionData: [] }
+  );
+
+  const historicalDataToPlot = {
+    name: "historical",
+    data: historicalData,
+  };
+
+  const lastHistoricalData =
+    historicalDataToPlot.data.length > 0
+      ? historicalDataToPlot.data[historicalDataToPlot.data.length - 1]
+      : null;
+
+  const predictionDataToPlot = {
+    name: "prediction",
+    data: predictionData,
+  };
+
+  if (lastHistoricalData !== null) {
+    predictionDataToPlot.data.unshift(lastHistoricalData);
+  }
+
+  return { historicalDataToPlot, predictionDataToPlot };
+}
+
+function formatYAxisTicks(value, yAxisUnit) {
+  if (yAxisUnit === "$") {
+    const formattedValue = (value / 1000).toFixed(0);
+    return `$${formattedValue}K`;
+  }
+  return value;
+}
