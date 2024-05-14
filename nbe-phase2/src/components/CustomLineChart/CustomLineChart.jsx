@@ -67,7 +67,7 @@ function AreaChartExample({
               }
             }}
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip yAxisUnit={yAxisUnit} id={id} />} />
 
           <Area
             type="linear"
@@ -141,7 +141,7 @@ function groupData({
             middle: item[middleField],
             bottom: item[bottomField],
             districtId: districtId,
-            desc: desc,
+            desc: "historical",
           });
         }
       } else {
@@ -157,7 +157,7 @@ function groupData({
             year: formattedDate,
             middle: item[middleField],
             districtId: districtId,
-            desc: desc,
+            desc: "prediction",
           });
         }
       }
@@ -196,4 +196,57 @@ function formatYAxisTicks(value, yAxisUnit) {
     return `$${formattedValue}K`;
   }
   return value;
+}
+
+function CustomTooltip({ active, payload, label, yAxisUnit }) {
+  const formattedYear = convertDate(label);
+
+
+  if (active && payload && payload.length) {
+
+ 
+    // const filteredPayload = payload.filter(
+
+    //   (entry, index, self) =>
+    //     index ===
+    //     self.findIndex((t) => t.payload.districtId === entry.payload.districtId)
+    // );
+
+
+    return (
+      <Box className="custom-tooltip">
+        <p className="label-tooltip">{formattedYear}</p>
+        {payload.map((entry, index) => (
+          <p key={index} className="data-tooltip">
+            State Data :{" "} 
+            {`${entry.payload.desc === "historical" ? `Historical - ${entry.name} :` : "Projections : "}`}
+
+            {` ${
+              yAxisUnit === "$"
+                ? `$${entry.value
+                    .toFixed(2)
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+                : `${entry.value}${yAxisUnit ? `(${yAxisUnit})` : ""}`
+            }`}
+          </p>
+        ))}
+      </Box>
+    );
+  }
+  return null;
+}
+
+function convertDate(label) {
+  // Split the original date string into month and year parts
+  const [month, year] = String(label).split(" ");
+
+  // Create a JavaScript Date object using only the month part and any arbitrary day (e.g., 1)
+  const date = new Date(`${month} 1, ${year}`);
+
+  // Format the month to full month name (e.g., "June") and format the year
+  const formattedMonth = date.toLocaleString("default", { month: "long" });
+  const formattedYear = date.getFullYear();
+
+  // Return the formatted date string
+  return `${formattedMonth} ${formattedYear}`;
 }
