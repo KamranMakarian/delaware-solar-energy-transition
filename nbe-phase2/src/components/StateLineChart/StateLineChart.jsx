@@ -162,7 +162,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit }) {
         <p className="label-tooltip">{formattedYear}</p>
         {filteredPayload.map((entry, index) => (
           <p key={index} className="data-tooltip">
-            State Data : { `${
+            DE State : { `${
               yAxisUnit === "$"
                 ? `$${entry.value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
                 : `${entry.value}${yAxisUnit ? `(${yAxisUnit})` : ""}`

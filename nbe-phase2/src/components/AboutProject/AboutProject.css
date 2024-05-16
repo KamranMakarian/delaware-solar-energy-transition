@@ -10,6 +10,7 @@ h3.desktop-note {
   text-transform: uppercase;  
   text-decoration: underline;
   letter-spacing: 2.5;
+  font-weight: bold;
 }
 .main-body p {
   line-height: 1.3;

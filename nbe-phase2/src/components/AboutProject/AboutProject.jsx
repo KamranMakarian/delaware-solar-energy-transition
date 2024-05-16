@@ -78,16 +78,18 @@ function AboutProject() {
           <>
             <Box className="main-body">
               <h3 className="desktop-note">
-                <strong style={{ color: "red" }}>NOTE: </strong> {" "}
-                Best viewed in desktop version
+                <strong style={{ color: "red" }}>NOTE: </strong> Best viewed in
+                desktop version
               </h3>
-              <br/>
+              <br />
               <p>
                 Welcome to "Delaware’s Solar Energy Transition: Trends and
                 Projections". This dashboard provides a detailed look at the
                 evolution of solar energy and the distribution of Green Energy
-                Program Grants across Delaware. We track this progress using
-                four key metrics:
+                Program Grants across Delaware state and the state legislative
+                districts that have been receiving rebate applications every
+                month since January 2022. We track this progress using four key
+                metrics:
               </p>
               <br />
               <ul>

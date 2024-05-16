@@ -217,7 +217,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit }) {
     if (quartile === "top") {
       return "Upper Quartile";
     } else if (quartile === "middle") {
-      return "Median Quartile";
+      return "Median";
     } else if (quartile === "bottom") {
       return "Lower Quartile";
     } else {
@@ -232,7 +232,7 @@ function CustomTooltip({ active, payload, label, yAxisUnit }) {
 
 {payload.map((entry, index) => (
           <p key={index} className="data-tooltip">
-            State Data :{" "} 
+            DE State :{" "} 
             {`${entry.payload.desc === "historical" ? `Historical - ${getQuartileLabel(entry.name)}` : "Projections"}`} :
 
 
