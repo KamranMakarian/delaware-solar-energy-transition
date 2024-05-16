@@ -15,6 +15,7 @@ import {
   Text,
   Center,
   Stat,
+  Image,
 } from "@chakra-ui/react";
 import { ArrowRightIcon } from "@chakra-ui/icons";
 import DownloadCSVButton from "../CsvDownload/CsvDownload";
@@ -40,15 +41,6 @@ function StateViz({ stateData }) {
       className="state-viz-container"
       flexDirection="column"
       h="100vh"
-      backgroundImage={delaware}
-      backgroundRepeat={"no-repeat"}
-      backgroundSize={{
-        lg: "85% 55%",
-        xl: "85% 68%",
-      }}
-      style={{
-        filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))",
-      }}
       _hover={{
         transform: "scale(1.15)",
         transition: "transform 0.5s ease-in-out",
@@ -56,6 +48,7 @@ function StateViz({ stateData }) {
         cursor: "pointer",
       }}
       onClick={onOpen}
+      boxSize={"15%"}
     >
       <Text
         color="black"
@@ -63,24 +56,42 @@ function StateViz({ stateData }) {
         textAlign={"center"}
         fontWeight="bold"
         fontStyle={"italic"}
-        // style={{ textShadow: "0.125em 0.125em 0.125em gray" }}
+        style={{ textShadow: "0.125em 0.125em 0.125em gray" }}
         position={"relative"}
-        top={"2vh"}
+        top={"-2vh"}
         left={"-1vh"}
       >
         Click to view state's data
       </Text>
 
       <Box
+      display={"flex"}
+        flexDirection={"row"}
         mb="2"
         position={"relative"}
-        top={"8vh"}
-        left={"8vw"}
+        top={"1vh"}
+        left={"0"}
         boxSize={"100%"}
-        opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
+       
         transition="opacity 0.5s ease-in-out" // Smooth transition
       >
-        <ArrowRightIcon ref={btnRef} color="gray.700" boxSize="4em" />
+        <Image          
+          src={delaware}
+          alt="Delaware Map"          
+          boxSize={"60vh"}
+          style={{
+            filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))",
+          }}
+          position={"relative"}
+          top={"-2vh"}
+          left={"1vh"}
+        />
+        <ArrowRightIcon 
+          position={"relative"}
+          top={"8vh"}
+          left={"-8vh"}
+         opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
+        ref={btnRef} color="gray.700" boxSize="4em" />
       </Box>
       <Drawer
         isOpen={isOpen}
@@ -136,7 +147,6 @@ function StateViz({ stateData }) {
             flexWrap="wrap"
             style={{ overflowY: "auto", maxHeight: "calc(100vh - 30%)" }}
           >
-
             <StateLineChart
               data={stateData}
               id={0}

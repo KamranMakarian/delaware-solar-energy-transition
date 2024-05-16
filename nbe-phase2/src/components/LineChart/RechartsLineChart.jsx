@@ -176,28 +176,6 @@ function CustomTooltip({ active, payload, label, yAxisUnit }) {
 }
 
 
-function CustomTooltip2({ active, payload, label, yAxisUnit }) {
-  const formattedYear = convertDate(label);
-
-  if (active && payload && payload.length) {
-    const verbToUse = payload[0].name === "historical" ? "has" : "will have";
-    const dollarValue = payload[0].value
-      .toFixed(2)
-      .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    const valueToDisplay =
-      yAxisUnit === "$"
-        ? `$${dollarValue}`
-        : `${payload[0].value}${yAxisUnit ? `(${yAxisUnit})` : ""}`;
-
-    return (
-      <Box className="custom-tooltip2">
-        {/* <p className="label-tooltip">{`In ${formattedYear}, District ${id} ${verbToUse} ${valueToDisplay} in ${payload[0].name} data.` }</p> */}
-        <p className="label-tooltip">{`${formattedYear} : ${valueToDisplay}`}</p>
-      </Box>
-    );
-  }
-  return null;
-}
 
 function formatYAxisTicks(value, yAxisUnit) {
   if (yAxisUnit === "$") {
@@ -238,10 +216,12 @@ function groupData({ data, fieldToPlot, districtId, desc }) {
         desc: desc
       };
 
-      if (item.IsPrediction === 0) {
-        acc.historicalData.push(newData);
-      } else {
-        acc.predictionData.push(newData);
+      if (date.getFullYear() >= 2022) {
+        if (item.IsPrediction === 0) {
+          acc.historicalData.push(newData);
+        } else {
+          acc.predictionData.push(newData);
+        }
       }
       return acc;
     },

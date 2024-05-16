@@ -33,6 +33,8 @@ function AreaChartExample({
     desc: "initial",
   });
 
+  console.log(historicalDataToPlot, "historicalDataToPlot");
+
   return (
     <Box className="custom-chart-container">
       <h2>
@@ -75,8 +77,14 @@ function AreaChartExample({
             dataKey="top"
             stackId="1"
             stroke="#a9a9a9"
-            fill="#d3d3d3"
+            fill="url(#areaFill)"
           />
+          <defs>
+            <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#a9a9a9" stopOpacity={0.4} />
+              <stop offset="100%" stopColor="#a9a9a9" stopOpacity={0} />
+            </linearGradient>
+          </defs>
           <Line
             type="linear"
             data={historicalDataToPlot.data}
@@ -91,7 +99,8 @@ function AreaChartExample({
             dataKey="bottom"
             stackId="1"
             stroke="#a9a9a9"
-            fill="#ffffff"
+            fill="transparent"
+            // fill="url(#areaFill)"
           />
           <Line
             type="linear"
@@ -131,12 +140,14 @@ function groupData({
         );
 
         if (existingYearData) {
+          existingYearData.range = [item[bottomField], item[topField]];
           existingYearData.top = item[topField];
           existingYearData.middle = item[middleField];
           existingYearData.bottom = item[bottomField];
         } else {
           acc.historicalData.push({
             year: formattedDate,
+            range: [item[bottomField], item[topField]],
             top: item[topField],
             middle: item[middleField],
             bottom: item[bottomField],
@@ -201,25 +212,29 @@ function formatYAxisTicks(value, yAxisUnit) {
 function CustomTooltip({ active, payload, label, yAxisUnit }) {
   const formattedYear = convertDate(label);
 
+  const getQuartileLabel = (quartile) => {
+    quartile = quartile.toLowerCase();
+    if (quartile === "top") {
+      return "Upper Quartile";
+    } else if (quartile === "middle") {
+      return "Median Quartile";
+    } else if (quartile === "bottom") {
+      return "Lower Quartile";
+    } else {
+      return "Invalid input";
+    }
+  };
 
   if (active && payload && payload.length) {
-
- 
-    // const filteredPayload = payload.filter(
-
-    //   (entry, index, self) =>
-    //     index ===
-    //     self.findIndex((t) => t.payload.districtId === entry.payload.districtId)
-    // );
-
-
     return (
       <Box className="custom-tooltip">
-        <p className="label-tooltip">{formattedYear}</p>
-        {payload.map((entry, index) => (
+<p className="label-tooltip">{formattedYear}</p>
+
+{payload.map((entry, index) => (
           <p key={index} className="data-tooltip">
             State Data :{" "} 
-            {`${entry.payload.desc === "historical" ? `Historical - ${entry.name} :` : "Projections : "}`}
+            {`${entry.payload.desc === "historical" ? `Historical - ${getQuartileLabel(entry.name)}` : "Projections"}`} :
+
 
             {` ${
               yAxisUnit === "$"
