@@ -43,8 +43,7 @@ function StateViz({ stateData }) {
       h="100vh"
       _hover={{
         transform: "scale(1.15)",
-        transition: "transform 0.5s ease-in-out",
-        boxShadow: "2xl",
+        transition: "transform 0.5s ease-in-out",        
         cursor: "pointer",
       }}
       onClick={onOpen}
@@ -65,19 +64,19 @@ function StateViz({ stateData }) {
       </Text>
 
       <Box
-      display={"flex"}
+        display={"flex"}
         flexDirection={"row"}
         mb="2"
         position={"relative"}
         top={"1vh"}
         left={"0"}
         boxSize={"100%"}
-       
         transition="opacity 0.5s ease-in-out" // Smooth transition
+
       >
-        <Image          
+        <Image
           src={delaware}
-          alt="Delaware Map"          
+          alt="Delaware Map"
           boxSize={"60vh"}
           style={{
             filter: "drop-shadow(0.8em 1.2em 1em rgba(0, 0, 0, 1.5))",
@@ -86,12 +85,15 @@ function StateViz({ stateData }) {
           top={"-2vh"}
           left={"1vh"}
         />
-        <ArrowRightIcon 
+        <ArrowRightIcon
           position={"relative"}
           top={"8vh"}
           left={"-8vh"}
-         opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
-        ref={btnRef} color="gray.700" boxSize="4em" />
+          opacity={blink ? 1 : 0} // Toggle opacity to create blinking effect
+          ref={btnRef}
+          color="gray.700"
+          boxSize="4em"
+        />
       </Box>
       <Drawer
         isOpen={isOpen}
