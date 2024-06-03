@@ -1,0 +1,226 @@
+[
+  {
+    "system_count": 7.0,
+    "rebate": 35815.0,
+    "tech_cost($/W)": 4.38,
+    "rebate_eff(W/$)": 1.61,
+    "IsPrediction": 0,
+    "Date": "2021-10-01"
+  },
+  {
+    "system_count": 4.0,
+    "rebate": 20028.0,
+    "tech_cost($/W)": 3.86,
+    "rebate_eff(W/$)": 1.59,
+    "IsPrediction": 0,
+    "Date": "2021-11-01"
+  },
+  {
+    "system_count": 7.0,
+    "rebate": 30979.51,
+    "tech_cost($/W)": 4.75,
+    "rebate_eff(W/$)": 1.46,
+    "IsPrediction": 0,
+    "Date": "2021-12-01"
+  },
+  {
+    "system_count": 2.0,
+    "rebate": 12000.0,
+    "tech_cost($/W)": 3.65,
+    "rebate_eff(W/$)": 2.21,
+    "IsPrediction": 0,
+    "Date": "2022-01-01"
+  },
+  {
+    "system_count": 9.0,
+    "rebate": 50505.0,
+    "tech_cost($/W)": 3.16,
+    "rebate_eff(W/$)": 1.59,
+    "IsPrediction": 0,
+    "Date": "2022-02-01"
+  },
+  {
+    "system_count": 11.0,
+    "rebate": 57468.0,
+    "tech_cost($/W)": 3.58,
+    "rebate_eff(W/$)": 1.65,
+    "IsPrediction": 0,
+    "Date": "2022-03-01"
+  },
+  {
+    "system_count": 5.0,
+    "rebate": 28144.0,
+    "tech_cost($/W)": 3.55,
+    "rebate_eff(W/$)": 1.7,
+    "IsPrediction": 0,
+    "Date": "2022-04-01"
+  },
+  {
+    "system_count": 11.0,
+    "rebate": 51009.0,
+    "tech_cost($/W)": 4.21,
+    "rebate_eff(W/$)": 1.72,
+    "IsPrediction": 0,
+    "Date": "2022-05-01"
+  },
+  {
+    "system_count": 1.0,
+    "rebate": 8000.0,
+    "tech_cost($/W)": 4.26,
+    "rebate_eff(W/$)": 1.61,
+    "IsPrediction": 0,
+    "Date": "2022-06-01"
+  },
+  {
+    "system_count": 5.0,
+    "rebate": 37676.0,
+    "tech_cost($/W)": 0.87,
+    "rebate_eff(W/$)": 3.48,
+    "IsPrediction": 0,
+    "Date": "2022-07-01"
+  },
+  {
+    "system_count": 8.0,
+    "rebate": 51812.0,
+    "tech_cost($/W)": 3.95,
+    "rebate_eff(W/$)": 1.73,
+    "IsPrediction": 0,
+    "Date": "2022-08-01"
+  },
+  {
+    "system_count": 15.0,
+    "rebate": 84246.0,
+    "tech_cost($/W)": 4.11,
+    "rebate_eff(W/$)": 1.56,
+    "IsPrediction": 0,
+    "Date": "2022-09-01"
+  },
+  {
+    "system_count": 12.0,
+    "rebate": 74672.0,
+    "tech_cost($/W)": 3.86,
+    "rebate_eff(W/$)": 1.6,
+    "IsPrediction": 0,
+    "Date": "2022-10-01"
+  },
+  {
+    "system_count": 18.0,
+    "rebate": 100484.0,
+    "tech_cost($/W)": 4.14,
+    "rebate_eff(W/$)": 1.76,
+    "IsPrediction": 0,
+    "Date": "2022-11-01"
+  },
+  {
+    "system_count": 11.0,
+    "rebate": 64561.91,
+    "tech_cost($/W)": 3.68,
+    "rebate_eff(W/$)": 1.43,
+    "IsPrediction": 0,
+    "Date": "2022-12-01"
+  },
+  {
+    "system_count": 28.0,
+    "rebate": 182938.0,
+    "tech_cost($/W)": 4.06,
+    "rebate_eff(W/$)": 1.51,
+    "IsPrediction": 0,
+    "Date": "2023-01-01"
+  },
+  {
+    "system_count": 24.0,
+    "rebate": 136676.0,
+    "tech_cost($/W)": 2.86,
+    "rebate_eff(W/$)": 2.33,
+    "IsPrediction": 0,
+    "Date": "2023-02-01"
+  },
+  {
+    "system_count": 18.0,
+    "rebate": 144372.0,
+    "tech_cost($/W)": 3.46,
+    "rebate_eff(W/$)": 1.13,
+    "IsPrediction": 0,
+    "Date": "2023-03-01"
+  },
+  {
+    "system_count": 19.0,
+    "rebate": 111616.0,
+    "tech_cost($/W)": 4.06,
+    "rebate_eff(W/$)": 1.59,
+    "IsPrediction": 0,
+    "Date": "2023-04-01"
+  },
+  {
+    "system_count": 18.0,
+    "rebate": 107388.0,
+    "tech_cost($/W)": 3.8,
+    "rebate_eff(W/$)": 1.71,
+    "IsPrediction": 0,
+    "Date": "2023-05-01"
+  },
+  {
+    "system_count": 30.0,
+    "rebate": 206320.5,
+    "tech_cost($/W)": 3.71,
+    "rebate_eff(W/$)": 1.65,
+    "IsPrediction": 0,
+    "Date": "2023-06-01"
+  },
+  {
+    "system_count": 42.0,
+    "rebate": 273196.5,
+    "tech_cost($/W)": 3.48,
+    "rebate_eff(W/$)": 1.56,
+    "IsPrediction": 0,
+    "Date": "2023-07-01"
+  },
+  {
+    "system_count": 10.0,
+    "rebate": 47415.0,
+    "tech_cost($/W)": 4.33,
+    "rebate_eff(W/$)": 1.94,
+    "IsPrediction": 0,
+    "Date": "2023-08-01"
+  },
+  {
+    "system_count": 19.0,
+    "rebate": 92602.0,
+    "tech_cost($/W)": 4.3,
+    "rebate_eff(W/$)": 1.88,
+    "IsPrediction": 0,
+    "Date": "2023-09-01"
+  },
+  {
+    "system_count": 16.0,
+    "rebate": 97986.0,
+    "tech_cost($/W)": 4.02,
+    "rebate_eff(W/$)": 1.48,
+    "IsPrediction": 0,
+    "Date": "2023-10-01"
+  },
+  {
+    "system_count": 15.0,
+    "rebate": 93703.0,
+    "tech_cost($/W)": 3.71,
+    "rebate_eff(W/$)": 1.79,
+    "IsPrediction": 1,
+    "Date": "2023-11-01"
+  },
+  {
+    "system_count": 15.0,
+    "rebate": 91487.0,
+    "tech_cost($/W)": 3.74,
+    "rebate_eff(W/$)": 1.74,
+    "IsPrediction": 1,
+    "Date": "2023-12-01"
+  },
+  {
+    "system_count": 15.0,
+    "rebate": 90341.0,
+    "tech_cost($/W)": 3.74,
+    "rebate_eff(W/$)": 1.75,
+    "IsPrediction": 1,
+    "Date": "2024-01-01"
+  }
+]
