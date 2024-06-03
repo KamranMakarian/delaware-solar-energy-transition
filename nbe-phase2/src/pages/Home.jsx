@@ -123,7 +123,7 @@ const reloadPage = () => {
         <Box className="home-content-container" id="home-content-container">
           {!loading && data && (
             <Box>
-              <Box className="nav-btn-container">
+              {/* <Box className="nav-btn-container">
                 <Link href="https://innovation-natural-built-env.pages.dev/">
                   <Button
                     bg="#717744"
@@ -144,7 +144,7 @@ const reloadPage = () => {
                     Historical Visualization
                   </Button>
                 </Link>
-              </Box>
+              </Box> */}
               <Box
                 className="comparison-select-container"
                 display={"flex"}

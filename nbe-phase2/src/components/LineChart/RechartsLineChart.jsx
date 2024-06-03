@@ -22,10 +22,10 @@ function RechartsLineChart({
   yAxisUnit,
   chartTitle,
 }) {
-  const dataArray = JSON.parse(data);
+  // const dataArray = JSON.parse(data);
 
   const { historicalDataToPlot, predictionDataToPlot } = groupData({
-    data: dataArray,
+    data: data,
     fieldToPlot,
     districtId: id,
     desc:"initial"
@@ -37,10 +37,10 @@ function RechartsLineChart({
 
   useEffect(() => {
     if (data2) {
-      const dataArray2 = JSON.parse(data2);
+      // const dataArray2 = JSON.parse(data2);
 
       const { historicalDataToPlot, predictionDataToPlot } = groupData({
-        data: dataArray2,
+        data: data2,
         fieldToPlot,
         districtId: compareId,
         desc:"comparison"

@@ -22,10 +22,10 @@ function AreaChartExample({
   yAxisUnit,
   chartTitle,
 }) {
-  const dataArray = JSON.parse(data);
+  // const dataArray = JSON.parse(data);
 
   const { historicalDataToPlot, predictionDataToPlot } = groupData({
-    data: dataArray,
+    data: data,
     topField,
     middleField,
     bottomField,
